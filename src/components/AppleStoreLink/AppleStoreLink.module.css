@@ -1,0 +1,12 @@
+.AppleStoreLink {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+}
+
+.AppleStoreLink > img {
+    margin: 16px;
+    border-radius: 13px;
+    width: 250px;
+    height: 83px;
+}

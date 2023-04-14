@@ -1,0 +1,11 @@
+.GooglePlayLink {
+    display: inline-block;
+    overflow: hidden;
+    margin: 0;
+}
+
+.GooglePlayLink > img {
+    border-radius: 13px;
+    width: calc(250px + 32px);
+    height: calc(83px + 32px);
+}

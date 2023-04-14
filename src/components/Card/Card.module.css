@@ -1,0 +1,35 @@
+.Card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: start;
+    gap: 1em;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    background: linear-gradient(
+        30deg,
+        #f905,
+        #f902 15%,
+        #f901,
+        #f902 95%,
+        #f905
+    );
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 4px #0006;
+}
+
+.image {
+    flex: 0 0 auto;
+    max-width: 160px;
+    max-height: 160px;
+}
+
+@media (max-width: 600px) {
+    .Card {
+        flex-direction: column;
+    }
+
+    .image {
+        max-width: 100%;
+    }
+}

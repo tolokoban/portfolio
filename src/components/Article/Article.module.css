@@ -1,0 +1,147 @@
+.Article {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    background: #333;
+    color: #fffd;
+}
+
+.Article > footer,
+.Article > header {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: 64px;
+    bottom: 0;
+    box-sizing: border-box;
+}
+
+.Article > header {
+    top: 0;
+    background: linear-gradient(to top, #2227, #000e);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0 0.5em;
+    height: 3em;
+    box-shadow: 0 0.125em 0.125em #000;
+}
+
+.Article > header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 50%;
+    background: #fff2;
+    pointer-events: none;
+}
+
+.Article > header > * {
+    flex: 0 0 auto;
+}
+
+.Article > header > div {
+    flex: 1 1 auto;
+    text-align: center;
+    font-weight: bolder;
+    font-size: 110%;
+}
+
+.Article > header > button {
+    border: none;
+    background: linear-gradient(to top, #f901, #f904);
+    height: 2em;
+    width: 96px;
+    border-radius: 0.25em;
+    color: inherit;
+    font: inherit;
+    font-weight: bold;
+    font-size: 90%;
+    display: inline-block;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-variant: small-caps;
+    box-shadow: 0 0 2px 0px #f907 inset;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.Article > header > button:first-child {
+    width: 2em;
+}
+
+.Article > header > button:hover {
+    background: linear-gradient(to top, #f908, #f904);
+    box-shadow: 0 0 2px 0px #f90 inset;
+}
+
+.Article > header > button > svg {
+    height: 1.5em;
+    fill: currentColor;
+}
+
+.Article > footer {
+    bottom: 0;
+    background: linear-gradient(to top, #222, transparent);
+}
+
+.Grid {
+    display: grid;
+    grid-template-columns: 1fr 390px 390px 1fr;
+    margin: 64px 0;
+}
+
+.Grid > * {
+    grid-column: 2/4;
+}
+
+@media (max-width: 800px) {
+    .Grid {
+        grid-template-columns: 10px 1fr 1fr 10px;
+    }
+}
+
+.Grid h1,
+.Grid h2,
+.Grid h3 {
+    display: block;
+    position: relative;
+    padding: 0 0 0 0.5em;
+}
+
+.Grid h1::after,
+.Grid h2::after,
+.Grid h3::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, currentcolor, transparent);
+}
+
+.Grid h1 {
+    font-size: 145%;
+}
+
+.Grid h2 {
+    font-size: 130%;
+    margin-left: 1em;
+}
+
+.Grid h3 {
+    font-size: 115%;
+    margin-left: 2em;
+}
