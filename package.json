@@ -4,10 +4,13 @@
     "description": "Tolokoban's portfolio",
     "main": "index.js",
     "scripts": {
+        "prestart": "npm run optimize",
         "start": "webpack serve --mode development",
+        "prebuild": "npm run optimize",
         "build": "MODE=production webpack --mode production",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
+        "optimize": "node scripts/optimize-images.mjs",
         "test": "jest",
         "test:watch": "jest --watch"
     },
@@ -62,6 +65,7 @@
         "jest-environment-jsdom": "^29.5.0",
         "make-dir": "^3.1.0",
         "mini-css-extract-plugin": "^2.7.5",
+        "sharp": "^0.32.0",
         "style-loader": "^3.3.2",
         "ts-jest": "^29.1.0",
         "ts-loader": "^9.4.2",
