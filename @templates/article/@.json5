@@ -1,0 +1,7 @@
+{
+    name: "Article (3 languages)",
+    params: {
+        name: "Article's name",
+    },
+    open: "{{name}}/{{name}}.en.mdx",
+}

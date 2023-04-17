@@ -28,7 +28,8 @@
     "homepage": "https://github.com/tolokoban/snapshot-annotation#readme",
     "dependencies": {
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.10.0"
     },
     "devDependencies": {
         "@mdx-js/loader": "^2.3.0",

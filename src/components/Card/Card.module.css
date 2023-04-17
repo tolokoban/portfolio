@@ -6,16 +6,9 @@
     gap: 1em;
     padding: 0.5em;
     border-radius: 0.25em;
-    background: linear-gradient(
-        30deg,
-        #f905,
-        #f902 15%,
-        #f901,
-        #f902 95%,
-        #f905
-    );
+    background: linear-gradient(0deg, #f900, #f902, #f901);
     backdrop-filter: blur(5px);
-    box-shadow: 0 2px 4px #0006;
+    box-shadow: 0 2px 4px #f903;
 }
 
 .image {

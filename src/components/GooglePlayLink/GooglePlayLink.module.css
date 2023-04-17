@@ -4,8 +4,15 @@
     margin: 0;
 }
 
-.GooglePlayLink > img {
+.GooglePlayLink > div {
     border-radius: 13px;
     width: calc(250px + 32px);
     height: calc(83px + 32px);
+}
+
+.GooglePlayLink > div > img {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s;
 }

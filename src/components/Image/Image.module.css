@@ -16,6 +16,7 @@
 }
 
 .Image > footer {
+    pointer-events: none;
     position: absolute;
     box-sizing: border-box;
     left: 0;
@@ -36,7 +37,7 @@
     padding: 0;
     display: grid;
     place-items: center;
-    backdrop-filter: blur(16px) brightness(25%);
+    backdrop-filter: blur(8px) brightness(50%);
     cursor: pointer;
     z-index: 999999;
     transition: opacity 0.3s;
@@ -49,7 +50,7 @@
 
 .Image > div img {
     margin: 0;
-    box-shadow: 0 0 0 4px #fff;
+    box-shadow: 0 6px 12px #000;
     max-width: calc(100vw - 16px);
     max-height: calc(100svh - 16px);
 }

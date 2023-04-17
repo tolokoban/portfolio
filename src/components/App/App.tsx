@@ -1,5 +1,36 @@
-import Style from "./App.module.css"
-import Minervois from "@/showcases/Minervois/Minervois"
+import React from "react"
+import { createHashRouter, RouterProvider } from "react-router-dom"
+
+import Akonolinga from "@/showcases/Akonolinga"
+import Minervois from "@/showcases/Minervois"
+
+const router = createHashRouter([
+    {
+        path: "/",
+        element: (
+            <div>
+                <p>Hello world!</p>
+                <ul>
+                    <li>
+                        <a href="#/Minervois">Minervois</a>
+                    </li>
+                    <li>
+                        <a href="#/Akonolinga">Akonolinga</a>
+                    </li>
+                </ul>
+                <hr />
+            </div>
+        ),
+    },
+    {
+        path: "Akonolinga",
+        element: <Akonolinga />,
+    },
+    {
+        path: "Minervois",
+        element: <Minervois />,
+    },
+])
 
 export interface AppProps {
     className?: string
@@ -7,13 +38,8 @@ export interface AppProps {
 
 export default function App({ className }: AppProps) {
     return (
-        <div className={join(className, Style.App)}>
-            <p>Tolokoban's Portfolio</p>
-            <Minervois />
-        </div>
+        <React.StrictMode>
+            <RouterProvider router={router} />
+        </React.StrictMode>
     )
-}
-
-function join(...classes: unknown[]): string {
-    return classes.filter((cls) => typeof cls === "string").join(" ")
 }
