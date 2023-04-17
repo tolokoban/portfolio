@@ -39,8 +39,17 @@ export default function Image({
             className={join(className, Style.Image)}
             style={{
                 opacity: loadedBlur ? 1 : 0,
+                width: `min(100%, ${width}px)`,
             }}
         >
+            <div
+                style={{
+                    position: "static",
+                    width: "100%",
+                    height: 0,
+                    paddingTop: `${(100 * height) / width}%`,
+                }}
+            ></div>
             <img
                 src={inViewPort ? srcBlur : EmptyPNG}
                 style={{ filter: "blur(24px)" }}
