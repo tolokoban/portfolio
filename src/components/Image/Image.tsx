@@ -12,7 +12,8 @@ export default function Image({ className, name, alt, children }: ImageProps) {
     const [loaded, setLoaded] = React.useState(false)
     const [fullscreen, setFullscreen] = React.useState(false)
     const [extension, setExtension] = React.useState("webp")
-    const prefix = `${window.location.protocol}//${window.location.host}/images/`
+    const { protocol, host, pathname } = document.location
+    const prefix = `${protocol}//${host}${pathname}images/`
     const src = `${prefix}${name}.${extension}`
     const handleError = () => {
         console.error("Unable to load image:", src)
