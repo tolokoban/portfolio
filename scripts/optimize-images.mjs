@@ -24,7 +24,15 @@ async function start() {
         const filenamePng = `${getProjectRoot()}/public/images/${shortName}`
         await makeDirForFile(filenamePng)
         const upToDate = await isUpToDate(filename, filenamePng)
-        console.log(shortName, width, height, upToDate ? "OK" : "Out of date")
+        console.log(
+            shortName,
+            width,
+            height,
+            " - ",
+            640,
+            Math.ceil((height * 640) / width),
+            upToDate ? "OK" : "Out of date"
+        )
         if (upToDate) continue
 
         await Sharp(filename).resize(Math.min(1920, width)).toFile(filenamePng)

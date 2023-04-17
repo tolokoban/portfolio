@@ -25,9 +25,9 @@ export default function Article({ className, children }: ArticleProps) {
                 {lang !== "fr" && (
                     <button onClick={() => setLang("fr")}>Français</button>
                 )}
-                {lang !== "it" && (
+                {/* {lang !== "it" && (
                     <button onClick={() => setLang("it")}>Italiano</button>
-                )}
+                )} */}
             </header>
             <footer></footer>
         </div>
