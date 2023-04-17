@@ -4,7 +4,7 @@ const FS = require("fs")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyPlugin = require("copy-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
-const { WebpackManifestPlugin } = require("webpack-manifest-plugin")
+// const { WebpackManifestPlugin } = require("webpack-manifest-plugin")
 const Webpack = require("webpack")
 
 module.exports = (env) => {
@@ -68,14 +68,14 @@ module.exports = (env) => {
         },
         plugins: [
             new Webpack.ProgressPlugin(),
-            // List of the needed files for later caching.
-            new WebpackManifestPlugin({
-                filter: (file) => {
-                    if (file.name.endsWith(".map")) return false
-                    if (file.name.endsWith(".ts")) return false
-                    return true
-                },
-            }),
+            // // List of the needed files for later caching.
+            // new WebpackManifestPlugin({
+            //     filter: (file) => {
+            //         if (file.name.endsWith(".map")) return false
+            //         if (file.name.endsWith(".ts")) return false
+            //         return true
+            //     },
+            // }),
             new CleanWebpackPlugin({
                 // We don't want to remove the "index.html" file
                 // after the incremental build triggered by watch.
