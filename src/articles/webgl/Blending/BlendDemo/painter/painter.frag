@@ -13,4 +13,5 @@ void main() {
 
     float light = 1.0 - smoothstep(0.9, 1.0, r);
     FragColor = varColor * light;
+    if (r < .2) FragColor.a = 1.0;
 }

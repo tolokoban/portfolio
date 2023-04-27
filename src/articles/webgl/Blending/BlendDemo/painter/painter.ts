@@ -6,9 +6,9 @@ import Resources from "@/utils/webgl2/scene/resources"
 import VertexShader from "./painter.vert"
 import FragmentShader from "./painter.frag"
 
-const colorA: Vector4 = [0.8, 0.8, 0.2, 0.8]
+const colorA: Vector4 = [0.9, 0.9, 0.7, 0.8]
 const colorB: Vector4 = [0.8, 0.2, 0.8, 0.5]
-const colorC: Vector4 = [0.2, 0.8, 0.8, 0.2]
+const colorC: Vector4 = [0.3, 0.7, 0.7, 0.2]
 
 export default class Painter implements PainterInterface {
     private readonly vao: WebGLVertexArrayObject
@@ -25,7 +25,7 @@ export default class Painter implements PainterInterface {
         this.vao = this.res.createVertexArray()
         const { gl } = scene
         this.buffer = this.res.createBuffer()
-        const data = makeData(6 * 3, {
+        const data = makeData(6 * 3 + 3, {
             attPos: 2,
             attColor: 4,
         })
@@ -52,6 +52,8 @@ export default class Painter implements PainterInterface {
         )
         gl.bindVertexArray(vao)
         gl.drawArrays(gl.POINTS, 0, 6 * 3)
+        gl.disable(gl.BLEND)
+        gl.drawArrays(gl.POINTS, 6 * 3, 3)
         gl.bindVertexArray(null)
     }
 
@@ -93,4 +95,10 @@ function initData(data: DataInterface<{ attPos: number; attColor: number }>) {
         data.poke("attColor", colorC, index + shift[2])
         index += 3
     }
+    data.poke("attPos", [x0 * r, y0 * r], index + 0)
+    data.poke("attColor", colorA, index + 0)
+    data.poke("attPos", [x1 * r, y1 * r], index + 1)
+    data.poke("attColor", colorB, index + 1)
+    data.poke("attPos", [x2 * r, y2 * r], index + 2)
+    data.poke("attColor", colorC, index + 2)
 }

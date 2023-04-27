@@ -30,10 +30,6 @@ export default function SelectFactor({
                         ONE_MINUS_SRC_ALPHA: "ONE_MINUS_SRC_ALPHA",
                         DST_ALPHA: "DST_ALPHA",
                         ONE_MINUS_DST_ALPHA: "ONE_MINUS_DST_ALPHA",
-                        CONSTANT_COLOR: "CONSTANT_COLOR",
-                        ONE_MINUS_CONSTANT_COLOR: "ONE_MINUS_CONSTANT_COLOR",
-                        CONSTANT_ALPHA: "CONSTANT_ALPHA",
-                        ONE_MINUS_CONSTANT_ALPHA: "ONE_MINUS_CONSTANT_ALPHA",
                         SRC_ALPHA_SATURATE: "SRC_ALPHA_SATURATE",
                     }}
                     value={value}

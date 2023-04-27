@@ -10,6 +10,8 @@ import PainterBlend, {
 } from "@/utils/webgl2/painter/blend"
 import SelectFactor from "./SelectFactor/SelectFactor"
 import SelectFunction from "./SelectFunction/SelectFunction"
+import Flex from "../../../../components/Flex/Flex"
+import { ViewLabel, ViewSlider } from "../../../../ui"
 
 export interface BlendDemoProps {
     className?: string
@@ -27,6 +29,8 @@ interface BlendOptions {
 export default function BlendDemo({ className }: BlendDemoProps) {
     const refScene = React.useRef<Scene | null>(null)
     const refPainterBlend = React.useRef<PainterBlend | null>(null)
+    const refPainterClear = React.useRef<PainterClear | null>(null)
+    const [opacity, setOpacity] = React.useState(1)
     const [blend, setBlend] = React.useState<BlendOptions>({
         factorSrcColor: "ONE",
         factorSrcAlpha: "ONE",
@@ -35,6 +39,13 @@ export default function BlendDemo({ className }: BlendDemoProps) {
         functionColor: "FUNC_ADD",
         functionAlpha: "FUNC_ADD",
     })
+    React.useEffect(() => {
+        const painterClear = refPainterClear.current
+        if (!painterClear) return
+
+        painterClear.setClearColor(0.5, 0.5, 0.5, opacity)
+        refScene.current?.paint()
+    }, [opacity])
     const update = (params: Partial<BlendOptions>) => {
         const newBlend = {
             ...blend,
@@ -60,7 +71,7 @@ export default function BlendDemo({ className }: BlendDemoProps) {
         if (refScene.current) return
 
         const scene = new Scene(canvas, {
-            alpha: false,
+            alpha: true,
             premultipliedAlpha: false,
             preserveDrawingBuffer: false,
             antialias: false,
@@ -80,13 +91,11 @@ export default function BlendDemo({ className }: BlendDemoProps) {
             functionAlpha: "FUNC_ADD",
         })
         refPainterBlend.current = painterBlend
-        scene.addPainter(
-            new PainterClear(scene, {
-                color: [0.5, 0.5, 0.5, 1],
-            }),
-            painterBlend,
-            new PainterDemo(scene)
-        )
+        const painterClear = new PainterClear(scene, {
+            color: [0.5, 0.5, 0.5, 1],
+        })
+        refPainterClear.current = painterClear
+        scene.addPainter(painterClear, painterBlend, new PainterDemo(scene))
         scene.paint()
     }
     return (
@@ -96,30 +105,47 @@ export default function BlendDemo({ className }: BlendDemoProps) {
                 ref={handleCanvasMount}
             ></canvas>
             <div className="margin-right">
+                <Flex flexDirection="column" alignItems="stretch">
+                    <ViewLabel
+                        value={`Background opacity (${(
+                            100 * opacity
+                        ).toFixed()}%)`}
+                    >
+                        <ViewSlider
+                            value={opacity}
+                            onChange={setOpacity}
+                            min={0}
+                            max={1}
+                            step={0.1}
+                        />
+                    </ViewLabel>
+                </Flex>
+                <hr />
                 <SelectFactor
                     label={"Source Color Factor"}
                     value={blend.factorSrcColor}
                     onChange={(factorSrcColor) => update({ factorSrcColor })}
                 />
                 <SelectFactor
-                    label={"Source Alpha Factor"}
-                    value={blend.factorSrcAlpha}
-                    onChange={(factorSrcAlpha) => update({ factorSrcAlpha })}
-                />
-                <SelectFactor
                     label={"Destination Color Factor"}
                     value={blend.factorDstColor}
                     onChange={(factorDstColor) => update({ factorDstColor })}
-                />
-                <SelectFactor
-                    label={"Destination Alpha Factor"}
-                    value={blend.factorDstAlpha}
-                    onChange={(factorDstAlpha) => update({ factorDstAlpha })}
                 />
                 <SelectFunction
                     label={"Source Color Equation"}
                     value={blend.functionColor}
                     onChange={(functionColor) => update({ functionColor })}
+                />
+                <hr />
+                <SelectFactor
+                    label={"Source Alpha Factor"}
+                    value={blend.factorSrcAlpha}
+                    onChange={(factorSrcAlpha) => update({ factorSrcAlpha })}
+                />
+                <SelectFactor
+                    label={"Destination Alpha Factor"}
+                    value={blend.factorDstAlpha}
+                    onChange={(factorDstAlpha) => update({ factorDstAlpha })}
                 />
                 <SelectFunction
                     label={"Source Alpha Equation"}
