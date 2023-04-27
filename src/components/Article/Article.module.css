@@ -108,6 +108,14 @@
     grid-column: 2/4;
 }
 
+.Grid > :global(*.margin-right) {
+    grid-column: 4/5;
+}
+
+.Grid > :global(*.margin-left) {
+    grid-column: 1/2;
+}
+
 @media (max-width: 800px) {
     .Grid {
         grid-template-columns: 10px 1fr 1fr 10px;

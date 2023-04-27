@@ -1,0 +1,8 @@
+.Dialog {
+    --custom-color-header-text: var(--theme-color-on-neutral-4);
+    --custom-color-header-back: var(--theme-color-neutral-4);
+    --custom-color-main-text: var(--theme-color-on-neutral-4);
+    --custom-color-main-back: var(--theme-color-neutral-4);
+    --custom-color-footer-text: var(--theme-color-on-neutral-6);
+    --custom-color-footer-back: var(--theme-color-neutral-6);
+}
