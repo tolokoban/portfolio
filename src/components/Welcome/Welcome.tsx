@@ -17,6 +17,14 @@ export default function Welcome({ className }: WelcomeProps) {
                     viewBox="-1100 -1100 2200 2200"
                 >
                     <defs>
+                        <filter id="shadow">
+                            <feDropShadow
+                                dx="40"
+                                dy="20"
+                                stdDeviation="50"
+                                flood-opacity="0.75"
+                            />
+                        </filter>
                         <linearGradient
                             id="grad"
                             gradientTransform="rotate(-30)"
@@ -26,100 +34,108 @@ export default function Welcome({ className }: WelcomeProps) {
                             <stop offset="100%" stop-color="#f90" />
                         </linearGradient>
                     </defs>
-
-                    <g fill="#0003" stroke="none" stroke-width="3">
-                        <path
-                            d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
-                            transform="rotate(0) translate(-43.3,25)"
-                            fill="url(#grad)"
-                        />
-                        <path
-                            d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
-                            transform="rotate(120) translate(-43.3,25)"
-                            fill="url(#grad)"
-                        />
-                        <path
-                            d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
-                            transform="rotate(240) translate(-43.3,25)"
-                            fill="url(#grad)"
-                        />
-
-                        <path
-                            d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                            transform="rotate(0) translate(-43.3,25)"
-                            fill={diskColor}
-                        />
-                        <path
-                            d="M-866,-500 L0,0"
-                            stroke-width={10}
-                            transform="rotate(0) translate(-43.3,25)"
-                            stroke={diskColor}
-                        />
-                        <path
-                            d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                            transform="rotate(120) translate(-43.3,25)"
-                            fill={diskColor}
-                        />
-                        <path
-                            d="M-866,-500 L0,0"
-                            stroke-width={10}
-                            transform="rotate(120) translate(-43.3,25)"
-                            stroke={diskColor}
-                        />
-                        <path
-                            d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                            transform="rotate(240) translate(-43.3,25)"
-                            fill={diskColor}
-                        />
-                        <path
-                            d="M-866,-500 L0,0"
-                            stroke-width={10}
-                            transform="rotate(240) translate(-43.3,25)"
-                            stroke={diskColor}
-                        />
-                    </g>
-
-                    <g
-                        style={{
-                            fontSize: "150px",
-                        }}
-                        fill="#f90"
-                    >
-                        <path
-                            id="ARC"
-                            d="M-800,0A800,800,0 0 0 0,800"
-                            transform="rotate(30)"
+                    <g transform="rotate(37)">
+                        <g
+                            fill="#0003"
                             stroke="none"
-                            fill="none"
-                        />
-                        <path
-                            id="ARC2"
-                            d="M-800,0A800,800,0 0 1 0,-800"
-                            transform="rotate(-30)"
-                            stroke="none"
-                            fill="none"
-                        />
-                        <text
-                            width="1000"
-                            transform="rotate(0)"
-                            alignment-baseline="middle"
+                            stroke-width="3"
+                            style={{
+                                filter: "url(#shadow)",
+                            }}
                         >
-                            <textPath href="#ARC2">Créations</textPath>
-                        </text>
-                        <text
-                            width="1000"
-                            transform="rotate(120)"
-                            alignment-baseline="middle"
+                            <path
+                                d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
+                                transform="rotate(0) translate(-43.3,25)"
+                                fill="url(#grad)"
+                            />
+                            <path
+                                d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
+                                transform="rotate(120) translate(-43.3,25)"
+                                fill="url(#grad)"
+                            />
+                            <path
+                                d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
+                                transform="rotate(240) translate(-43.3,25)"
+                                fill="url(#grad)"
+                            />
+
+                            <path
+                                d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                transform="rotate(0) translate(-43.3,25)"
+                                fill={diskColor}
+                            />
+                            <path
+                                d="M-866,-500 L0,0"
+                                stroke-width={10}
+                                transform="rotate(0) translate(-43.3,25)"
+                                stroke={diskColor}
+                            />
+                            <path
+                                d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                transform="rotate(120) translate(-43.3,25)"
+                                fill={diskColor}
+                            />
+                            <path
+                                d="M-866,-500 L0,0"
+                                stroke-width={10}
+                                transform="rotate(120) translate(-43.3,25)"
+                                stroke={diskColor}
+                            />
+                            <path
+                                d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                transform="rotate(240) translate(-43.3,25)"
+                                fill={diskColor}
+                            />
+                            <path
+                                d="M-866,-500 L0,0"
+                                stroke-width={10}
+                                transform="rotate(240) translate(-43.3,25)"
+                                stroke={diskColor}
+                            />
+                        </g>
+
+                        <g
+                            style={{
+                                fontSize: "150px",
+                            }}
+                            fill="#f90"
                         >
-                            <textPath href="#ARC2">Blog</textPath>
-                        </text>
-                        <text
-                            width="1000"
-                            transform="rotate(240)"
-                            alignment-baseline="middle"
-                        >
-                            <textPath href="#ARC">Cursus</textPath>
-                        </text>
+                            <path
+                                id="ARC"
+                                d="M-800,0A800,800,0 0 0 0,800"
+                                transform="rotate(30)"
+                                stroke="none"
+                                fill="none"
+                            />
+                            <path
+                                id="ARC2"
+                                d="M-800,0A800,800,0 0 1 0,-800"
+                                transform="rotate(-30)"
+                                stroke="none"
+                                fill="none"
+                            />
+                            <text
+                                width="1000"
+                                transform="rotate(0)"
+                                alignment-baseline="middle"
+                            >
+                                <textPath href="#ARC2">Creations</textPath>
+                            </text>
+                            <text
+                                width="1000"
+                                transform="rotate(120)"
+                                alignment-baseline="middle"
+                            >
+                                <textPath href="#ARC2">Blog</textPath>
+                            </text>
+                            <text
+                                width="1000"
+                                transform="rotate(240)"
+                                alignment-baseline="middle"
+                            >
+                                <textPath href="#ARC">Contact</textPath>
+                            </text>
+                        </g>
                     </g>
                 </svg>{" "}
             </main>
