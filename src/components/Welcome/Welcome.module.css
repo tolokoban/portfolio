@@ -1,0 +1,7 @@
+.Welcome img.trombine {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-width: 40vw;
+    max-height: 66vh;
+}
