@@ -1,17 +1,16 @@
-import Scene from "@/utils/webgl2/scene"
-import Style from "./BlendDemo.module.css"
+import Flex from "@/components/Flex/Flex"
+import { ViewLabel, ViewSlider } from "@/ui"
 import { PainterClear } from "@/utils/webgl2/painter"
-import React from "react"
-import { makeData } from "@/utils/webgl2/data"
-import PainterDemo from "./painter"
 import PainterBlend, {
     BlendFactor,
     BlendFunction,
 } from "@/utils/webgl2/painter/blend"
+import Scene from "@/utils/webgl2/scene"
+import React from "react"
+import Style from "./BlendDemo.module.css"
 import SelectFactor from "./SelectFactor/SelectFactor"
 import SelectFunction from "./SelectFunction/SelectFunction"
-import Flex from "../../../../components/Flex/Flex"
-import { ViewLabel, ViewSlider } from "../../../../ui"
+import PainterDemo from "./painter"
 
 export interface BlendDemoProps {
     className?: string

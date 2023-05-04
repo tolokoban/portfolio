@@ -1,5 +1,6 @@
 import FS from "node:fs/promises"
 import Path from "node:path"
+import { existsSync } from "node:fs"
 
 const ROOT = Path.resolve(
     Path.dirname(new URL(import.meta.url).pathname),
@@ -15,16 +16,18 @@ export function getProjectRoot() {
  *
  * @param {string} root Folder (relative to project root)
  * @param {(filename: string) => boolean} filter This function returns `false` to discard a file from the result.
- * @returns {Promise<string[]>} List of found filenames.
+ * @returns {Promise<{path: string, normal?: number, mini?: number, blur?: number}[]>} List of found filenames.
  */
 export async function listDir(root, filter) {
-    /** @type {string[]} */
+    /** @type {{path: string, normal?: number, mini?: number, blur?: number}[]} */
     const result = []
-    const fringe = [Path.resolve(ROOT, root)]
+    /** @type {{path: string, normal?: number, mini?: number, blur?: number}[]} */
+    const fringe = [{ path: Path.resolve(ROOT, root) }]
     while (fringe.length > 0) {
-        const path = fringe.pop()
-        if (!path) break
+        const task = fringe.pop()
+        if (!task) break
 
+        const { path, normal, mini, blur } = await extractImageSettings(task)
         const items = await FS.readdir(path, {
             withFileTypes: true,
         })
@@ -32,15 +35,46 @@ export async function listDir(root, filter) {
             if (item.isFile()) {
                 const filename = Path.resolve(path, item.name)
                 if (filter(filename)) {
-                    result.push(filename)
+                    result.push({ path: filename, normal, mini, blur })
                 }
             } else {
-                fringe.push(Path.resolve(path, item.name))
+                fringe.push({
+                    path: Path.resolve(path, item.name),
+                    normal,
+                    mini,
+                    blur,
+                })
             }
         }
     }
     result.sort()
     return result
+}
+
+/**
+ * @param {{path: string, normal?: number, mini?: number, blur?: number}} task
+ * @returns {Promise<{path: string, normal?: number, mini?: number, blur?: number}>}
+ */
+async function extractImageSettings(task) {
+    const settingsFilename = Path.resolve(task.path, "@.json")
+    if (!existsSync(settingsFilename)) return task
+
+    try {
+        const content = await FS.readFile(settingsFilename)
+        const data = JSON.parse(content.toString())
+        if (!data || typeof data !== "object") return task
+
+        const newTask = { path: task.path }
+        if (typeof data["normal"] === "number")
+            newTask["normal"] = data["normal"]
+        if (typeof data["mini"] === "number") newTask["mini"] = data["mini"]
+        if (typeof data["blur"] === "number") newTask["blur"] = data["normal"]
+        return newTask
+    } catch (ex) {
+        console.error("Unable to load file:", settingsFilename)
+        console.error(ex)
+        return task
+    }
 }
 
 /**

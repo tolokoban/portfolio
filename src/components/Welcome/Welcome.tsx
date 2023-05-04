@@ -6,6 +6,9 @@ export interface WelcomeProps {
 
 export default function Welcome({ className }: WelcomeProps) {
     const diskColor = "#204657"
+    const accentColor = "#d6ec64"
+    const arc = 700
+    const arc2 = 600
     return (
         <div className={join(className, Style.Welcome)}>
             <header>Tolokoban</header>
@@ -14,7 +17,7 @@ export default function Welcome({ className }: WelcomeProps) {
                     version="1.1"
                     preserveAspectRatio="xMidYMid meet"
                     xmlns="http://www.w3.org/2000/svg"
-                    viewBox="-1100 -1100 2200 2200"
+                    viewBox="-1200 -1200 2400 2400"
                 >
                     <defs>
                         <filter id="shadow">
@@ -27,11 +30,11 @@ export default function Welcome({ className }: WelcomeProps) {
                         </filter>
                         <linearGradient
                             id="grad"
-                            gradientTransform="rotate(-30)"
+                            gradientTransform="rotate(-35)"
                         >
                             <stop offset="0%" stop-color={diskColor} />
-                            <stop offset="25%" stop-color={diskColor} />
-                            <stop offset="100%" stop-color="#f90" />
+                            <stop offset="35%" stop-color={diskColor} />
+                            <stop offset="100%" stop-color={accentColor} />
                         </linearGradient>
                     </defs>
                     <g transform="rotate(37)">
@@ -43,95 +46,101 @@ export default function Welcome({ className }: WelcomeProps) {
                                 filter: "url(#shadow)",
                             }}
                         >
-                            <path
-                                d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
-                                transform="rotate(0) translate(-43.3,25)"
-                                fill="url(#grad)"
-                            />
-                            <path
-                                d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
-                                transform="rotate(120) translate(-43.3,25)"
-                                fill="url(#grad)"
-                            />
-                            <path
-                                d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
-                                transform="rotate(240) translate(-43.3,25)"
-                                fill="url(#grad)"
-                            />
+                            <g className={Style.rotate}>
+                                <path
+                                    d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
+                                    transform="rotate(0) translate(-43.3,25)"
+                                    fill="url(#grad)"
+                                />
+                                <path
+                                    d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
+                                    transform="rotate(120) translate(-43.3,25)"
+                                    fill="url(#grad)"
+                                />
+                                <path
+                                    d="M0,0 Q-500,-500,0,-1000 A1000,1000 0,0,0 -866,-500"
+                                    transform="rotate(240) translate(-43.3,25)"
+                                    fill="url(#grad)"
+                                />
 
-                            <path
-                                d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                                transform="rotate(0) translate(-43.3,25)"
-                                fill={diskColor}
-                            />
-                            <path
-                                d="M-866,-500 L0,0"
-                                stroke-width={10}
-                                transform="rotate(0) translate(-43.3,25)"
-                                stroke={diskColor}
-                            />
-                            <path
-                                d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                                transform="rotate(120) translate(-43.3,25)"
-                                fill={diskColor}
-                            />
-                            <path
-                                d="M-866,-500 L0,0"
-                                stroke-width={10}
-                                transform="rotate(120) translate(-43.3,25)"
-                                stroke={diskColor}
-                            />
-                            <path
-                                d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                                transform="rotate(240) translate(-43.3,25)"
-                                fill={diskColor}
-                            />
-                            <path
-                                d="M-866,-500 L0,0"
-                                stroke-width={10}
-                                transform="rotate(240) translate(-43.3,25)"
-                                stroke={diskColor}
-                            />
+                                <path
+                                    d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                    transform="rotate(0) translate(-43.3,25)"
+                                    fill={diskColor}
+                                />
+                                <path
+                                    d="M-866,-500 L0,0"
+                                    stroke-width={10}
+                                    transform="rotate(0) translate(-43.3,25)"
+                                    stroke={diskColor}
+                                />
+                                <path
+                                    d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                    transform="rotate(120) translate(-43.3,25)"
+                                    fill={diskColor}
+                                />
+                                <path
+                                    d="M-866,-500 L0,0"
+                                    stroke-width={10}
+                                    transform="rotate(120) translate(-43.3,25)"
+                                    stroke={diskColor}
+                                />
+                                <path
+                                    d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                    transform="rotate(240) translate(-43.3,25)"
+                                    fill={diskColor}
+                                />
+                                <path
+                                    d="M-866,-500 L0,0"
+                                    stroke-width={10}
+                                    transform="rotate(240) translate(-43.3,25)"
+                                    stroke={diskColor}
+                                />
+                            </g>
                         </g>
 
                         <g
+                            className={Style.rotate}
                             style={{
-                                fontSize: "150px",
+                                fontSize: "180px",
                             }}
-                            fill="#f90"
+                            fill={accentColor}
                         >
                             <path
                                 id="ARC"
-                                d="M-800,0A800,800,0 0 0 0,800"
+                                d={`M-${arc},0A${arc},${arc},0 0 0 0,${arc}`}
                                 transform="rotate(30)"
                                 stroke="none"
                                 fill="none"
                             />
                             <path
                                 id="ARC2"
-                                d="M-800,0A800,800,0 0 1 0,-800"
+                                d={`M-${arc2},0A${arc2},${arc2},0 0 1 0,-${arc2}`}
                                 transform="rotate(-30)"
                                 stroke="none"
                                 fill="none"
                             />
                             <text
                                 width="1000"
-                                transform="rotate(0)"
-                                alignment-baseline="middle"
+                                transform="rotate(24)"
+                                alignmentBaseline="middle"
+                                textAnchor="center"
                             >
-                                <textPath href="#ARC2">Creations</textPath>
+                                <textPath href="#ARC2">Work</textPath>
                             </text>
                             <text
                                 width="1000"
-                                transform="rotate(120)"
-                                alignment-baseline="middle"
+                                transform="rotate(150)"
+                                alignmentBaseline="middle"
+                                textAnchor="center"
                             >
                                 <textPath href="#ARC2">Blog</textPath>
                             </text>
                             <text
                                 width="1000"
                                 transform="rotate(240)"
-                                alignment-baseline="middle"
+                                alignmentBaseline="middle"
+                                textAnchor="center"
                             >
                                 <textPath href="#ARC">Contact</textPath>
                             </text>
@@ -153,7 +162,10 @@ export default function Welcome({ className }: WelcomeProps) {
                     <a href="#/article/webgl/Blending">WebGL Blending</a>
                 </li>
             </ul> */}
-            <img className={Style.trombine} src="images/trombine.mini.webp" />
+            <img
+                className={Style.trombine}
+                src="images/trombine/trombine.webp"
+            />
         </div>
     )
 }

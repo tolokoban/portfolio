@@ -9,6 +9,8 @@ export default class Scene {
     public readonly asset: Asset
     public readonly texture: TextureHelper
 
+    /** Request animation frame handle. */
+    private handle = 0
     private readonly painters = new PainterGroup()
     private isAnimated = false
     private lastCanvasWidth = 0
@@ -72,7 +74,8 @@ export default class Scene {
     }
 
     paint() {
-        window.requestAnimationFrame(this.actualPaint)
+        window.cancelAnimationFrame(this.handle)
+        this.handle = window.requestAnimationFrame(this.actualPaint)
     }
 
     private readonly actualPaint = (time: number) => {

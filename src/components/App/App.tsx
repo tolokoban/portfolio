@@ -1,9 +1,10 @@
 import React from "react"
 import { createHashRouter, RouterProvider } from "react-router-dom"
 
+import Blending from "@/articles/webgl/Blending"
+import InfinitePlan from "@/articles/webgl/InfinitePlan/InfinitePlan"
 import Akonolinga from "@/showcases/Akonolinga"
 import Minervois from "@/showcases/Minervois"
-import Blending from "@/articles/webgl/Blending"
 import Welcome from "../Welcome/Welcome"
 
 const router = createHashRouter([
@@ -22,6 +23,10 @@ const router = createHashRouter([
     {
         path: "article/webgl/Blending",
         element: <Blending />,
+    },
+    {
+        path: "article/webgl/InfinitePlan",
+        element: <InfinitePlan />,
     },
 ])
 
