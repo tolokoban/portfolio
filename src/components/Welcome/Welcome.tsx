@@ -63,22 +63,30 @@ export default function Welcome({ className }: WelcomeProps) {
                                     fill="url(#grad)"
                                 />
 
-                                <path
-                                    d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                                    transform="rotate(0) translate(-43.3,25)"
-                                    fill={diskColor}
-                                />
-                                <path
-                                    d="M-866,-500 L0,0"
-                                    stroke-width={10}
-                                    transform="rotate(0) translate(-43.3,25)"
-                                    stroke={diskColor}
-                                />
-                                <path
-                                    d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
-                                    transform="rotate(120) translate(-43.3,25)"
-                                    fill={diskColor}
-                                />
+                                <g
+                                    onClick={() =>
+                                        (window.location.hash =
+                                            "#/article/Index")
+                                    }
+                                >
+                                    <path
+                                        d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                        transform="rotate(0) translate(-43.3,25)"
+                                        fill={diskColor}
+                                    />
+                                    <path
+                                        d="M-866,-500 L0,0"
+                                        stroke-width={10}
+                                        transform="rotate(0) translate(-43.3,25)"
+                                        stroke={diskColor}
+                                    />
+                                    <path
+                                        d="M-866,-500 A1000,1000 0,0,0 -866,500 Q-183,683,0,0"
+                                        transform="rotate(120) translate(-43.3,25)"
+                                        fill={diskColor}
+                                    />
+                                </g>
+
                                 <path
                                     d="M-866,-500 L0,0"
                                     stroke-width={10}
@@ -103,6 +111,7 @@ export default function Welcome({ className }: WelcomeProps) {
                             className={Style.rotate}
                             style={{
                                 fontSize: "180px",
+                                pointerEvents: "none",
                             }}
                             fill={accentColor}
                         >
