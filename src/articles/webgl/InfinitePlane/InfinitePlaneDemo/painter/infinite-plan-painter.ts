@@ -7,6 +7,10 @@ import FragmentShader from "./infinite-plan-painter.frag"
 import VertexShader from "./infinite-plan-painter.vert"
 
 export default class InfinitePlanPainter implements PainterInterface {
+    public roll = 0
+    public pitch = 0
+    public pinned = false
+
     private readonly vao: WebGLVertexArrayObject
     private readonly prg: WebGLProgram
     private readonly buffer: WebGLBuffer
@@ -19,6 +23,7 @@ export default class InfinitePlanPainter implements PainterInterface {
     private readonly rotatedAxisY = new Vec3(0)
     private readonly rotatedAxisZ = new Vec3(0)
     private cameraOrientation: number[] = [1, 0, 0, 0, 1, 0, 0, 0, 1]
+    private cameraPosition = [0, 0, 1]
 
     constructor(private readonly scene: Scene) {
         this.res = scene.getResources("BlendDemo")
@@ -32,7 +37,6 @@ export default class InfinitePlanPainter implements PainterInterface {
         this.data = makeData(4, { attRay: 2 })
         this.data.poke("attRay", [1, 1, 1, -1, -1, -1, -1, 1])
         this.data.push(scene.gl, this.buffer)
-        this.setOrientation(0, 0)
         gl.bindVertexArray(this.vao)
         this.data.defineAttributes(gl, this.prg, this.buffer)
         gl.bindVertexArray(null)
@@ -48,6 +52,10 @@ export default class InfinitePlanPainter implements PainterInterface {
         const { prg, vao, scene } = this
         const { gl } = scene
         gl.useProgram(prg)
+        gl.uniform3fv(
+            gl.getUniformLocation(prg, "uniCameraPosition"),
+            this.cameraPosition
+        )
         gl.uniformMatrix3fv(
             gl.getUniformLocation(prg, "uniCameraOrientation"),
             false,
@@ -59,10 +67,19 @@ export default class InfinitePlanPainter implements PainterInterface {
     }
 
     update(time: number, delay: number): void {
-        // Nothing to update.
-    }
-
-    setOrientation(pitch: number, roll: number) {
+        const { roll, pitch } = this
+        if (!this.pinned) {
+            if (roll > 0) {
+                this.roll = Math.max(0, roll - delay * 2e-4)
+            } else if (roll < 0) {
+                this.roll = Math.min(0, roll + delay * 2e-4)
+            }
+            if (pitch > 0) {
+                this.pitch = Math.max(0, pitch - delay * 2e-4)
+            } else if (pitch < 0) {
+                this.pitch = Math.min(0, pitch + delay * 2e-4)
+            }
+        }
         const {
             axisX,
             axisY,
@@ -90,5 +107,7 @@ export default class InfinitePlanPainter implements PainterInterface {
             rotatedAxisZ.y,
             rotatedAxisZ.z,
         ]
+        this.cameraPosition[0] += delay * 1e-2
+        this.cameraPosition[2] = 11 + 10 * Math.cos(time * 0.0002427022)
     }
 }

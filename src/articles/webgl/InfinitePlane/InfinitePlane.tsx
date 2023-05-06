@@ -1,16 +1,18 @@
-import React from "react"
-import Style from "./InfinitePlan.module.css"
 import Article from "@/components/Article"
-import { useLang, useLangValue } from "@/hooks/lang"
+import { useLangValue } from "@/hooks/lang"
+import React from "react"
+import Style from "./InfinitePlane.module.css"
 
-export interface InfinitePlanProps {
+export interface InfinitePlaneProps {
     className?: string
 }
 
-export default function InfinitePlan({ className }: InfinitePlanProps) {
+export default function InfinitePlan({ className }: InfinitePlaneProps) {
     const page = usePage()
     return (
-        <Article className={join(className, Style.InfinitePlan)}>{page}</Article>
+        <Article className={join(className, Style.InfinitePlan)}>
+            {page}
+        </Article>
     )
 }
 
@@ -24,19 +26,19 @@ function usePage(): JSX.Element | null {
     React.useEffect(() => {
         switch (lang) {
             case "fr":
-                import("./InfinitePlan.fr.mdx").then((module) => {
+                import("./InfinitePlane.fr.mdx").then((module) => {
                     const element = module.default({})
                     setPage(element)
                 })
                 break
             case "it":
-                import("./InfinitePlan.it.mdx").then((module) => {
+                import("./InfinitePlane.it.mdx").then((module) => {
                     const element = module.default({})
                     setPage(element)
                 })
                 break
             default:
-                import("./InfinitePlan.en.mdx").then((module) => {
+                import("./InfinitePlane.en.mdx").then((module) => {
                     const element = module.default({})
                     setPage(element)
                 })

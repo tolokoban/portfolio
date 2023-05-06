@@ -1,0 +1,12 @@
+.InfinitePlanDemo {
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.InfinitePlanDemo > canvas {
+    width: 640px;
+    height: 480px;
+    max-width: 100vw;
+    max-height: 100vmin;
+}

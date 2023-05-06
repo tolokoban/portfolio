@@ -1,8 +1,9 @@
-import React from "react"
-import Style from "./InfinitePlanDemo.module.css"
-import Scene from "@/utils/webgl2/scene"
-import InfinitePlanPainter from "./painter"
 import { PainterClear } from "@/utils/webgl2/painter"
+import Scene from "@/utils/webgl2/scene"
+import Gestures, { PointerMoveState } from "@/utils/webgl2/util/gesture/gesture"
+import React from "react"
+import Style from "./InfinitePlaneDemo.module.css"
+import InfinitePlanPainter from "./painter"
 
 export interface InfinitePlanDemoProps {
     className?: string
@@ -27,19 +28,23 @@ export default function InfinitePlanDemo({ className }: InfinitePlanDemoProps) {
         refScene.current = scene
         const painter = new InfinitePlanPainter(scene)
         refPainter.current = painter
-        canvas.addEventListener(
-            "pointermove",
-            makePointerMoveHandler(scene, painter)
-        )
+        const gestures = new Gestures()
+        gestures.attach(canvas)
+        gestures.eventDrag.addListener(makePointerMoveHandler(scene, painter))
         const painterClear = new PainterClear(scene, {
             color: [0.3, 0.5, 1, 1],
         })
         scene.addPainter(painterClear, painter)
-        scene.paint()
+        scene.animate = true
     }
     return (
         <div className={join(className, Style.InfinitePlanDemo)}>
-            <canvas ref={handleCanvasMount} width={512} height={512}></canvas>
+            <canvas
+                ref={handleCanvasMount}
+                width={512}
+                height={512}
+                onDoubleClick={handleFullscreen}
+            ></canvas>
         </div>
     )
 }
@@ -51,15 +56,19 @@ function join(...classes: unknown[]): string {
 function makePointerMoveHandler(
     scene: Scene,
     painter: InfinitePlanPainter
-): (this: HTMLCanvasElement, ev: PointerEvent) => any {
-    return (evt: PointerEvent) => {
-        const canvas = evt.target as HTMLCanvasElement
-        const { left, top, width, height } = canvas.getBoundingClientRect()
-        const x = (evt.clientX - left) / width - 0.5
-        const y = (evt.clientY - top) / height - 0.5
-        const roll = x
-        const pitch = y * 2 * Math.PI
-        painter.setOrientation(pitch, roll)
+): (this: HTMLCanvasElement, evt: PointerMoveState) => any {
+    return (evt: PointerMoveState) => {
+        const x = evt.current.x - evt.previous.x
+        const y = evt.current.y - evt.previous.y
+        painter.roll += x
+        painter.pitch += y //* 2 * Math.PI
         scene.paint()
     }
+}
+
+function handleFullscreen(evt: React.MouseEvent<HTMLCanvasElement>) {
+    const canvas = evt.target as HTMLCanvasElement
+    canvas.requestFullscreen({
+        navigationUI: "hide",
+    })
 }
