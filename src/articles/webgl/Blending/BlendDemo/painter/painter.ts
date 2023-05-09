@@ -1,8 +1,8 @@
-import { PainterInterface } from "@/utils/webgl2/painter/painter-interface"
-import Scene from "@/utils/webgl2/scene/scene"
+import { PainterInterface } from "@/webgl2/painter/painter-interface"
+import Scene from "@/webgl2/scene/scene"
 import { Vector4 } from "@/utils/type-guards"
-import { DataInterface, makeData } from "@/utils/webgl2/data"
-import Resources from "@/utils/webgl2/scene/resources"
+import { DataInterface, makeData } from "@/webgl2/data"
+import Resources from "@/webgl2/scene/resources"
 import VertexShader from "./painter.vert"
 import FragmentShader from "./painter.frag"
 

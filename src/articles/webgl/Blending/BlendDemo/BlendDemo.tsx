@@ -1,11 +1,11 @@
 import Flex from "@/components/Flex/Flex"
 import { ViewLabel, ViewSlider } from "@/ui"
-import { PainterClear } from "@/utils/webgl2/painter"
+import { PainterClear } from "@/webgl2/painter"
 import PainterBlend, {
     BlendFactor,
     BlendFunction,
-} from "@/utils/webgl2/painter/blend"
-import Scene from "@/utils/webgl2/scene"
+} from "@/webgl2/painter/blend"
+import Scene from "@/webgl2/scene"
 import React from "react"
 import Style from "./BlendDemo.module.css"
 import SelectFactor from "./SelectFactor/SelectFactor"

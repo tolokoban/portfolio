@@ -1,4 +1,4 @@
-import { BlendFunction } from "@/utils/webgl2/painter/blend"
+import { BlendFunction } from "@/webgl2/painter/blend"
 import Style from "./SelectFunction.module.css"
 import { ViewCombo, ViewLabel } from "@/ui/view"
 

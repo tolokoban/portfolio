@@ -1,7 +1,7 @@
 export interface TgdAssetImage {
     readonly type: "TgdAssetImage"
     readonly key: string
-    readonly image: HTMLImageElement
+    readonly data: HTMLImageElement | HTMLCanvasElement
     readonly isSuccessfullyLoaded: Promise<boolean>
 }
 

@@ -1,6 +1,6 @@
-import { PainterClear } from "@/utils/webgl2/painter"
-import Scene from "@/utils/webgl2/scene"
-import Gestures, { PointerMoveState } from "@/utils/webgl2/util/gesture/gesture"
+import { PainterClear } from "@/webgl2/painter"
+import Scene from "@/webgl2/scene"
+import Gestures, { PointerMoveState } from "@/webgl2/util/gesture/gesture"
 import React from "react"
 import Style from "./InfinitePlaneDemo.module.css"
 import InfinitePlanPainter from "./painter"
@@ -20,10 +20,10 @@ export default function InfinitePlanDemo({ className }: InfinitePlanDemoProps) {
             alpha: false,
             preserveDrawingBuffer: false,
             antialias: false,
-            depth: true,
+            depth: false,
             stencil: false,
             failIfMajorPerformanceCaveat: false,
-            powerPreference: "low-power",
+            powerPreference: "high-performance",
         })
         refScene.current = scene
         const painter = new InfinitePlanPainter(scene)
@@ -31,6 +31,9 @@ export default function InfinitePlanDemo({ className }: InfinitePlanDemoProps) {
         const gestures = new Gestures()
         gestures.attach(canvas)
         gestures.eventDrag.addListener(makePointerMoveHandler(scene, painter))
+        // Prevent the scene from getting back to equilibrium state.
+        gestures.eventDown.addListener(() => (painter.pinned = true))
+        gestures.eventUp.addListener(() => (painter.pinned = false))
         const painterClear = new PainterClear(scene, {
             color: [0.3, 0.5, 1, 1],
         })

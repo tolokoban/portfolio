@@ -12,8 +12,8 @@ export default class Asset {
             return {
                 type: "TgdAssetImage",
                 key,
-                image,
-                isSuccessfullyLoaded: new Promise(resolve => {
+                data: image,
+                isSuccessfullyLoaded: new Promise((resolve) => {
                     image.src = src
                     image.onload = () => resolve(true)
                     image.onerror = () => resolve(false)

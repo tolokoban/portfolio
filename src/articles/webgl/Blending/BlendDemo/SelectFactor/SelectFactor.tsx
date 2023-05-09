@@ -1,4 +1,4 @@
-import { BlendFactor } from "@/utils/webgl2/painter/blend"
+import { BlendFactor } from "@/webgl2/painter/blend"
 import Style from "./SelectFactor.module.css"
 import { ViewCombo, ViewLabel } from "@/ui/view"
 

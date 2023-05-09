@@ -1,5 +1,5 @@
 import PainterGroup from "../painter/group"
-import { PainterInterface } from "./../painter/painter-interface"
+import { PainterInterface } from "../painter/painter-interface"
 import Asset from "./asset"
 import TextureHelper from "./helpers/texture-helper"
 import Resources from "./resources"
@@ -39,7 +39,25 @@ export default class Scene {
         name: string
     ): WebGLUniformLocation {
         const uni = this.gl.getUniformLocation(program, name)
-        if (!uni) throw Error(`Unable to get uniform location of "${name}"!`)
+        if (!uni) {
+            const availableUniforms: string[] = []
+            const uniformsCount = this.gl.getProgramParameter(
+                program,
+                this.gl.ACTIVE_UNIFORMS
+            )
+            for (
+                let uniformIndex = 0;
+                uniformIndex < uniformsCount;
+                uniformIndex++
+            ) {
+                const info = this.gl.getActiveUniform(program, uniformIndex)
+                if (!info) continue
+
+                availableUniforms.push(info.name)
+            }
+            throw Error(`Unable to get uniform location of "${name}"!
+Active uniforms are: ${availableUniforms.join(", ")}.`)
+        }
 
         return uni
     }

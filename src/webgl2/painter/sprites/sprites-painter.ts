@@ -1,5 +1,5 @@
 import Resources from "../../scene/resources"
-import { PainterInterface } from "./../painter-interface"
+import { PainterInterface } from "../painter-interface"
 import VERT from "./sprites-painter.vert"
 import FRAG from "./sprites-painter.frag"
 import Scene from "../../scene"

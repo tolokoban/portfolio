@@ -32,7 +32,7 @@ export default class PainterBackground implements PainterInterface {
         const { image, placeholder } = this.options
         this.buffer = this.res.createBuffer()
         this.texture = this.res.createTexture()
-        scene.texture.bindTexture2D(scene.gl, this.texture, {
+        scene.texture.loadTexture2D(this.texture, {
             image,
             placeholder,
         })
