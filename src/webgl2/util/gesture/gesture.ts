@@ -22,6 +22,7 @@ export interface PointerMoveState extends PointerHistory {
 export default class Gestures {
     public eventDown = new GenericEvent<PointerState>()
     public eventDrag = new GenericEvent<PointerMoveState>()
+    public eventHover = new GenericEvent<PointerState>()
     public eventUp = new GenericEvent<PointerMoveState>()
     public eventZoom = new GenericEvent<number>()
 
@@ -62,9 +63,10 @@ export default class Gestures {
 
     private readonly handlePointerMove = (evt: PointerEvent) => {
         const history = this.pointers.get(evt.pointerId)
+        const current = makePointerState(evt)
+        this.eventHover.dispatch(current)
         if (!history) return
 
-        const current = makePointerState(evt)
         this.eventDrag.dispatch({
             ...history,
             current,

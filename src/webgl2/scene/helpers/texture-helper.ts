@@ -1,8 +1,12 @@
 import { TgdAssetImage } from "../../types"
 
+type TextureWrapType = "REPEAT" | "CLAMP_TO_EDGE" | "MIRRORED_REPEAT"
+
 export interface OptionsTexture2D {
     image: HTMLImageElement | HTMLCanvasElement
     placeholder: [red: number, green: number, green: number, alpha: number]
+    wrapS: TextureWrapType
+    wrapT: TextureWrapType
 }
 
 export default class TextureHelper {
@@ -74,6 +78,8 @@ export default class TextureHelper {
         {
             image,
             placeholder = [0, 0, 0, 1],
+            wrapS = "REPEAT",
+            wrapT = "REPEAT",
         }: Partial<OptionsTexture2D> & {
             image: HTMLImageElement | HTMLCanvasElement
         }
@@ -101,8 +107,8 @@ export default class TextureHelper {
         )
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR)
         gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR)
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT)
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT)
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl[wrapS])
+        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl[wrapT])
         const update = () => {
             gl.texImage2D(
                 gl.TEXTURE_2D,

@@ -46,7 +46,11 @@ interface DataDefinition {
 export interface DataInterface<
     T extends { [key: string]: DataAttribute | number }
 > {
-    poke(attribName: keyof T, values: number[], vertexIndex?: number): void
+    poke(
+        attribName: keyof T,
+        values: number[] | Float32Array,
+        vertexIndex?: number
+    ): void
     get(): ArrayBuffer
     push(
         gl: WebGL2RenderingContext,
@@ -121,6 +125,9 @@ class Data<T extends { [key: string]: DataAttribute | number }>
         const def = this.definitions[name]
         const elementsCount = def.dimension * def.size
         if (values.length === 0 || values.length % elementsCount !== 0) {
+            console.log("🚀 [data] attribName = ", attribName) // @FIXME: Remove this line written on 2023-05-10 at 23:18
+            console.log("🚀 [data] values = ", values) // @FIXME: Remove this line written on 2023-05-10 at 23:18
+            console.log("🚀 [data] vertexIndex = ", vertexIndex) // @FIXME: Remove this line written on 2023-05-10 at 23:18
             throw Error(
                 `Attribute "${name}" must have a integral multiple of ${elementsCount} numbers, but we got ${values.length}!`
             )

@@ -35,6 +35,11 @@ body {
     place-items: center;
 }
 
+.Welcome main > * {
+    width: 80svmin;
+    height: 80svmin;
+}
+
 /* .Welcome g.rotate {
     animation: 10s alternate infinite rotate-anim;
 }

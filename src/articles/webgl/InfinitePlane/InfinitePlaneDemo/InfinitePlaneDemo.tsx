@@ -35,7 +35,7 @@ export default function InfinitePlanDemo({ className }: InfinitePlanDemoProps) {
         gestures.eventDown.addListener(() => (painter.pinned = true))
         gestures.eventUp.addListener(() => (painter.pinned = false))
         const painterClear = new PainterClear(scene, {
-            color: [0.3, 0.5, 1, 1],
+            colorValue: [0.3, 0.5, 1, 1],
         })
         scene.addPainter(painterClear, painter)
         scene.animate = true

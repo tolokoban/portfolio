@@ -47,8 +47,8 @@ export default class Resources {
 
     deleteVertexArray(key = "default") {
         const { bag, gl } = this
-        const buff = bag.vertexArrays.delete(key)
-        if (buff) gl.deleteBuffer(buff)
+        const vao = bag.vertexArrays.delete(key)
+        if (vao) gl.deleteVertexArray(vao)
     }
 
     createBuffer(key = "default"): WebGLBuffer {
@@ -77,7 +77,6 @@ export default class Resources {
             const newShader = gl.createShader(
                 type === "vertex" ? gl.VERTEX_SHADER : gl.FRAGMENT_SHADER
             )
-            console.log(`🚀 [resources] newShader(${type}) = `, newShader) // @FIXME: Remove this line written on 2023-02-28 at 18:31
             if (!newShader)
                 throw Error("Unable to create a Vertex Shader handle!")
 
@@ -107,7 +106,6 @@ export default class Resources {
             return newPrg
         })
         const vertShader = this.createShader("vertex", code.vert, key)
-        console.log("🚀 [resources] vertShader = ", vertShader) // @FIXME: Remove this line written on 2023-02-28 at 18:33
         gl.attachShader(prg, vertShader)
         const fragShader = this.createShader("fragment", code.frag, key)
         gl.attachShader(prg, fragShader)

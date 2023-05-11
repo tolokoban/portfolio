@@ -1,5 +1,6 @@
 import PainterGroup from "../painter/group"
 import { PainterInterface } from "../painter/painter-interface"
+import Gestures from "../util/gesture"
 import Asset from "./asset"
 import TextureHelper from "./helpers/texture-helper"
 import Resources from "./resources"
@@ -17,6 +18,7 @@ export default class Scene {
     private lastCanvasHeight = 0
     private lastTime = -1
     private _screenRatio = 1
+    private gesturesManager: Gestures | null = null
 
     constructor(
         public readonly canvas: HTMLCanvasElement,
@@ -28,6 +30,14 @@ export default class Scene {
         this.gl = gl
         this.asset = new Asset()
         this.texture = new TextureHelper(gl)
+    }
+
+    get gestures(): Gestures {
+        if (!this.gesturesManager) {
+            this.gesturesManager = new Gestures()
+            this.gesturesManager.attach(this.canvas)
+        }
+        return this.gesturesManager
     }
 
     getResources(id: string) {
@@ -133,5 +143,6 @@ Active uniforms are: ${availableUniforms.join(", ")}.`)
 
     destroy() {
         this.painters.destroy()
+        if (this.gesturesManager) this.gesturesManager.detach(this.canvas)
     }
 }
