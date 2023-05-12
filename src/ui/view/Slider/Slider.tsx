@@ -34,6 +34,7 @@ export function ViewSlider({
                 min={min ?? 0}
                 max={max ?? 0}
                 step={step ?? 1}
+                value={val}
                 onChange={(evt) => setVal(parseFloat(evt.target.value))}
             />
             {text && <div>{computeText(text, val)}</div>}

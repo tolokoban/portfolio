@@ -42,7 +42,7 @@ export type HotKey = HotKeySuffix | `${HotkeyPrefix}${HotKeySuffix}`
  * * `S-` for **Shift**.
  * * `M-` for **Alt** (Meta).
  * For example, if you want to react at Shift + Control + Enter,
- * the hotkey willl be "C-S-enter".
+ * the hotkey will be "C-S-enter".
  *
  * @param hotkey
  * @param onKeyDown
