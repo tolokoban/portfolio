@@ -1,6 +1,6 @@
 #version 300 es
 
-precision mediump float;
+precision lowp float;
 
 uniform sampler2D uniTexture;
 uniform vec3 uniSpot;

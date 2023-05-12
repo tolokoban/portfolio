@@ -1,5 +1,7 @@
 #version 300 es
 
+precision lowp float;
+
 uniform float uniLight;
 uniform mat4 uniTransform;
 in vec3 attPos;

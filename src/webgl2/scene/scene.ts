@@ -32,7 +32,7 @@ export default class Scene {
         this.texture = new TextureHelper(gl)
     }
 
-    get gestures(): Gestures {
+    get gestures(): Omit<Gestures, "attach" | "detach"> {
         if (!this.gesturesManager) {
             this.gesturesManager = new Gestures()
             this.gesturesManager.attach(this.canvas)

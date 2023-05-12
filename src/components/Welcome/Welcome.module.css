@@ -36,8 +36,8 @@ body {
 }
 
 .Welcome main > * {
-    width: 80svmin;
-    height: 80svmin;
+    width: 99svmin;
+    height: 99svmin;
 }
 
 /* .Welcome g.rotate {

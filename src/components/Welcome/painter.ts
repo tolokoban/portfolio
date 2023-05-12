@@ -4,13 +4,17 @@ import Resources from "../../webgl2/scene/resources"
 import VertexShader from "./painter.vert"
 import FragmentShader from "./painter.frag"
 import { DataInterface, makeData } from "../../webgl2/data"
-import { Vec3, Mat4 } from "../../webgl2/calc"
+import { Vec3, Mat4, clamp } from "../../webgl2/calc"
 import { PointerState } from "../../webgl2/util/gesture/gesture"
+import { MoveInterface } from "../../webgl2/move/types"
+import { makeMoveEaseInOut } from "../../webgl2/move/ease"
 
 const DETAILS = 128
 const VERTICES = 2 * DETAILS
+const ZOOM_SPEED = 2e-3
 
 export default class Painter implements PainterInterface {
+    private readonly move: MoveInterface
     private readonly vao: WebGLVertexArrayObject
     private readonly prg: WebGLProgram
     private readonly buffer: WebGLBuffer
@@ -23,15 +27,22 @@ export default class Painter implements PainterInterface {
     private readonly transform = new Mat4()
     private readonly id: string
     private angle = 0
-    private _proximity = -1
-
+    /**
+     * When highlighted, we must increase the zoomFactor up to 1.
+     */
+    private zoomFactor = 0
     public highlight = false
 
     constructor(
         private readonly scene: Scene,
-        private readonly text = "Tolokoban",
-        private readonly initialAngle = 0
+        public readonly text = "Tolokoban",
+        public readonly initialAngle = 0
     ) {
+        this.move = makeMoveEaseInOut({
+            duration: 1,
+            min: 0.9,
+            max: 1.1,
+        })
         this.id = `ID#${text}`
         this.angle = initialAngle
         this.res = scene.getResources("WelcomePainter")
@@ -63,12 +74,7 @@ export default class Painter implements PainterInterface {
             wrapS: "CLAMP_TO_EDGE",
         })
         gl.bindVertexArray(null)
-        scene.gestures.eventHover.addListener(this.handleHover)
         console.log("CONSTRUCTOR")
-    }
-
-    get proximity() {
-        return this._proximity
     }
 
     destroy(): void {
@@ -77,7 +83,6 @@ export default class Painter implements PainterInterface {
         this.res.deleteProgram(this.id)
         this.res.deleteVertexArray(this.id)
         this.res.deteleTexture(this.id)
-        this.scene.gestures.eventHover.removeListener(this.handleHover)
     }
 
     paint(time: number, delay: number): void {
@@ -95,7 +100,7 @@ export default class Painter implements PainterInterface {
         this.transform.m11 = C
         this.transform.setUniform(gl, this.uniTransform)
         gl.uniform1i(this.uniTexture, 0)
-        gl.uniform1f(this.uniLight, this.highlight ? 1.0 : 0.9)
+        gl.uniform1f(this.uniLight, this.move(this.zoomFactor))
         gl.uniform3f(this.uniSpot, 0, 0, 10)
         gl.bindVertexArray(vao)
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, VERTICES)
@@ -104,18 +109,19 @@ export default class Painter implements PainterInterface {
 
     update(time: number, delay: number): void {
         this.angle = time * 0.00009 + this.initialAngle
+        this.zoomFactor = clamp(
+            this.zoomFactor + ZOOM_SPEED * delay * (this.highlight ? 1 : -1)
+        )
     }
 
-    private readonly handleHover = (evt: PointerState) => {
-        const len = evt.x ** 2 + evt.y ** 2
-        if (len > 0.9) {
-            this._proximity = -1
-        } else {
-            const angle = this.angle
-            const x = -Math.cos(angle)
-            const y = Math.sin(angle)
-            this._proximity = x * evt.x + y * evt.y
-        }
+    computeProximity(pointerX: number, pointerY: number) {
+        const len = pointerX ** 2 + pointerY ** 2
+        if (len > 0.9) return -1
+
+        const angle = this.angle
+        const x = -Math.cos(angle)
+        const y = Math.sin(angle)
+        return x * pointerX + y * pointerY
     }
 }
 
