@@ -59,6 +59,7 @@ module.exports = (env) => {
             hot: true,
             // Open WebBrowser.
             open: true,
+            host: "0.0.0.0",
             port: env.PORT || Package.port,
             server: "http",
         },

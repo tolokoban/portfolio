@@ -22,9 +22,9 @@ void main() {
     vec3 ray2 = normalize(uniSpot - ROTATE * pos);
     vec3 ray3 = normalize(uniSpot - ROTATE * ROTATE * pos);
     vec3 normal = normalize(varNormal);
-    vec3 bounce = reflect(ray, normal);
-    vec3 bounce2 = reflect(ray2, normal);
-    vec3 bounce3 = reflect(ray3, normal);
+    vec3 bounce = normalize(reflect(ray, normal));
+    vec3 bounce2 = normalize(reflect(ray2, normal));
+    vec3 bounce3 = normalize(reflect(ray3, normal));
     float light = 1.0;
     light *= 3.0 * pow(normal.z, 5.0);
     float specular = pow(max(0.0, bounce.z), 150.0) * .35;

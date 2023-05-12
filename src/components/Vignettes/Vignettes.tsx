@@ -7,6 +7,10 @@ export interface VignettesProps {
     images: string[]
 }
 
+/**
+ * The images for the vignettes should lie in `${prefix}/_/${name}`
+ * and they link to `#/${prefix}/${name}`.
+ */
 export default function Vignettes({
     className,
     prefix = "",
@@ -18,8 +22,11 @@ export default function Vignettes({
                 <Image
                     key={name}
                     alt={name}
-                    name={`${prefix}${name}`}
+                    name={`${prefix}/_/${name}`}
                     size={[320, 240]}
+                    onClick={() =>
+                        (window.location.hash = `/${prefix}/${name}`)
+                    }
                 />
             ))}
         </div>

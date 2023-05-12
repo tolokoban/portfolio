@@ -29,12 +29,6 @@ function usePage(): JSX.Element | null {
                     setPage(element)
                 })
                 break
-            case "it":
-                import("./{{name}}.it.mdx").then((module) => {
-                    const element = module.default({})
-                    setPage(element)
-                })
-                break
             default:
                 import("./{{name}}.en.mdx").then((module) => {
                     const element = module.default({})

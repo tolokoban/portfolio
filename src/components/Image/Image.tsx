@@ -7,6 +7,7 @@ export interface ImageProps {
     name: string
     alt: string
     size?: [width: number, height: number]
+    onClick?(): void
     children?: React.ReactNode
 }
 
@@ -15,6 +16,7 @@ export default function Image({
     name,
     alt,
     size = [640, 480],
+    onClick,
     children,
 }: ImageProps) {
     const ref = React.useRef<null | HTMLDivElement>(null)
@@ -29,6 +31,10 @@ export default function Image({
     const src = `${prefix}${name}.${extension}`
     const srcBlur = `${prefix}${name}.blur.${extension}`
     const srcMini = `${prefix}${name}.mini.${extension}`
+    const handleClick = () => {
+        if (onClick) onClick()
+        else setFullscreen(true)
+    }
     const handleError = () => {
         console.error("Unable to load image:", src)
         if (extension !== "png") setExtension("png")
@@ -58,7 +64,7 @@ export default function Image({
                 height={height}
                 onError={handleError}
                 onLoad={() => setLoadedBlur(true)}
-                onClick={() => setFullscreen(true)}
+                onClick={handleClick}
             />
             {inViewPort && (
                 <img
@@ -73,12 +79,14 @@ export default function Image({
                 />
             )}
             {children && <footer>{children}</footer>}
-            <div
-                className={join(fullscreen || Style.hide)}
-                onClick={() => setFullscreen(false)}
-            >
-                <img src={src} alt={alt} onError={handleError} />
-            </div>
+            {!onClick && (
+                <div
+                    className={join(fullscreen || Style.hide)}
+                    onClick={() => setFullscreen(false)}
+                >
+                    <img src={src} alt={alt} onError={handleError} />
+                </div>
+            )}
         </div>
     )
 }
