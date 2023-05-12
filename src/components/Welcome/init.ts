@@ -41,12 +41,14 @@ class PainterLink implements PainterInterface {
             [contact.text]: "/contact",
         }
         scene.gestures.eventHover.addListener(this.handleHover)
-        scene.gestures.eventDown.addListener(this.handleDown)
+        scene.gestures.eventDown.addListener(this.handleHover)
+        scene.gestures.eventUp.addListener(this.handleUp)
     }
 
     destroy(): void {
         this.scene.gestures.eventHover.removeListener(this.handleHover)
-        this.scene.gestures.eventDown.removeListener(this.handleDown)
+        this.scene.gestures.eventDown.removeListener(this.handleHover)
+        this.scene.gestures.eventUp.removeListener(this.handleUp)
     }
 
     paint(time: number, delay: number): void {}
@@ -76,7 +78,7 @@ class PainterLink implements PainterInterface {
         this.pointerY = evt.y
     }
 
-    private readonly handleDown = () => {
+    private readonly handleUp = () => {
         const painter = this.selectedPainter
         if (!painter) return
 
