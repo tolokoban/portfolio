@@ -24,21 +24,29 @@ class PainterLink implements PainterInterface {
     private pointerX = 0
     private pointerY = 0
     private selectedPainter: Painter | null = null
+    private readonly links: { [text: string]: string }
 
     constructor(
         private readonly scene: Scene,
-        private readonly painters: Painter[]
+        private readonly painters: [
+            work: Painter,
+            blog: Painter,
+            contact: Painter
+        ]
     ) {
+        const [work, blog, contact] = painters
+        this.links = {
+            [work.text]: "/work",
+            [blog.text]: "/blog",
+            [contact.text]: "/contact",
+        }
         scene.gestures.eventHover.addListener(this.handleHover)
-    }
-
-    private readonly handleHover = (evt: PointerState) => {
-        this.pointerX = evt.x
-        this.pointerY = evt.y
+        scene.gestures.eventDown.addListener(this.handleDown)
     }
 
     destroy(): void {
         this.scene.gestures.eventHover.removeListener(this.handleHover)
+        this.scene.gestures.eventDown.removeListener(this.handleDown)
     }
 
     paint(time: number, delay: number): void {}
@@ -61,5 +69,20 @@ class PainterLink implements PainterInterface {
         for (const painter of this.painters) {
             painter.highlight = painter === this.selectedPainter
         }
+    }
+
+    private readonly handleHover = (evt: PointerState) => {
+        this.pointerX = evt.x
+        this.pointerY = evt.y
+    }
+
+    private readonly handleDown = () => {
+        const painter = this.selectedPainter
+        if (!painter) return
+
+        const url = this.links[painter.text]
+        if (!url) return
+
+        window.location.hash = url
     }
 }

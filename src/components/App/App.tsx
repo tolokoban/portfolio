@@ -1,37 +1,47 @@
 import React from "react"
 import { createHashRouter, RouterProvider } from "react-router-dom"
 
-import Blending from "@/articles/webgl/Blending"
-import InfinitePlane from "@/articles/webgl/InfinitePlane"
-import Akonolinga from "@/showcases/Akonolinga"
-import Minervois from "@/showcases/Minervois"
-import Welcome from "../Welcome/Welcome"
-import Blog from "@/articles/Index"
+import Blog from "@/routes/blog/Index"
+import BlogBlending from "@/routes/blog/webgl/Blending"
+import BlogInfinitePlane from "@/routes/blog/webgl/InfinitePlane"
+import Work from "@/routes/work/Index"
+import WorkAkonolinga from "@/routes/work/Akonolinga"
+import WorkMinervois from "@/routes/work/Minervois"
+import WorkWelcome from "../Welcome/Welcome"
+import PageNotFound from "../PageNotFound"
 
 const router = createHashRouter([
     {
+        path: "*",
+        element: <PageNotFound />,
+    },
+    {
         path: "/",
-        element: <Welcome />,
+        element: <WorkWelcome />,
     },
     {
-        path: "Akonolinga",
-        element: <Akonolinga />,
+        path: "work",
+        element: <Work />,
     },
     {
-        path: "Minervois",
-        element: <Minervois />,
+        path: "work/Akonolinga",
+        element: <WorkAkonolinga />,
     },
     {
-        path: "article/Index",
+        path: "work/Minervois",
+        element: <WorkMinervois />,
+    },
+    {
+        path: "blog",
         element: <Blog />,
     },
     {
-        path: "article/webgl/Blending",
-        element: <Blending />,
+        path: "blog/webgl/Blending",
+        element: <BlogBlending />,
     },
     {
-        path: "article/webgl/InfinitePlane",
-        element: <InfinitePlane />,
+        path: "blog/webgl/InfinitePlane",
+        element: <BlogInfinitePlane />,
     },
 ])
 

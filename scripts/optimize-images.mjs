@@ -20,10 +20,12 @@ function getShortName(filename) {
  *
  * @param {number} width
  * @param {number} height
- * @param {number} limit
+ * @param {number|[number,number]} limit
  * @returns {[number, number]}
  */
 function resize(width, height, limit) {
+    if (Array.isArray(limit)) return limit
+
     const max = Math.max(width, height)
     if (max < limit) return [width, height]
 
@@ -54,6 +56,7 @@ async function start() {
         )
         if (upToDate) continue
 
+        console.log("🚀 [optimize-images] task = ", task) // @FIXME: Remove this line written on 2023-05-12 at 15:40
         if (normal) {
             const [w, h] = resize(width, height, normal)
             await Sharp(filename)

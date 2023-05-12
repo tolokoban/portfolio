@@ -16,12 +16,12 @@ export function getProjectRoot() {
  *
  * @param {string} root Folder (relative to project root)
  * @param {(filename: string) => boolean} filter This function returns `false` to discard a file from the result.
- * @returns {Promise<{path: string, normal?: number, mini?: number, blur?: number}[]>} List of found filenames.
+ * @returns {Promise<{path: string, normal?: number|[number,number], mini?: number|[number,number], blur?: number|[number,number]}[]>} List of found filenames.
  */
 export async function listDir(root, filter) {
-    /** @type {{path: string, normal?: number, mini?: number, blur?: number}[]} */
+    /** @type {{path: string, normal?: number|[number,number], mini?: number|[number,number], blur?: number|[number,number]}[]} */
     const result = []
-    /** @type {{path: string, normal?: number, mini?: number, blur?: number}[]} */
+    /** @type {{path: string, normal?: number|[number,number], mini?: number|[number,number], blur?: number|[number,number]}[]} */
     const fringe = [{ path: Path.resolve(ROOT, root) }]
     while (fringe.length > 0) {
         const task = fringe.pop()
@@ -52,8 +52,8 @@ export async function listDir(root, filter) {
 }
 
 /**
- * @param {{path: string, normal?: number, mini?: number, blur?: number}} task
- * @returns {Promise<{path: string, normal?: number, mini?: number, blur?: number}>}
+ * @param {{path: string, normal?: number|[number,number], mini?: number|[number,number], blur?: number|[number,number]}} task
+ * @returns {Promise<{path: string, normal?: number|[number,number], mini?: number|[number,number], blur?: number|[number,number]}>}
  */
 async function extractImageSettings(task) {
     const settingsFilename = Path.resolve(task.path, "@.json")
@@ -65,10 +65,12 @@ async function extractImageSettings(task) {
         if (!data || typeof data !== "object") return task
 
         const newTask = { path: task.path }
-        if (typeof data["normal"] === "number")
+        if (typeof data["normal"] === "number" || Array.isArray(data["normal"]))
             newTask["normal"] = data["normal"]
-        if (typeof data["mini"] === "number") newTask["mini"] = data["mini"]
-        if (typeof data["blur"] === "number") newTask["blur"] = data["normal"]
+        if (typeof data["mini"] === "number" || Array.isArray(data["mini"]))
+            newTask["mini"] = data["mini"]
+        if (typeof data["blur"] === "number" || Array.isArray(data["blur"]))
+            newTask["blur"] = data["blur"]
         return newTask
     } catch (ex) {
         console.error("Unable to load file:", settingsFilename)

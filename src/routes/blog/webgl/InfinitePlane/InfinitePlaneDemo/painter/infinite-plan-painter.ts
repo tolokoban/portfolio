@@ -3,9 +3,9 @@ import { DataInterface, makeData } from "@/webgl2/data"
 import { PainterInterface } from "@/webgl2/painter/painter-interface"
 import Scene from "@/webgl2/scene"
 import Resources from "@/webgl2/scene/resources"
+import { TgdAssetImage } from "@/webgl2/types"
 import FragmentShader from "./infinite-plan-painter.frag"
 import VertexShader from "./infinite-plan-painter.vert"
-import { TgdAssetImage } from "../../../../../webgl2/types"
 
 const SKYBOX = "images/common/skybox/skybox.webp"
 
