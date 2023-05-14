@@ -1,12 +1,30 @@
-import { Circumference, OpaqueColorName } from "../../types"
+import { colord } from "colord"
+import {
+    Circumference,
+    HslColorValue,
+    OpaqueColorName,
+    isHslColorValue,
+} from "../../types"
 
-export function cssForColor(name: OpaqueColorName, alpha = 1): string {
+export function cssForColor(
+    name: OpaqueColorName | HslColorValue,
+    alpha = 1
+): string {
     if (alpha <= 0) return "transparent"
+    if (isHslColorValue(name)) {
+        if (alpha >= 1) return name
+        return colord(name).alpha(alpha).toHslString()
+    }
     if (alpha >= 1) return `var(--theme-color-${name})`
     return `var(--theme-color-${name}-${toOpacity(alpha)})`
 }
 
-export function cssForColorOn(name: OpaqueColorName): string {
+export function cssForColorOn(name: OpaqueColorName | HslColorValue): string {
+    if (isHslColorValue(name)) {
+        return colord(name).isDark()
+            ? "var(--theme-color-text-light)"
+            : "var(--theme-color-text-dark)"
+    }
     return `var(--theme-color-on-${name})`
 }
 

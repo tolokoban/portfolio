@@ -66,7 +66,18 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
                 {win ? (
                     <div>
                         <p>Nice job!</p>
-                        <ViewButton onClick={handleRestart}>Restart</ViewButton>
+                        <ViewButton
+                            onClick={handleRestart}
+                            color={`hsl(${Math.floor(
+                                (360 * foreground.hue) / STEPS_HUE
+                            )} ${Math.floor(
+                                (100 * foreground.sat) / STEPS_SAT
+                            )}% ${Math.floor(
+                                (100 * foreground.lum) / STEPS_LUM
+                            )}%)`}
+                        >
+                            Restart
+                        </ViewButton>
                     </div>
                 ) : (
                     <>

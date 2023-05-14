@@ -1,7 +1,7 @@
 import React from "react"
 import { Theme } from "../../theme"
 import Classes from "./Button.module.css"
-import { Circumference, OpaqueColorName } from "../../types"
+import { Circumference, HslColorValue, OpaqueColorName } from "../../types"
 import {
     DimensionStyleProps,
     styleDimension,
@@ -47,7 +47,7 @@ export type ViewButtonProps = {
      *
      * For _text_ or _outlined_ buttons, `color` is the color of the text itself.
      */
-    color?: OpaqueColorName
+    color?: OpaqueColorName | HslColorValue
     /**
      * Margin can be overriden.
      *

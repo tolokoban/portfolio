@@ -40,6 +40,8 @@ type ColorLevel = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 type ColorAlpha = "1" | "2" | "3" | "4" | "5" | "6" | "7" | "8" | "9"
 type ColorBase = "neutral" | "primary" | "secondary" | "tertiary"
 
+export type HslColorValue = `hsl(${string})`
+
 export type ColorName =
     | OpaqueColorName
     | `${ColorBase}-${ColorLevel}-${ColorAlpha}`
@@ -61,3 +63,8 @@ export type Circumference =
           bottom: string | number,
           left: string | number
       ]
+
+export function isHslColorValue(data: unknown): data is HslColorValue {
+    if (typeof data !== "string") return false
+    return data.startsWith("hsl(") && data.endsWith(")")
+}
