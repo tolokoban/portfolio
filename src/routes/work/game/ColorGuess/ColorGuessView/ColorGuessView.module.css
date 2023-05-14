@@ -39,8 +39,10 @@
     flex: 0 0 90vw;
     width: 90vw;
     max-width: 480px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
     padding: 1em;
 }
 
@@ -49,6 +51,7 @@
     font-weight: 900;
     text-align: center;
     color: #fff;
+    margin: 0.5em;
 }
 
 .ColorGuessView > footer > div {
@@ -56,6 +59,9 @@
     background-color: #0006;
     border-radius: 1em;
     padding: 1em;
+}
+
+.ColorGuessView > footer > div:last-child {
     display: flex;
     flex-direction: column;
     gap: 1em;
@@ -74,4 +80,13 @@
     .ColorGuessView > footer {
         width: 100svw;
     }
+}
+
+.color {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    place-items: center;
+    gap: 1em;
+    color: #fff;
+    font-weight: bolder;
 }

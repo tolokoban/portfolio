@@ -7,7 +7,9 @@ export interface ColorGuessViewProps {
     className?: string
 }
 
-const STEPS = 10
+const STEPS_HUE = 18
+const STEPS_SAT = 10
+const STEPS_LUM = 10
 
 interface ColorHSL {
     hue: number
@@ -56,6 +58,11 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
                 </div>
             </div>
             <footer>
+                <div className={Style.color}>
+                    <div>{Math.floor((360 * foreground.hue) / STEPS_HUE)}°</div>
+                    <div>{Math.floor((100 * foreground.sat) / STEPS_SAT)}%</div>
+                    <div>{Math.floor((100 * foreground.lum) / STEPS_LUM)}%</div>
+                </div>
                 {win ? (
                     <div>
                         <p>Nice job!</p>
@@ -65,30 +72,23 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
                     <>
                         <div>
                             <HueSelector
-                                steps={STEPS}
+                                className={Style.wide}
+                                steps={STEPS_HUE}
                                 value={foreground.hue}
                                 onChange={(hue) => update({ hue })}
                             />
                             <ViewSlider
                                 className={Style.wide}
-                                min={0}
-                                max={STEPS}
-                                step={1}
-                                value={foreground.hue}
-                                onChange={(hue) => update({ hue })}
-                            />
-                            <ViewSlider
-                                className={Style.wide}
-                                min={0}
-                                max={STEPS}
+                                min={1}
+                                max={STEPS_SAT}
                                 step={1}
                                 value={foreground.sat}
                                 onChange={(sat) => update({ sat })}
                             />
                             <ViewSlider
                                 className={Style.wide}
-                                min={0}
-                                max={STEPS}
+                                min={1}
+                                max={STEPS_LUM - 1}
                                 step={1}
                                 value={foreground.lum}
                                 onChange={(lum) => update({ lum })}
@@ -106,19 +106,19 @@ function join(...classes: unknown[]): string {
 }
 
 function getCssColor(color: ColorHSL) {
-    return `hsl(${(color.hue * 360) / STEPS} ${(100 * color.sat) / STEPS}% ${
-        (100 * color.lum) / STEPS
-    }%)`
+    return `hsl(${(color.hue * 360) / STEPS_HUE} ${
+        (100 * color.sat) / STEPS_SAT
+    }% ${(100 * color.lum) / STEPS_LUM}%)`
 }
 
 function createRandomColor(): ColorHSL {
     return {
-        hue: rnd(STEPS + 1),
-        sat: rnd(STEPS + 1),
-        lum: rnd(STEPS + 1),
+        hue: rnd(0, STEPS_HUE),
+        sat: rnd(1, STEPS_SAT),
+        lum: rnd(1, STEPS_LUM - 1),
     }
 }
 
-function rnd(count: number): number {
-    return Math.floor(count * Math.random())
+function rnd(min: number, max: number): number {
+    return min + Math.floor((max - min + 1) * Math.random())
 }

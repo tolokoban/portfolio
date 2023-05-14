@@ -10,9 +10,9 @@
 .HueSelector > div {
     pointer-events: none;
     position: absolute;
-    margin: -1em;
-    width: 2em;
-    height: 2em;
+    margin: -0.7em;
+    width: 1.4em;
+    height: 1.4em;
     border-radius: 50%;
     box-shadow: 0 0.125em 0.25em #000;
     top: 50%;
