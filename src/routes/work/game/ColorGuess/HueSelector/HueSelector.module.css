@@ -1,0 +1,19 @@
+.HueSelector {
+    position: relative;
+    overflow: visible;
+    margin: 0;
+    width: 100%;
+    height: 2em;
+    border: 1px solid #000;
+}
+
+.HueSelector > div {
+    pointer-events: none;
+    position: absolute;
+    margin: -1em;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    box-shadow: 0 0.125em 0.25em #000;
+    top: 50%;
+}

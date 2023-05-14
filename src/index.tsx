@@ -1,13 +1,15 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
 import App from "./components/App"
-import { sleep } from "./utils/sleep"
 import FontDosis from "./fonts/dosis"
+import { Theme } from "./ui"
 import "./index.css"
 
 async function start() {
     await FontDosis.load()
 
+    const theme = new Theme()
+    theme.apply()
     const container = document.getElementById("app")
     if (!container) throw Error("Missing element with id #app!")
     createRoot(container).render(<App />)
