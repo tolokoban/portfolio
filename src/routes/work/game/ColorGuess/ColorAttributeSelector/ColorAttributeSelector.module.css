@@ -1,4 +1,4 @@
-.HueSelector {
+.ColorAttributeSelector {
     position: relative;
     overflow: visible;
     margin: 0;
@@ -7,7 +7,7 @@
     border: 1px solid #000;
 }
 
-.HueSelector > div {
+.ColorAttributeSelector > div {
     pointer-events: none;
     position: absolute;
     margin: -0.7em;
@@ -18,7 +18,7 @@
     top: 50%;
 }
 
-.HueSelector:focus {
+.ColorAttributeSelector:focus {
     outline: 2px dotted #fff;
     outline-offset: 0.25em;
 }
