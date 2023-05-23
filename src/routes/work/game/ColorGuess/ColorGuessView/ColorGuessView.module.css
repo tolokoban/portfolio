@@ -22,8 +22,8 @@
 .ColorGuessView > div:first-child > div {
     content: "";
     border-radius: 50%;
-    width: 60svmin;
-    height: 60svmin;
+    width: 60dvmin;
+    height: 60dvmin;
     display: grid;
     place-items: center;
 }
@@ -51,7 +51,7 @@
     font-weight: 900;
     text-align: center;
     color: #fff;
-    margin: 0.5em;
+    margin: 0;
 }
 
 .ColorGuessView > footer > div {

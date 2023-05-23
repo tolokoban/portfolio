@@ -1,6 +1,7 @@
 import React from "react"
 import Style from "./HueSelector.module.css"
 import { clamp } from "@/webgl2/calc"
+import { hue2percent, percent2hue, range, snapHue } from "./tools"
 
 export interface HueSelectorProps {
     className?: string
@@ -19,12 +20,17 @@ export default function HueSelector({
     onChange,
 }: HueSelectorProps) {
     const background = React.useMemo(() => {
+        console.log(
+            "🚀 [HueSelector] steps, range(steps) = ",
+            steps,
+            range(steps)
+        ) // @FIXME: Remove this line written on 2023-05-23 at 15:46
         return `linear-gradient(to right, ${range(steps)
             .map(
                 (index) =>
                     `hsl(${Math.floor((360 * index) / steps)}deg 100% 50%)`
             )
-            .join(", ")}, hsl(360 100% 50%))`
+            .join(", ")})`
     }, [steps])
     const handlePointerEvent = (evt: React.PointerEvent<HTMLDivElement>) => {
         const div = evt.target as HTMLDivElement
@@ -39,7 +45,7 @@ export default function HueSelector({
         onChange(hue)
     }
     function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>): void {
-        const hueStep = snapHue(359 / steps, steps)
+        const hueStep = snapHue(360 / steps, steps)
         if (event.key === "ArrowRight") {
             onChange((value + hueStep) % 360)
         } else if (event.key === "ArrowLeft") {
@@ -72,37 +78,4 @@ export default function HueSelector({
 
 function join(...classes: unknown[]): string {
     return classes.filter((cls) => typeof cls === "string").join(" ")
-}
-
-function range(size: number): number[] {
-    const result: number[] = []
-    for (let i = 0; i < size; i++) result.push(i)
-    return result
-}
-
-/**
- * Let's imagine `steps === 6` then you will have this relations:
- * ```
- * | Step | 0 |  1 |   2 |   3 |   4 |   5 |
- * | Hue  | 0 | 60 | 120 | 180 | 240 | 300 |
- * | %    | 0 | 20 |  40 |  60 |  80 | 100 |
- * ```
- * @param hue Integer between 0 and 359 (included).
- * @param steps Number of steps to snap on.
- * @return Float between 0 and 1 (included).
- */
-function hue2percent(hue: number, steps: number): number {
-    const maxHue = Math.floor((360 * (steps - 1)) / steps)
-    const clampedHue = clamp(hue, 0, maxHue)
-    return clampedHue / maxHue
-}
-
-function percent2hue(percent: number, steps: number): number {
-    const maxHue = Math.floor((360 * (steps - 1)) / steps)
-    const snappedPercent = Math.floor(percent * (steps - 1)) / (steps - 1)
-    return Math.round(snappedPercent * maxHue)
-}
-
-function snapHue(hue: number, steps: number): number {
-    return percent2hue(hue2percent(hue, steps), steps)
 }
