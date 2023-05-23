@@ -17,3 +17,8 @@
     box-shadow: 0 0.125em 0.25em #000;
     top: 50%;
 }
+
+.HueSelector:focus {
+    outline: 2px dotted #fff;
+    outline-offset: 0.25em;
+}

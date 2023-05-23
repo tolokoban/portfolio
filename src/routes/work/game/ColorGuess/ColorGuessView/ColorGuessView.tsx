@@ -12,8 +12,11 @@ const STEPS_SAT = 10
 const STEPS_LUM = 10
 
 interface ColorHSL {
+    /** Between 0 and 359. */
     hue: number
+    /** Between 0.0 and 1.0. */
     sat: number
+    /** Between 0.0 and 1.0. */
     lum: number
 }
 
@@ -59,9 +62,22 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
             </div>
             <footer>
                 <div className={Style.color}>
-                    <div>{Math.floor((360 * foreground.hue) / STEPS_HUE)}°</div>
-                    <div>{Math.floor((100 * foreground.sat) / STEPS_SAT)}%</div>
-                    <div>{Math.floor((100 * foreground.lum) / STEPS_LUM)}%</div>
+                    <div>
+                        <small>H:</small>
+                        <span>{Math.floor(foreground.hue)}°</span>
+                    </div>
+                    <div>
+                        <small>S:</small>
+                        <span>
+                            {Math.floor((100 * foreground.sat) / STEPS_SAT)}%
+                        </span>
+                    </div>
+                    <div>
+                        <small>L:</small>
+                        <span>
+                            {Math.floor((100 * foreground.lum) / STEPS_LUM)}%
+                        </span>
+                    </div>
                 </div>
                 {win ? (
                     <div>
@@ -117,14 +133,15 @@ function join(...classes: unknown[]): string {
 }
 
 function getCssColor(color: ColorHSL) {
-    return `hsl(${(color.hue * 360) / STEPS_HUE} ${
-        (100 * color.sat) / STEPS_SAT
-    }% ${(100 * color.lum) / STEPS_LUM}%)`
+    return `hsl(${color.hue} ${(100 * color.sat) / STEPS_SAT}% ${
+        (100 * color.lum) / STEPS_LUM
+    }%)`
 }
 
 function createRandomColor(): ColorHSL {
+    const maxHue = Math.floor((360 * (STEPS_HUE - 1)) / STEPS_HUE)
     return {
-        hue: rnd(0, STEPS_HUE),
+        hue: Math.floor((maxHue * rnd(0, STEPS_HUE - 1)) / (STEPS_HUE - 1)),
         sat: rnd(1, STEPS_SAT),
         lum: rnd(1, STEPS_LUM - 1),
     }

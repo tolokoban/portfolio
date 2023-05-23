@@ -90,3 +90,8 @@
     color: #fff;
     font-weight: bolder;
 }
+
+.color > div > small {
+    opacity: 0.5;
+    margin-right: 0.5em;
+}
