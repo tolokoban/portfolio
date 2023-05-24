@@ -35,9 +35,12 @@ export default function ColorAttributeSelector({
     onChange,
     makeColor,
 }: ColorAttributeSelectorProps) {
-    const gradient = `linear-gradient(to right, ${range(steps)
-        .map((index) => makeColor(Math.floor(((maxValue + 1) * index) / steps)))
+    const gradient = `linear-gradient(to right, ${range(minStep, maxStep + 1)
+        .map((index) =>
+            makeColor(Math.floor(((maxValue + 1) * index) / (steps - 1)))
+        )
         .join(", ")})`
+    console.log(gradient)
     const handlePointerEvent = (evt: React.PointerEvent<HTMLDivElement>) => {
         const div = evt.target as HTMLDivElement
         if (!div) return
