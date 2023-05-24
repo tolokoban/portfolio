@@ -4,6 +4,8 @@ import { ViewButton, ViewSlider } from "@/ui/view"
 import HueSelector from "../HueSelector"
 import SatSelector from "../SatSelector/SatSelector"
 import LumSelector from "../LumSelector"
+import { useLangValue } from "../../../../../hooks/lang"
+import { useTranslations } from "./translations"
 
 export interface ColorGuessViewProps {
     className?: string
@@ -27,6 +29,7 @@ interface ColorHSL {
 }
 
 export default function ColorGuessView({ className }: ColorGuessViewProps) {
+    const tr = useTranslations()
     const [background, setBackground] = React.useState(createRandomColor())
     const [foreground, setForeground] = React.useState(createRandomColor())
     const win =
@@ -83,12 +86,12 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
                 </div>
                 {win ? (
                     <div>
-                        <p>Nice job!</p>
+                        <p>{tr.wellDone}</p>
                         <ViewButton
                             onClick={handleRestart}
                             color={`hsl(${foreground.hue} ${foreground.sat}% ${foreground.lum}%)`}
                         >
-                            Restart
+                            {tr.restart}
                         </ViewButton>
                     </div>
                 ) : (
