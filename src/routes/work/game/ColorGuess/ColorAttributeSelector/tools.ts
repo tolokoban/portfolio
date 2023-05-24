@@ -1,8 +1,8 @@
 import { clamp } from "@/webgl2/calc"
 
-export function range(size: number): number[] {
+export function range(begin: number, end: number): number[] {
     const result: number[] = []
-    for (let i = 0; i < size; i++) result.push(i)
+    for (let i = begin; i < end; i++) result.push(i)
     return result
 }
 
