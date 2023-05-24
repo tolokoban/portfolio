@@ -100,6 +100,10 @@ export default class Color {
         return this.color.isLight()
     }
 
+    isDark(): boolean {
+        return !this.color.isLight()
+    }
+
     get lch(): [lightness: number, chroma: number, hue: number] {
         const lch = this.color.toLch()
         return [lch.l, lch.c, lch.h]
@@ -134,5 +138,5 @@ function clamp(value: number): number {
 }
 
 function getColors(values: Array<Color | string>): Color[] {
-    return values.map(v => (typeof v === "string" ? new Color(v) : v))
+    return values.map((v) => (typeof v === "string" ? new Color(v) : v))
 }

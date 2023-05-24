@@ -23,12 +23,12 @@ function usePage(): JSX.Element | null {
     const [page, setPage] = React.useState<null | JSX.Element>(null)
     React.useEffect(() => {
         switch (lang) {
-            case "fr":
-                import("./ColorGuess.fr.mdx").then((module) => {
-                    const element = module.default({})
-                    setPage(element)
-                })
-                break
+            // case "fr":
+            //     import("./ColorGuess.fr.mdx").then((module) => {
+            //         const element = module.default({})
+            //         setPage(element)
+            //     })
+            //     break
             default:
                 import("./ColorGuess.en.mdx").then((module) => {
                     const element = module.default({})

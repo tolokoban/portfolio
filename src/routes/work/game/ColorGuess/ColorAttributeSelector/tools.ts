@@ -24,8 +24,8 @@ export function value2percent(
     minStep: number,
     maxStep: number
 ): number {
-    const lowerBound = Math.floor(((maxValue + 1) * minStep) / steps)
-    const upperBound = Math.floor(((maxValue + 1) * maxStep) / steps)
+    const lowerBound = Math.floor(((maxValue + 1) * minStep) / (steps - 1))
+    const upperBound = Math.floor(((maxValue + 1) * maxStep) / (steps - 1))
     const clampedValue = clamp(value, lowerBound, upperBound)
     const valueSpan = upperBound - lowerBound
     const valueStep = (maxValue + 1) / (steps - 1)
@@ -34,6 +34,16 @@ export function value2percent(
     return (snappedValue - lowerBound) / valueSpan
 }
 
+/**
+ * We should have `percent2value(0) === valueAt(minStep)`
+ * and `percent2value(1) === valueAt(maxStep)`.
+ * @param percent
+ * @param maxValue
+ * @param steps
+ * @param minStep
+ * @param maxStep
+ * @returns
+ */
 export function percent2value(
     percent: number,
     maxValue: number,
@@ -41,11 +51,9 @@ export function percent2value(
     minStep: number,
     maxStep: number
 ): number {
-    const minHue = Math.floor(((maxValue + 1) * minStep) / steps)
-    const maxHue = Math.floor(((maxValue + 1) * maxStep) / steps)
-    const hueSpan = maxHue - minHue
-    const snappedPercent = Math.floor(percent * (steps - 1)) / (steps - 1)
-    return minHue + Math.round(snappedPercent * hueSpan)
+    const stepSpan = maxStep - minStep
+    const index = minStep + Math.round(percent * stepSpan)
+    return Math.floor(((maxValue + 1) * index) / (steps - 1))
 }
 
 export function snapValue(

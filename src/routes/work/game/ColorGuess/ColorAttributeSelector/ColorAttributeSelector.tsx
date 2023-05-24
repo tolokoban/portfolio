@@ -1,7 +1,8 @@
 import React from "react"
-import Style from "./ColorAttributeSelector.module.css"
 import { clamp } from "@/webgl2/calc"
 import { value2percent, percent2value, range, snapValue } from "./tools"
+import Color from "@/ui/color"
+import Style from "./ColorAttributeSelector.module.css"
 
 export interface ColorAttributeSelectorProps {
     className?: string
@@ -34,13 +35,9 @@ export default function ColorAttributeSelector({
     onChange,
     makeColor,
 }: ColorAttributeSelectorProps) {
-    const gradient = React.useMemo(() => {
-        return `linear-gradient(to right, ${range(steps)
-            .map((index) =>
-                makeColor(Math.floor(((maxValue + 1) * index) / steps))
-            )
-            .join(", ")})`
-    }, [steps])
+    const gradient = `linear-gradient(to right, ${range(steps)
+        .map((index) => makeColor(Math.floor(((maxValue + 1) * index) / steps)))
+        .join(", ")})`
     const handlePointerEvent = (evt: React.PointerEvent<HTMLDivElement>) => {
         const div = evt.target as HTMLDivElement
         if (!div) return
@@ -67,7 +64,6 @@ export default function ColorAttributeSelector({
         } else {
         }
     }
-
     return (
         <div
             className={join(className, Style.ColorAttributeSelector)}
@@ -86,6 +82,9 @@ export default function ColorAttributeSelector({
                         value2percent(value, maxValue, steps, minStep, maxStep)
                     }%`,
                     background: makeColor(value),
+                    "--custom-shadow": isDark(makeColor(value))
+                        ? "#fff"
+                        : "#000",
                 }}
             ></div>
         </div>
@@ -94,4 +93,9 @@ export default function ColorAttributeSelector({
 
 function join(...classes: unknown[]): string {
     return classes.filter((cls) => typeof cls === "string").join(" ")
+}
+
+function isDark(hsl: string) {
+    const color = new Color(hsl)
+    return color.isDark()
 }

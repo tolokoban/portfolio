@@ -2,21 +2,27 @@ import React from "react"
 import Style from "./ColorGuessView.module.css"
 import { ViewButton, ViewSlider } from "@/ui/view"
 import HueSelector from "../HueSelector"
+import SatSelector from "../SatSelector/SatSelector"
+import LumSelector from "../LumSelector"
 
 export interface ColorGuessViewProps {
     className?: string
 }
 
-const STEPS_HUE = 18
-const STEPS_SAT = 10
-const STEPS_LUM = 10
+/**
+ * 0, 1, 2, ..., 18
+ * That means that each interval is 20° (360/18 = 20).
+ */
+const STEPS_HUE = 19
+const STEPS_SAT = 11
+const STEPS_LUM = 11
 
 interface ColorHSL {
     /** Between 0 and 359. */
     hue: number
-    /** Between 0.0 and 1.0. */
+    /** Between 0 and 99. */
     sat: number
-    /** Between 0.0 and 1.0. */
+    /** Between 0 and 99. */
     lum: number
 }
 
@@ -68,15 +74,11 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
                     </div>
                     <div>
                         <small>S:</small>
-                        <span>
-                            {Math.floor((100 * foreground.sat) / STEPS_SAT)}%
-                        </span>
+                        <span>{Math.floor(foreground.sat)}%</span>
                     </div>
                     <div>
                         <small>L:</small>
-                        <span>
-                            {Math.floor((100 * foreground.lum) / STEPS_LUM)}%
-                        </span>
+                        <span>{Math.floor(foreground.lum)}%</span>
                     </div>
                 </div>
                 {win ? (
@@ -84,13 +86,7 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
                         <p>Nice job!</p>
                         <ViewButton
                             onClick={handleRestart}
-                            color={`hsl(${Math.floor(
-                                (360 * foreground.hue) / STEPS_HUE
-                            )} ${Math.floor(
-                                (100 * foreground.sat) / STEPS_SAT
-                            )}% ${Math.floor(
-                                (100 * foreground.lum) / STEPS_LUM
-                            )}%)`}
+                            color={`hsl(${foreground.hue} ${foreground.sat}% ${foreground.lum}%)`}
                         >
                             Restart
                         </ViewButton>
@@ -104,19 +100,17 @@ export default function ColorGuessView({ className }: ColorGuessViewProps) {
                                 value={foreground.hue}
                                 onChange={(hue) => update({ hue })}
                             />
-                            <ViewSlider
+                            <SatSelector
                                 className={Style.wide}
-                                min={1}
-                                max={STEPS_SAT}
-                                step={1}
+                                hue={foreground.hue}
+                                steps={STEPS_SAT}
                                 value={foreground.sat}
                                 onChange={(sat) => update({ sat })}
                             />
-                            <ViewSlider
+                            <LumSelector
                                 className={Style.wide}
-                                min={1}
-                                max={STEPS_LUM - 1}
-                                step={1}
+                                hue={foreground.hue}
+                                steps={STEPS_LUM}
                                 value={foreground.lum}
                                 onChange={(lum) => update({ lum })}
                             />
@@ -133,20 +127,23 @@ function join(...classes: unknown[]): string {
 }
 
 function getCssColor(color: ColorHSL) {
-    return `hsl(${color.hue} ${(100 * color.sat) / STEPS_SAT}% ${
-        (100 * color.lum) / STEPS_LUM
-    }%)`
+    return `hsl(${color.hue} ${color.sat}% ${color.lum}%)`
 }
 
 function createRandomColor(): ColorHSL {
-    const maxHue = Math.floor((360 * (STEPS_HUE - 1)) / STEPS_HUE)
     return {
-        hue: Math.floor((maxHue * rnd(0, STEPS_HUE - 1)) / (STEPS_HUE - 1)),
-        sat: rnd(1, STEPS_SAT),
-        lum: rnd(1, STEPS_LUM - 1),
+        hue: rnd(359, STEPS_HUE, 0, STEPS_HUE - 2),
+        sat: rnd(99, STEPS_SAT, 1, STEPS_SAT - 1),
+        lum: rnd(99, STEPS_LUM, 1, STEPS_LUM - 2),
     }
 }
 
-function rnd(min: number, max: number): number {
-    return min + Math.floor((max - min + 1) * Math.random())
+function rnd(
+    maxValue: number,
+    steps: number,
+    minStep: number,
+    maxStep: number
+): number {
+    const index = minStep + Math.floor((maxStep - minStep + 1) * Math.random())
+    return Math.floor(((maxValue + 1) * index) / (steps - 1))
 }
