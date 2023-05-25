@@ -87,7 +87,8 @@ module.exports = (env) => {
                     {
                         from: Path.resolve(__dirname, "public"),
                         filter: async (path) => {
-                            return !path.endsWith("index.html")
+                            // Allow non-root index.html to be copied verbatim.
+                            return !path.endsWith("/public/index.html")
                         },
                     },
                 ],

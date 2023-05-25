@@ -10,7 +10,7 @@ import WorkFrancaisFacile from "@/routes/work/FrancaisFacile"
 import WorkHandsOnWebGL from "@/routes/work/HandsOnWebGL"
 import WorkTrailTar from "@/routes/work/TrailTar"
 import Work from "@/routes/work/Index"
-import WorkGameColorGuess from "@/routes/work/game/ColorGuess"
+import BlogGameColorGuess from "@/routes/blog/game/ColorGuess"
 import WorkMinervois from "@/routes/work/Minervois"
 import PageNotFound from "../PageNotFound"
 import WorkWelcome from "../Welcome/Welcome"
@@ -27,10 +27,6 @@ const router = createHashRouter([
     {
         path: "work",
         element: <Work />,
-    },
-    {
-        path: "work/game/ColorGuess",
-        element: <WorkGameColorGuess />,
     },
     {
         path: "work/Akonolinga",
@@ -67,6 +63,10 @@ const router = createHashRouter([
     {
         path: "blog/webgl/InfinitePlane",
         element: <BlogInfinitePlane />,
+    },
+    {
+        path: "work/game/ColorGuess",
+        element: <BlogGameColorGuess />,
     },
 ])
 
