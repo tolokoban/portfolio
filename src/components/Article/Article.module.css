@@ -68,7 +68,8 @@
     transition: all 0.3s;
 }
 
-.Article > header > button:first-child {
+.Article > header > button:first-child,
+.Article > header > button:nth-child(2) {
     width: 2em;
 }
 
@@ -160,5 +161,6 @@
 
 .Article a,
 .Article a:visited {
-    color: #f90;
+    color: #850;
+    text-decoration-color: #8504;
 }

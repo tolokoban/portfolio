@@ -1,16 +1,16 @@
 import React from "react"
-import Style from "./Akonolinga.module.css"
+import Style from "./ApiHrGraph.module.css"
 import Article from "@/components/Article"
 import { useLang, useLangValue } from "@/hooks/lang"
 
-export interface AkonolingaProps {
+export interface ApiHrGraphProps {
     className?: string
 }
 
-export default function Akonolinga({ className }: AkonolingaProps) {
+export default function ApiHrGraph({ className }: ApiHrGraphProps) {
     const page = usePage()
     return (
-        <Article className={join(className, Style.Akonolinga)}>{page}</Article>
+        <Article className={join(className, Style.ApiHrGraph)}>{page}</Article>
     )
 }
 
@@ -24,13 +24,13 @@ function usePage(): JSX.Element | null {
     React.useEffect(() => {
         switch (lang) {
             case "fr":
-                import("./Akonolinga.fr.mdx").then((module) => {
+                import("./ApiHrGraph.fr.mdx").then((module) => {
                     const element = module.default({})
                     setPage(element)
                 })
                 break
             default:
-                import("./Akonolinga.en.mdx").then((module) => {
+                import("./ApiHrGraph.en.mdx").then((module) => {
                     const element = module.default({})
                     setPage(element)
                 })

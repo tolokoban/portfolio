@@ -29,12 +29,6 @@ function usePage(): JSX.Element | null {
                     setPage(element)
                 })
                 break
-            case "it":
-                import("./Minervois.it.mdx").then((module) => {
-                    const element = module.default({})
-                    setPage(element)
-                })
-                break
             default:
                 import("./Minervois.en.mdx").then((module) => {
                     const element = module.default({})

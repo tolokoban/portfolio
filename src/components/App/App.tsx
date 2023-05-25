@@ -4,7 +4,11 @@ import { createHashRouter, RouterProvider } from "react-router-dom"
 import Blog from "@/routes/blog/Index"
 import BlogBlending from "@/routes/blog/webgl/Blending"
 import BlogInfinitePlane from "@/routes/blog/webgl/InfinitePlane"
+import WorkApiHrGraph from "@/routes/work/ApiHrGraph"
 import WorkAkonolinga from "@/routes/work/Akonolinga"
+import WorkFrancaisFacile from "@/routes/work/FrancaisFacile"
+import WorkHandsOnWebGL from "@/routes/work/HandsOnWebGL"
+import WorkTrailTar from "@/routes/work/TrailTar"
 import Work from "@/routes/work/Index"
 import WorkGameColorGuess from "@/routes/work/game/ColorGuess"
 import WorkMinervois from "@/routes/work/Minervois"
@@ -31,6 +35,22 @@ const router = createHashRouter([
     {
         path: "work/Akonolinga",
         element: <WorkAkonolinga />,
+    },
+    {
+        path: "work/ApiHrGraph",
+        element: <WorkApiHrGraph />,
+    },
+    {
+        path: "work/FrancaisFacile",
+        element: <WorkFrancaisFacile />,
+    },
+    {
+        path: "work/HandsOnWebGL",
+        element: <WorkHandsOnWebGL />,
+    },
+    {
+        path: "work/TrailTar",
+        element: <WorkTrailTar />,
     },
     {
         path: "work/Minervois",
