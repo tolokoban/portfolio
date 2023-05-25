@@ -22,7 +22,7 @@ export default function Vignettes({
                 <Image
                     key={name}
                     alt={name}
-                    name={`${prefix}/_/${name}`}
+                    name={`${prefix}/@/${name}`}
                     size={[320, 240]}
                     onClick={() =>
                         (window.location.hash = `/${prefix}/${name}`)
