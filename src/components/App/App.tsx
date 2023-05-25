@@ -65,7 +65,7 @@ const router = createHashRouter([
         element: <BlogInfinitePlane />,
     },
     {
-        path: "work/game/ColorGuess",
+        path: "blog/game/ColorGuess",
         element: <BlogGameColorGuess />,
     },
 ])

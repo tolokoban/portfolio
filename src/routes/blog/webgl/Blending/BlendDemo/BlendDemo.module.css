@@ -1,4 +1,5 @@
 canvas.BlendDemo {
     width: min(640px, 95vmin);
     height: min(640px, 95vmin);
+    background-color: transparent;
 }

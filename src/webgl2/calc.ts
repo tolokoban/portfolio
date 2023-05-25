@@ -436,6 +436,19 @@ export function rotateAroundY(
     result.z = -x * s + z * c
 }
 
+export function rotateAroundZ(
+    vector: Vec3 | Vec4,
+    angle: number,
+    result: Vec3 | Vec4
+) {
+    const c = Math.cos(angle)
+    const s = Math.sin(angle)
+    const { x, y, z } = vector
+    result.x = x * c + y * s
+    result.y = -x * s + y * c
+    result.z = z
+}
+
 /**
  * Ensure `value` is between `min` and `max` included.
  * @param value

@@ -9,9 +9,7 @@ export interface IndexProps {
 
 export default function Index({ className }: IndexProps) {
     const page = usePage()
-    return (
-        <Article className={join(className, Style.Index)}>{page}</Article>
-    )
+    return <Article className={join(className, Style.Index)}>{page}</Article>
 }
 
 function join(...classes: unknown[]): string {
@@ -23,18 +21,6 @@ function usePage(): JSX.Element | null {
     const [page, setPage] = React.useState<null | JSX.Element>(null)
     React.useEffect(() => {
         switch (lang) {
-            case "fr":
-                import("./Index.fr.mdx").then((module) => {
-                    const element = module.default({})
-                    setPage(element)
-                })
-                break
-            case "it":
-                import("./Index.it.mdx").then((module) => {
-                    const element = module.default({})
-                    setPage(element)
-                })
-                break
             default:
                 import("./Index.en.mdx").then((module) => {
                     const element = module.default({})

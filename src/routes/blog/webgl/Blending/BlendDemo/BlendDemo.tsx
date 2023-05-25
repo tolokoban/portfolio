@@ -42,7 +42,7 @@ export default function BlendDemo({ className }: BlendDemoProps) {
         const painterClear = refPainterClear.current
         if (!painterClear) return
 
-        painterClear.set({ colorValue: [0.5, 0.5, 0.5, opacity] })
+        painterClear.set({ colorValue: [0, 0, 0, opacity] })
         refScene.current?.paint()
     }, [opacity])
     const update = (params: Partial<BlendOptions>) => {

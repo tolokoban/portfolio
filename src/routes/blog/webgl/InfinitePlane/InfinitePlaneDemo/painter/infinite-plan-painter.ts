@@ -1,4 +1,9 @@
-import { Vec3, rotateAroundAxis, rotateAroundY } from "@/webgl2/calc"
+import {
+    Vec3,
+    rotateAroundAxis,
+    rotateAroundY,
+    rotateAroundZ,
+} from "@/webgl2/calc"
 import { DataInterface, makeData } from "@/webgl2/data"
 import { PainterInterface } from "@/webgl2/painter/painter-interface"
 import Scene from "@/webgl2/scene"
@@ -109,9 +114,13 @@ export default class InfinitePlanPainter implements PainterInterface {
             rotatedAxisY,
             rotatedAxisZ,
         } = this
-        rotateAroundY(axisX, pitch, rotatedAxisX)
-        rotateAroundY(axisY, pitch, rotatedAxisY)
-        rotateAroundY(axisZ, pitch, rotatedAxisZ)
+        const yaw = time * 0.0001
+        rotateAroundZ(axisX, yaw, rotatedAxisX)
+        rotateAroundZ(axisY, yaw, rotatedAxisY)
+        rotateAroundZ(axisZ, yaw, rotatedAxisZ)
+        rotateAroundY(rotatedAxisX, pitch, rotatedAxisX)
+        rotateAroundY(rotatedAxisY, pitch, rotatedAxisY)
+        rotateAroundY(rotatedAxisZ, pitch, rotatedAxisZ)
         const axis = new Vec3(0)
         rotateAroundY(new Vec3(1, 0, 0), pitch, axis)
         rotateAroundAxis(rotatedAxisX, axis, roll, rotatedAxisX)
@@ -128,7 +137,9 @@ export default class InfinitePlanPainter implements PainterInterface {
             rotatedAxisZ.y,
             rotatedAxisZ.z,
         ]
-        this.cameraPosition[0] += delay * 1e-2
+        const t = delay * 1e-2
+        this.cameraPosition[0] -= t * Math.sin(yaw)
+        this.cameraPosition[1] += t * Math.cos(yaw)
         this.cameraPosition[2] = 11 + 10 * Math.cos(time * 0.0002427022)
     }
 }
