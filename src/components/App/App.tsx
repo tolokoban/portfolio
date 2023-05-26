@@ -8,6 +8,7 @@ import WorkApiHrGraph from "@/routes/work/ApiHrGraph"
 import WorkAkonolinga from "@/routes/work/Akonolinga"
 import WorkFrancaisFacile from "@/routes/work/FrancaisFacile"
 import WorkHandsOnWebGL from "@/routes/work/HandsOnWebGL"
+import WorkTournus from "@/routes/work/Tournus"
 import WorkTrailTar from "@/routes/work/TrailTar"
 import Work from "@/routes/work/Index"
 import BlogGameColorGuess from "@/routes/blog/game/ColorGuess"
@@ -43,6 +44,10 @@ const router = createHashRouter([
     {
         path: "work/HandsOnWebGL",
         element: <WorkHandsOnWebGL />,
+    },
+    {
+        path: "work/Tournus",
+        element: <WorkTournus />,
     },
     {
         path: "work/TrailTar",
