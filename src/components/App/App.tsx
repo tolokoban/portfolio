@@ -7,6 +7,7 @@ import BlogInfinitePlane from "@/routes/blog/webgl/InfinitePlane"
 import WorkApiHrGraph from "@/routes/work/ApiHrGraph"
 import WorkAkonolinga from "@/routes/work/Akonolinga"
 import WorkFrancaisFacile from "@/routes/work/FrancaisFacile"
+import WorkMediationFamilliale from "@/routes/work/MediationFamilliale"
 import WorkHandsOnWebGL from "@/routes/work/HandsOnWebGL"
 import WorkTournus from "@/routes/work/Tournus"
 import WorkTrailTar from "@/routes/work/TrailTar"
@@ -53,6 +54,7 @@ const router = createHashRouter([
         path: "work/TrailTar",
         element: <WorkTrailTar />,
     },
+    { path: "work/MediationFamilliale", element: <WorkMediationFamilliale /> },
     {
         path: "work/Minervois",
         element: <WorkMinervois />,
