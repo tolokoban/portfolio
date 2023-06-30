@@ -29,6 +29,26 @@ le temps en abscisse et la distance en ordonnée.
 
 <CrossingBoats speed={1} pause={10} />
 
-<CrossingBoats speed={0.7} pause={10} />
+On voit que les bateaux se croisent exactement au milieu de la riviere.
+Aussi bien a l'aller qu'au retour.
+On en deduit que les bateaux ne vont pas a la meme vitesse puisque ils se croisent
+a 720 metres puis a 400 metres.
+On va donc supposer que le prenier bateau va a une vitesse 1 et le second a une
+vitesse `V` avec `0 < V < 1`.
 
-<CrossingBoats speed={0.7} />
+Maintenant, regardons comment le temps de pause influence le probleme.
+
+<CrossingBoats speed={2 / 3} pause={10} />
+<CrossingBoats speed={2 / 3} pause={5} tail={5} />
+<CrossingBoats speed={2 / 3} tail={10} />
+
+En fait, comme la pause est la meme pour les deux bateaux, il semble qu'on puisse
+juste translater la partie retour et ne rien changer au croisement.
+
+**Mais attention**!  
+Cela ne fonctionne plus si le deuxieme bateau recroise le premier avant meme d'avoir
+pu traverser la riviere. Et cela arrive si `V <= 1/2`.
+
+<CrossingBoats speed={1 / 3} pause={10} />
+
+<CrossingBoats speed={1 / 3} tail={10} />
