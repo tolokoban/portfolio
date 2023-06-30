@@ -1,0 +1,34 @@
+import AntiSpoil from "@/components/AntiSpoil"
+import CrossingBoats from "@/components/CrossingBoats"
+
+# Les deux ferries
+
+> Deux ferries partent en même temps de chaque rive d'un large bras de mer.
+> Ils se croisent à **720 mètres** de la rive la plus proche.
+> Quand ils arrivent sur la rive opposé, ils font chacun une pause de 10 minutes
+> pour les passager, puis ils repartent en sens inverse.
+> Ils se croisent alors à **400 mètres** de l'autre rive.
+>
+> Quelle est la largeur de ce bras de mer ?
+
+<AntiSpoil>
+    Faites défiler pour voir une tentative de résolution du problème.
+</AntiSpoil>
+
+> Deux ferries partent en même temps de chaque rive d'un large bras de mer.
+> Ils se croisent à **720 mètres** de la rive la plus proche.
+> Quand ils arrivent sur la rive opposé, ils font chacun une pause de 10 minutes
+> pour les passager, puis ils repartent en sens inverse.
+> Ils se croisent alors à **400 mètres** de l'autre rive.
+>
+> Quelle est la largeur de ce bras de mer ?
+
+Pour commencer, voyons ce qui se passe si les deux ferries vont à la même vitesse.
+Pour cela, on utilise un diagramme temporel en deux dimensions :
+le temps en abscisse et la distance en ordonnée.
+
+<CrossingBoats speed={1} pause={10} />
+
+<CrossingBoats speed={0.7} pause={10} />
+
+<CrossingBoats speed={0.7} />

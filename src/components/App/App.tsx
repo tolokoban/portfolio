@@ -13,6 +13,7 @@ import WorkTournus from "@/routes/work/Tournus"
 import WorkTrailTar from "@/routes/work/TrailTar"
 import Work from "@/routes/work/Index"
 import BlogGameColorGuess from "@/routes/blog/game/ColorGuess"
+import BlogMathCrossingBoats from "@/routes/blog/math/CrossingBoats"
 import WorkMinervois from "@/routes/work/Minervois"
 import PageNotFound from "../PageNotFound"
 import WorkWelcome from "../Welcome/Welcome"
@@ -64,16 +65,20 @@ const router = createHashRouter([
         element: <Blog />,
     },
     {
+        path: "blog/game/ColorGuess",
+        element: <BlogGameColorGuess />,
+    },
+    {
+        path: "blog/math/CrossingBoats",
+        element: <BlogMathCrossingBoats />,
+    },
+    {
         path: "blog/webgl/Blending",
         element: <BlogBlending />,
     },
     {
         path: "blog/webgl/InfinitePlane",
         element: <BlogInfinitePlane />,
-    },
-    {
-        path: "blog/game/ColorGuess",
-        element: <BlogGameColorGuess />,
     },
 ])
 
