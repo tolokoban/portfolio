@@ -44,7 +44,7 @@ export function makePainter(
                 [fastDx, fastDy],
             ]
             ctx.lineWidth = 3
-            ctx.strokeStyle = "#d90"
+            ctx.strokeStyle = "#db0"
             ctx.beginPath()
             ctx.moveTo(fastAx, fastAy)
             ctx.lineTo(fastBx, fastBy)
@@ -53,7 +53,7 @@ export function makePainter(
             ctx.stroke()
             const segments: Segment[] = []
             let x = 0
-            ctx.strokeStyle = "#b70"
+            ctx.strokeStyle = "#b50"
             while (x < width) {
                 const slowAx = x
                 const slowAy = height - margin
