@@ -89,6 +89,12 @@
     background: linear-gradient(to top, #ddd, transparent);
 }
 
+.Article blockquote {
+    border-left: 0.25em solid #e82;
+    padding-left: 1em;
+    font-style: italic;
+}
+
 .Grid {
     display: grid;
     grid-template-columns: 1fr 390px 390px 1fr;
