@@ -1,6 +1,7 @@
 import React from "react"
 import { createRoot } from "react-dom/client"
-import App from "./components/App"
+// import App from "./components/App"
+import App from "./app"
 import FontDosis from "./fonts/dosis"
 import { Theme } from "./ui"
 import "./index.css"

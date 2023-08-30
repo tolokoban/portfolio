@@ -1,4 +1,4 @@
-import { useLang } from "../../hooks/lang"
+import { useLang } from "@/hooks/lang"
 import Style from "./Article.module.css"
 
 export interface ArticleProps {

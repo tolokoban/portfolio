@@ -1,0 +1,134 @@
+import AntiSpoil from "@/components/AntiSpoil"
+import CrossingBoats from "@/components/CrossingBoats"
+import Schema from "./Schema"
+
+# The two ferries
+
+> Two ferries leave at the same time from each bank of a wide arm of the sea.
+> They intersect at **720 meters** from the nearest bank.
+> When they arrive on the opposite bank, they each take a 10-minute break
+> for the passengers, then they leave in the opposite direction.
+> They then meet at **400 meters** from the other bank.
+>
+> How wide is this arm of the sea?
+
+This riddle by Sam Loyd was published by his son in 1914.
+
+It's about finding the simplest/cleverest solution.
+
+<AntiSpoil>Scroll down to see a way to fix the problem.</AntiSpoil>
+
+## Preliminary study
+
+To start, let's see what happens if both ferries are going at the same speed.
+To do this, we use a two-dimensional time diagram:
+the time on the abscissa and the distance on the ordinate.
+
+<CrossingBoats speed={1} pause={10} />
+
+We see that the boats cross exactly in the middle of the river.
+Both outward and return.
+We deduce that the boats are not going at the same speed since they cross
+at 720 meters then at 400 meters.
+We will therefore assume that the first boat is going at a speed of 1 and the second at a
+speed `1 / V` with `0 < V < 1`.
+
+Now, let's look at how the pause time influences the problem.
+
+<CrossingBoats speed={2 / 3} pause={10} />
+<CrossingBoats speed={2 / 3} pause={5} tail={5} />
+<CrossingBoats speed={2 / 3} tail={10} />
+
+In fact, as the break is the same for both boats, it seems that we can
+just translate the return part and don't change anything at the intersection.
+
+**But beware**!
+This no longer works if the second boat passes the first again before even having
+was able to cross the river. And this happens if `V <= 1/2`.
+
+<CrossingBoats speed={1 / 3} pause={10} />
+<CrossingBoats speed={1 / 3} pause={5} tail={5} />
+
+## Simple case: `1/2 < V < 1`
+
+In this case, we have seen that the pause times can be ignored.
+So our problem can be represented by this diagram:
+
+<Schema />
+
+The two light triangles are similar since they have two angles
+of the same measure. We therefore deduce the following equality:
+
+```
+720×(2V - 1) = 400×V <=> V = 9 / 13
+```
+
+`V` is between 1/2 and 1, so we are in the simple case.
+
+We just need to find the height (`h`) of the dark triangle.
+Since it is similar to the two clear triangles, we deduce:
+
+```
+V×h = 720 <=> h = 1040
+```
+
+The width of the river is therefore `1040 + 720 = ` **`1760` meters**.
+
+## A simpler solution
+
+The previous solution had us calculate the relative speed of the two boats.
+But this information is not requested in the puzzle.
+So maybe we can get away with it.
+
+Imagine a variant of the problem in which when the boats pass each other
+they go back. Kind of like they were bouncing off each other.
+
+Here are the time diagrams of the two variants of the problem:
+
+<svg
+    version="1.1"
+    viewBox="0 0 123 105"
+    xmlns="http://www.w3.org/2000/svg"
+    preserveAspectRatio="xMidYMid meet"
+>
+    <g strokeWidth="1" strokeLinecap="round">
+        <g>
+            <rect
+                x="0"
+                y="0"
+                width="200"
+                height="50"
+                fill="#247"
+                stroke="#247"
+            />
+            <g stroke="#000" fill="none">
+                <path d="M0,0L41,20.5L82,0L123,20.5" stroke="#f80" />
+                <path d="M0,50L41,20.5L82,50L123,20.5" stroke="#0f8" />
+            </g>
+        </g>
+        <g transform="translate(0,55)">
+            <rect
+                x="0"
+                y="0"
+                width="200"
+                height="50"
+                fill="#247"
+                stroke="#247"
+            />
+            <g stroke="#000" fill="none">
+                <path d="M0,0L100,50L200,0" stroke="#f80" />
+                <path d="M0,50L69.2,0L138.5,50" stroke="#0f8" />
+            </g>
+        </g>
+    </g>
+</svg>
+
+We now see that during the second crossing, the orange boat
+traveled three times the distance between its bank and the meeting point,
+i.e. `3 * 720 = 2160` meters.
+
+And we know from the statement of the problem that during this second meeting,
+the orange boat crossed the river completely and advanced further
+400 meters.
+
+The width of the river is therefore `2160 - 400 = 1760` meters.
