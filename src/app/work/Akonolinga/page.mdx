@@ -1,0 +1,54 @@
+import Flex from "@/components/Flex"
+import Image from "@/components/Image"
+
+# Akonolinga
+
+Akonolinga est une petite ville du Cameroun avec un hôpital génycologique.
+Il leur fallait un logiciel de suivi de dossiers patients qui puisse fonctionner
+dans un environnement où internet et l'électricité ne sont pas disponible de façon continue.
+
+## Application cliente
+
+Tant que l'application est ouverte, elle vérifie l'état de la connexion internet.
+Si le réseau est disponible, on envoie les dossiers patients sur le serveur central
+et on télécharge les éventuelles mises à jour.
+
+<Flex>
+    <Image name="work/akonolinga/app-1" alt="Akonolinga" size={[640, 550]}>
+        Historique du patient.
+    </Image>
+    <Image name="work/akonolinga/app-2" alt="Akonolinga" size={[640, 750]}>
+        Le dossier patient est dynamique. La liste des champs est stoquée sur le
+        serveur et éditée à distance.
+    </Image>
+    <Image name="work/akonolinga/app-3" alt="Akonolinga" size={[640, 338]}>
+        Suivi des vaccinations.
+    </Image>
+</Flex>
+
+## Serveur central
+
+Le serveur central récupère les dossiers patients de plusieurs hôpitaux locaux.
+Ce informations anonymisée servent à faire des statistiques qui sont utilisées
+pour monter des dossiers de demandes de subventions auprès de l'OMS et autres
+organisations.
+
+<Flex>
+    <Image
+        name="work/akonolinga/web-soins-1"
+        alt="Akonolinga"
+        size={[640, 444]}
+    >
+        Configuration de la structure d'un dossier patient.
+    </Image>
+    <Image
+        name="work/akonolinga/web-soins-2"
+        alt="Akonolinga"
+        size={[640, 370]}
+    ></Image>
+    <Image
+        name="work/akonolinga/web-soins-3"
+        alt="Akonolinga"
+        size={[640, 384]}
+    ></Image>
+</Flex>

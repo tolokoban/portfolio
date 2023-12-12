@@ -152,7 +152,7 @@ module.exports = (env) => {
                     exclude: /node_modules/,
                 },
                 {
-                    test: /\.(png|jpe?g|gif|webp|svg)$/i,
+                    test: /\.(png|jpe?g|gif|webp|svg|mp4)$/i,
                     // More information here https://webpack.js.org/guides/asset-modules/
                     type: "asset",
                     generator: {

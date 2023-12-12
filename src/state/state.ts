@@ -1,5 +1,5 @@
-import { isString } from "../utils/type-guards"
-import AtomicState from "./atomic-state"
+import AtomicState from "@tolokoban/react-state"
+import { isString } from "@tolokoban/type-guards"
 
 export default {
     language: new AtomicState(navigator.language, {

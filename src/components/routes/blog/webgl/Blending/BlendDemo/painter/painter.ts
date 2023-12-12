@@ -1,10 +1,11 @@
 import { PainterInterface } from "@/webgl2/painter/painter-interface"
 import Scene from "@/webgl2/scene/scene"
-import { Vector4 } from "@/utils/type-guards"
 import { DataInterface, makeData } from "@/webgl2/data"
 import Resources from "@/webgl2/scene/resources"
 import VertexShader from "./painter.vert"
 import FragmentShader from "./painter.frag"
+
+type Vector4 = [number, number, number, number]
 
 const colorA: Vector4 = [0.9, 0.9, 0.7, 0.8]
 const colorB: Vector4 = [0.8, 0.2, 0.8, 0.5]
