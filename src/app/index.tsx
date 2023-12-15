@@ -1,10 +1,12 @@
 /**
  * WARNING! this file has been generated automatically.
  * Please do not edit it because it will probably be overwritten.
- * 2023-12-12T14:05:55.111Z
+ * 2023-12-15T11:42:06.539Z
  */
 import React from "react"
+import Layout0 from "./layout"
 import Layout3 from "./work/layout"
+import Layout4 from "./work/articles/layout"
 import Loading0 from "./loading"
 import Loading0_1 from "./loading.en"
 const Page0 = React.lazy(() => import("./page"))
@@ -44,7 +46,7 @@ export default function App({ lang }: { lang?: string }) {
     const pg11 = intl(Page11, { en: Page11_1 }, lang)
     const pg12 = Page12
     return (
-        <Route path="/" Page={pg0} fallback={fb0}>
+        <Route path="/" Page={pg0} Layout={ly0} fallback={fb0}>
             <Route path="/blog" fallback={fb0} />
             <Route path="/contact" fallback={fb0} />
             <Route path="/work" Page={pg3} Layout={ly3} fallback={fb0}>

@@ -7,6 +7,7 @@ export interface ImageProps {
     name: string
     alt: string
     size?: [width: number, height: number]
+    wide?: boolean
     onClick?(): void
     children?: React.ReactNode
 }
@@ -18,6 +19,7 @@ export default function Image({
     size = [640, 480],
     onClick,
     children,
+    wide = false,
 }: ImageProps) {
     const ref = React.useRef<null | HTMLDivElement>(null)
     const inViewPort = useIsInViewPort(ref.current)

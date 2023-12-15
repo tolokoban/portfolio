@@ -1,4 +1,14 @@
-.Welcome img.trombine {
+.Welcome {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.Welcome > img.trombine {
     position: fixed;
     bottom: 0;
     right: 0;
@@ -6,49 +16,53 @@
     max-height: 66vh;
 }
 
-body {
-    background: linear-gradient(#eee, #aaa, #555 80%, #444);
-}
-
-.Welcome header {
+.Welcome > header {
     position: absolute;
-    left: 8px;
-    top: 8px;
-    color: #000;
-    font-size: 15vmin;
-}
-
-.Welcome svg {
-    width: 100%;
-    height: 100%;
-    max-width: 800px;
-    max-height: 800px;
-}
-
-.Welcome main {
-    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
+    padding: 0 0.25em;
+    color: #a5d5d4;
+    font-size: 12vmin;
+    text-align: right;
+    font-weight: bold;
+}
+
+.Welcome > nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: auto;
     height: 100%;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+    font-size: 8vmin;
+    font-weight: bold;
 }
 
-.Welcome main > * {
-    width: 99svmin;
-    height: 99svmin;
+.Welcome > nav ul {
+    margin: 0 0 1em 0;
+    padding: 0;
 }
 
-/* .Welcome g.rotate {
-    animation: 10s alternate infinite rotate-anim;
+.Welcome > nav ul::marker {
+    content: "";
 }
 
-@keyframes rotate-anim {
-    from {
-        transform: rotate(-30deg);
-    }
-    to {
-        transform: rotate(30deg);
-    }
-} */
+.Welcome > nav a,
+.Welcome > nav a:visited {
+    color: #8dd971;
+    text-decoration: underline;
+    text-decoration-color: #8dd97160;
+    padding: 0 1em;
+    transition: 0.3s all;
+    border-radius: 999vmax;
+}
+
+.Welcome > nav a:hover {
+    background-color: #8dd97199;
+    color: #0009;
+}

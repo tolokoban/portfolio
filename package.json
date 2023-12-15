@@ -4,7 +4,7 @@
     "description": "Tolokoban's portfolio",
     "main": "index.js",
     "scripts": {
-        "prestart": "npm run optimize",
+        "prestart": "npm run optimize && npx build-react-routes ./src/app &",
         "start": "webpack serve --mode development",
         "prebuild": "npm run optimize",
         "build": "MODE=production webpack --mode production",
@@ -49,6 +49,7 @@
         "@types/react-dom": "^18.2.17",
         "babel-jest": "^29.7.0",
         "babel-loader": "^9.1.3",
+        "build-react-routes": "^0.4.0",
         "clean-webpack-plugin": "^4.0.0",
         "copy-webpack-plugin": "^11.0.0",
         "css-loader": "^6.8.1",

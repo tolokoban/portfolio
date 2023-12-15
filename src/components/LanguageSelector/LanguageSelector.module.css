@@ -1,0 +1,16 @@
+.languageselector {
+    border: inherit;
+    font: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+    width: 2em;
+    height: 2em;
+}
+
+.languageselector > img {
+    width: 2em;
+    height: 2em;
+    margin: 0;
+}

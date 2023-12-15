@@ -3,8 +3,8 @@
     margin: 1em 0;
     overflow: hidden;
     border-radius: 0.5em;
-    box-shadow: 0 0.25em 0.5em #0006;
     transition: opacity 0.5s;
+    height: fit-content;
 }
 
 .Image picture,
