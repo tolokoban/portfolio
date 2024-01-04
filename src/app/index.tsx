@@ -1,36 +1,40 @@
 /**
  * WARNING! this file has been generated automatically.
  * Please do not edit it because it will probably be overwritten.
- * 2023-12-15T13:49:31.687Z
+ * 2024-01-04T18:37:40.806Z
  */
 import React from "react"
 import Layout0 from "./layout"
 import Layout1 from "./blog/layout"
-import Layout5 from "./work/layout"
-import Layout6 from "./work/articles/layout"
+import Layout2 from "./blog/articles/layout"
+import Layout10 from "./work/layout"
+import Layout11 from "./work/articles/layout"
 import Loading0 from "./loading"
 import Loading0_1 from "./loading.en"
 const Page0 = React.lazy(() => import("./page"))
 const Page1 = React.lazy(() => import("./blog/page"))
-const Page3 = React.lazy(() => import("./blog/math/CrossingBoats/page"))
-const Page5 = React.lazy(() => import("./work/page.mdx"))
-const Page7 = React.lazy(() => import("./work/articles/Akonolinga/page.mdx"))
-const Page7_1 = React.lazy(() => import("./work/articles/Akonolinga/page.en.mdx"))
-const Page8 = React.lazy(() => import("./work/articles/ApiHrGraph/page.mdx"))
-const Page8_1 = React.lazy(() => import("./work/articles/ApiHrGraph/page.en.mdx"))
-const Page9 = React.lazy(() => import("./work/articles/FrancaisFacile/page.mdx"))
-const Page9_1 = React.lazy(() => import("./work/articles/FrancaisFacile/page.en.mdx"))
-const Page10 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.mdx"))
-const Page10_1 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.en.mdx"))
-const Page11 = React.lazy(() => import("./work/articles/MediationFamilliale/page.mdx"))
-const Page11_1 = React.lazy(() => import("./work/articles/MediationFamilliale/page.en.mdx"))
-const Page12 = React.lazy(() => import("./work/articles/Minervois/page.mdx"))
-const Page12_1 = React.lazy(() => import("./work/articles/Minervois/page.en.mdx"))
-const Page13 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
-const Page13_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
-const Page14 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
-const Page14_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
-const Page15 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
+const Page4 = React.lazy(() => import("./blog/articles/blender/Volume/page.mdx"))
+const Page6 = React.lazy(() => import("./blog/articles/math/CrossingBoats/page"))
+const Page8 = React.lazy(() => import("./blog/articles/rust/Fern/page.mdx"))
+const Page10 = React.lazy(() => import("./work/page.mdx"))
+const Page12 = React.lazy(() => import("./work/articles/Akonolinga/page.mdx"))
+const Page12_1 = React.lazy(() => import("./work/articles/Akonolinga/page.en.mdx"))
+const Page13 = React.lazy(() => import("./work/articles/ApiHrGraph/page.mdx"))
+const Page13_1 = React.lazy(() => import("./work/articles/ApiHrGraph/page.en.mdx"))
+const Page14 = React.lazy(() => import("./work/articles/FrancaisFacile/page.mdx"))
+const Page14_1 = React.lazy(() => import("./work/articles/FrancaisFacile/page.en.mdx"))
+const Page15 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.mdx"))
+const Page15_1 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.en.mdx"))
+const Page16 = React.lazy(() => import("./work/articles/MediationFamilliale/page.mdx"))
+const Page16_1 = React.lazy(() => import("./work/articles/MediationFamilliale/page.en.mdx"))
+const Page17 = React.lazy(() => import("./work/articles/Minervois/page.mdx"))
+const Page17_1 = React.lazy(() => import("./work/articles/Minervois/page.en.mdx"))
+const Page18 = React.lazy(() => import("./work/articles/SnowRobots/page.mdx"))
+const Page19 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
+const Page19_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
+const Page20 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
+const Page20_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
+const Page21 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
 
 export default function App({ lang }: { lang?: string }) {
     const fb0 = intl(<Loading0/>, {"en": <Loading0_1/>}, lang)
@@ -38,38 +42,51 @@ export default function App({ lang }: { lang?: string }) {
     const pg0 = Page0
     const ly1 = Layout1
     const pg1 = Page1
-    const pg3 = Page3
-    const ly5 = Layout5
-    const pg5 = Page5
-    const ly6 = Layout6
-    const pg7 = intl(Page7, {"en": Page7_1}, lang)
-    const pg8 = intl(Page8, {"en": Page8_1}, lang)
-    const pg9 = intl(Page9, {"en": Page9_1}, lang)
-    const pg10 = intl(Page10, {"en": Page10_1}, lang)
-    const pg11 = intl(Page11, {"en": Page11_1}, lang)
+    const ly2 = Layout2
+    const pg4 = Page4
+    const pg6 = Page6
+    const pg8 = Page8
+    const ly10 = Layout10
+    const pg10 = Page10
+    const ly11 = Layout11
     const pg12 = intl(Page12, {"en": Page12_1}, lang)
     const pg13 = intl(Page13, {"en": Page13_1}, lang)
     const pg14 = intl(Page14, {"en": Page14_1}, lang)
-    const pg15 = Page15
+    const pg15 = intl(Page15, {"en": Page15_1}, lang)
+    const pg16 = intl(Page16, {"en": Page16_1}, lang)
+    const pg17 = intl(Page17, {"en": Page17_1}, lang)
+    const pg18 = Page18
+    const pg19 = intl(Page19, {"en": Page19_1}, lang)
+    const pg20 = intl(Page20, {"en": Page20_1}, lang)
+    const pg21 = Page21
     return (
         <Route path="/" Page={pg0} Layout={ly0} fallback={fb0}>
             <Route path="/blog" Page={pg1} Layout={ly1} fallback={fb0}>
-                <Route path="/blog/math" fallback={fb0}>
-                    <Route path="/blog/math/CrossingBoats" Page={pg3} fallback={fb0} />
+                <Route path="/blog/articles" Layout={ly2} fallback={fb0}>
+                    <Route path="/blog/articles/blender" fallback={fb0}>
+                        <Route path="/blog/articles/blender/Volume" Page={pg4} fallback={fb0} />
+                    </Route>
+                    <Route path="/blog/articles/math" fallback={fb0}>
+                        <Route path="/blog/articles/math/CrossingBoats" Page={pg6} fallback={fb0} />
+                    </Route>
+                    <Route path="/blog/articles/rust" fallback={fb0}>
+                        <Route path="/blog/articles/rust/Fern" Page={pg8} fallback={fb0} />
+                    </Route>
                 </Route>
             </Route>
             <Route path="/contact" fallback={fb0} />
-            <Route path="/work" Page={pg5} Layout={ly5} fallback={fb0}>
-                <Route path="/work/articles" Layout={ly6} fallback={fb0}>
-                    <Route path="/work/articles/Akonolinga" Page={pg7} fallback={fb0} />
-                    <Route path="/work/articles/ApiHrGraph" Page={pg8} fallback={fb0} />
-                    <Route path="/work/articles/FrancaisFacile" Page={pg9} fallback={fb0} />
-                    <Route path="/work/articles/HandsOnWebGL" Page={pg10} fallback={fb0} />
-                    <Route path="/work/articles/MediationFamilliale" Page={pg11} fallback={fb0} />
-                    <Route path="/work/articles/Minervois" Page={pg12} fallback={fb0} />
-                    <Route path="/work/articles/Tournus" Page={pg13} fallback={fb0} />
-                    <Route path="/work/articles/TrailTar" Page={pg14} fallback={fb0} />
-                    <Route path="/work/articles/VoughtTower" Page={pg15} fallback={fb0} />
+            <Route path="/work" Page={pg10} Layout={ly10} fallback={fb0}>
+                <Route path="/work/articles" Layout={ly11} fallback={fb0}>
+                    <Route path="/work/articles/Akonolinga" Page={pg12} fallback={fb0} />
+                    <Route path="/work/articles/ApiHrGraph" Page={pg13} fallback={fb0} />
+                    <Route path="/work/articles/FrancaisFacile" Page={pg14} fallback={fb0} />
+                    <Route path="/work/articles/HandsOnWebGL" Page={pg15} fallback={fb0} />
+                    <Route path="/work/articles/MediationFamilliale" Page={pg16} fallback={fb0} />
+                    <Route path="/work/articles/Minervois" Page={pg17} fallback={fb0} />
+                    <Route path="/work/articles/SnowRobots" Page={pg18} fallback={fb0} />
+                    <Route path="/work/articles/Tournus" Page={pg19} fallback={fb0} />
+                    <Route path="/work/articles/TrailTar" Page={pg20} fallback={fb0} />
+                    <Route path="/work/articles/VoughtTower" Page={pg21} fallback={fb0} />
                 </Route>
             </Route>
         </Route>

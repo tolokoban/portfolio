@@ -19,9 +19,8 @@ export default function Vignettes({
     return (
         <div className={join(className, Style.Vignettes)}>
             {images.map((name) => (
-                <a href={`#/${prefix}/${name}`}>
+                <a href={`#/${prefix}/${name}`} key={name}>
                     <Image
-                        key={name}
                         alt={name}
                         name={`${prefix}/@/${name}`}
                         size={[320, 240]}

@@ -4,6 +4,7 @@ import Gestures, { PointerMoveState } from "@/webgl2/util/gesture/gesture"
 import React from "react"
 import Style from "./InfinitePlaneDemo.module.css"
 import InfinitePlanPainter from "./painter"
+import { requestFullscreen } from "@/utils/fullscreen"
 
 export interface InfinitePlanDemoProps {
     className?: string
@@ -71,7 +72,5 @@ function makePointerMoveHandler(
 
 function handleFullscreen(evt: React.MouseEvent<HTMLCanvasElement>) {
     const canvas = evt.target as HTMLCanvasElement
-    canvas.requestFullscreen({
-        navigationUI: "hide",
-    })
+    requestFullscreen(canvas)
 }

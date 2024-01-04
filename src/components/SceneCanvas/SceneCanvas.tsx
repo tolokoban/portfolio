@@ -1,6 +1,7 @@
 import React from "react"
 import Scene from "../../webgl2/scene/scene"
 import Style from "./SceneCanvas.module.css"
+import { requestFullscreen } from "@/utils/fullscreen"
 
 export interface SceneCanvasProps {
     className?: string
@@ -22,7 +23,7 @@ export default function SceneCanvas({
         if (!canvas) return
 
         const handleFullscreen = () => {
-            canvas.requestFullscreen()
+            requestFullscreen(canvas)
         }
         canvas.addEventListener("dblclick", handleFullscreen)
         const scene = new Scene(canvas, {

@@ -4,12 +4,13 @@ export default function WorkPage() {
     return (
         <div>
             <Vignettes
-                prefix="blog"
+                prefix="blog/articles"
                 images={[
                     "math/CrossingBoats",
-                    "game/ColorGuess",
-                    "webgl/InfinitePlane",
+                    // "game/ColorGuess",
+                    // "webgl/InfinitePlane",
                     "rust/Fern",
+                    // "blender/Volume",
                 ]}
             />
         </div>

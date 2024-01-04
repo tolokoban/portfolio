@@ -26,7 +26,7 @@
 
 .Article > footer {
     bottom: 0;
-    background: linear-gradient(to top, #ddd, transparent);
+    background: linear-gradient(to top, #000, transparent);
 }
 
 .Article blockquote {

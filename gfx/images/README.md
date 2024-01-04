@@ -39,4 +39,4 @@ interface ImageOptimizationSettings {
 }
 ```
 
-If an attribute is not defined, then the corresponding pair of images is not generated.
+If an attribute is not defined, then the corresponding image is not generated.

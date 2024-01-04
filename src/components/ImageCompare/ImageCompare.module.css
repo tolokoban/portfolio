@@ -1,0 +1,67 @@
+div.imagecompare {
+    position: relative;
+    padding: 0;
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+    background: none;
+    backdrop-filter: none;
+}
+
+.imagecompare > div {
+    position: relative;
+    box-shadow: 0 0 0 0.25em #fff;
+}
+
+.imagecompare > div > picture {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+}
+
+.imagecompare > div > picture > img {
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes swipeAnim {
+    0% {
+        clip-path: inset(0 0 0 0);
+    }
+    50% {
+        clip-path: inset(0 0 0 100%);
+    }
+    100% {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.anim-swipe {
+    animation: swipeAnim 10s linear infinite;
+}
+
+@keyframes fadeAnim {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.anim-fade {
+    animation: fadeAnim 10s linear infinite;
+}

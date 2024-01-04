@@ -1,13 +1,13 @@
 import React from "react"
 import EmptyPNG from "./empty.png"
 import Style from "./Image.module.css"
+import { requestFullscreen } from "@/utils/fullscreen"
 
 export interface ImageProps {
     className?: string
     name: string
     alt: string
     size?: [width: number, height: number]
-    wide?: boolean
     onClick?(): void
     children?: React.ReactNode
 }
@@ -19,7 +19,6 @@ export default function Image({
     size = [640, 480],
     onClick,
     children,
-    wide = false,
 }: ImageProps) {
     const ref = React.useRef<null | HTMLDivElement>(null)
     const inViewPort = useIsInViewPort(ref.current)
@@ -35,7 +34,17 @@ export default function Image({
     const srcMini = `${prefix}${name}.mini.${extension}`
     const handleClick = () => {
         if (onClick) onClick()
-        else setFullscreen(true)
+        else {
+            setFullscreen(!fullscreen)
+            const div = ref.current
+            if (!div) return
+
+            try {
+                console.log("handleClick")
+                if (!fullscreen) requestFullscreen(div)
+                else if (document.fullscreenElement) document.exitFullscreen()
+            } catch (ex) {}
+        }
     }
     const handleError = () => {
         console.error("Unable to load image:", src)
@@ -49,45 +58,55 @@ export default function Image({
                 opacity: loadedBlur ? 1 : 0,
                 width: `min(100%, ${width}px)`,
             }}
+            onClick={handleClick}
         >
-            <div
-                style={{
-                    position: "static",
-                    width: "100%",
-                    height: 0,
-                    paddingTop: `${(100 * height) / width}%`,
-                }}
-            ></div>
-            <img
-                src={inViewPort ? srcBlur : EmptyPNG}
-                style={{ filter: "blur(24px)" }}
-                alt={alt}
-                width={width}
-                height={height}
-                onError={handleError}
-                onLoad={() => setLoadedBlur(true)}
-                onClick={handleClick}
-            />
-            {inViewPort && (
-                <img
-                    className={Style.Mini}
-                    src={srcMini}
-                    style={{ opacity: loadedMini ? 1 : 0 }}
-                    alt={alt}
-                    width={width}
-                    height={height}
-                    onError={handleError}
-                    onLoad={() => setLoadedMini(true)}
-                />
-            )}
-            {children && <footer>{children}</footer>}
-            {!onClick && (
-                <div
-                    className={join(fullscreen || Style.hide)}
-                    onClick={() => setFullscreen(false)}
-                >
-                    <img src={src} alt={alt} onError={handleError} />
+            {fullscreen && (
+                <div className={Style.fullscreen}>
+                    <img src={src} />
+                    <img src={src} />
                 </div>
+            )}
+            {!fullscreen && (
+                <>
+                    <div
+                        style={{
+                            position: "static",
+                            width: "100%",
+                            height: 0,
+                            paddingTop: `${(100 * height) / width}%`,
+                        }}
+                    ></div>
+                    <img
+                        src={inViewPort ? srcBlur : EmptyPNG}
+                        style={{ filter: "blur(24px)" }}
+                        alt={alt}
+                        width={width}
+                        height={height}
+                        onError={handleError}
+                        onLoad={() => setLoadedBlur(true)}
+                    />
+                    {inViewPort && (
+                        <img
+                            className={Style.Mini}
+                            src={srcMini}
+                            style={{ opacity: loadedMini ? 1 : 0 }}
+                            alt={alt}
+                            width={width}
+                            height={height}
+                            onError={handleError}
+                            onLoad={() => setLoadedMini(true)}
+                        />
+                    )}
+                    {children && <footer>{children}</footer>}
+                    {!onClick && (
+                        <div
+                            className={join(fullscreen || Style.hide)}
+                            onClick={() => setFullscreen(false)}
+                        >
+                            <img src={src} alt={alt} onError={handleError} />
+                        </div>
+                    )}
+                </>
             )}
         </div>
     )
