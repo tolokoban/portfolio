@@ -7,9 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             {children}
             <header>
                 <div>
-                    <a href="#/work">Work</a>
-                    <a href="#/blog">Blog</a>
-                    <a href="#/contact">Contact</a>
+                    <a href="#/">🡸</a>
                 </div>
                 <LanguageSelector />
             </header>

@@ -1,0 +1,8 @@
+.contact {
+    all: inherit;
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: underline;
+    font-weight: bold;
+    color: var(--theme-color-accent);
+}

@@ -10,10 +10,10 @@
     color: #fffd;
 }
 
-.Article > div > * {
+/* .Article > div > * {
     background-color: #000a;
     backdrop-filter: blur(5px);
-}
+} */
 
 .Article > footer {
     position: fixed;

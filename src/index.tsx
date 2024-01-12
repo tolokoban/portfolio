@@ -10,8 +10,8 @@ import { Theme } from "./ui"
 import "./index.css"
 
 async function start() {
-    await FontDosis.load()
-
+    FontDosis.load300()
+    FontDosis.load700()
     const theme = new Theme()
     theme.apply()
     const container = document.getElementById("app")

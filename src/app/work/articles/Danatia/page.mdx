@@ -1,0 +1,31 @@
+import Final from "./final.mp4"
+import MakingOf from "./making-of.mp4"
+import Image from "@/components/Image"
+import ImageCompare from "@/components/ImageCompare"
+
+# Danatia
+
+<Image
+    name="work/articles/danatia/splash"
+    alt="Rendu final des robots dans la neige"
+    size={[1920, 1080]}
+>
+    Danatia anniversary
+</Image>
+
+[Danatia](https://cavalcadeur.itch.io/danatia) est un jeu vidéo qui utilise des
+sprites 2D créés par l'artiste [**La saison du croissant**](https://cavalcadeur.itch.io/).
+
+Notre projet a été de créer une vidéo promotionnelle pour l'anniversaire du jeu.
+
+<video src={Final} controls muted />
+
+Le projet a été réalisé en **Blender** pour la partie 3D, et **Krita** pour les textures.
+
+<ImageCompare
+    size={[667, 551]}
+    images={["closeup-1", "closeup-2"]}
+    path="work/articles/danatia"
+/>
+
+<video src={MakingOf} controls muted autoPlay loop />

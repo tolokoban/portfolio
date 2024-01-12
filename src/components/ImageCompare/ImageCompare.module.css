@@ -6,6 +6,7 @@ div.imagecompare {
     place-items: center;
     background: none;
     backdrop-filter: none;
+    margin: 0.5em;
 }
 
 .imagecompare > div {
