@@ -7,7 +7,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             <main>{children}</main>
             <header>
                 <div>
-                    <a href="#/">🡸</a>
+                    <a href="#/">Back</a>
                 </div>
                 <LanguageSelector />
             </header>

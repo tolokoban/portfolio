@@ -1,4 +1,5 @@
 .main {
+    --custom-width: calc(min(95vw, 680px));
     position: absolute;
     left: 0;
     top: 0;
@@ -8,13 +9,18 @@
     background-color: #00349a;
     background-image: url(@/gfx/blue-print.jpg);
     background-size: cover;
+    background-position: center;
     display: grid;
-    place-content: center;
+    grid-template-columns: 1fr min(680px, 95vw) 1fr;
     --theme-color-accent: #cc8700;
 }
 
+.main > * {
+    grid-column: 2/3;
+}
+
 .main > header {
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0;
     width: 100%;
@@ -39,7 +45,6 @@
     padding: 0 1em;
     transition: 0.3s all;
     border-radius: 999vmax;
-    font-size: 150%;
 }
 
 .main > header a:hover {
@@ -56,10 +61,15 @@ video {
 }
 
 .main main {
+    display: block;
+    max-width: 100%;
+    width: 100%;
     color: #fff;
-    max-width: 680px;
-    background-color: #000d;
+    background-color: #000b;
     padding: 1em;
+    margin: 25vh 0 95vh 0;
+    grid-column: 2/3;
+    border-radius: 0.5em;
 }
 
 .main main em {
