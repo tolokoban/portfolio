@@ -30,6 +30,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.25em 0.5em;
+    background: linear-gradient(to top, transparent, #1453cebb 80%, #1453ce);
 }
 
 .main > header a,
