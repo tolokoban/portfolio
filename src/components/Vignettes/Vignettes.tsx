@@ -16,26 +16,10 @@ export default function Vignettes({
     prefix = "",
     images,
 }: VignettesProps) {
-    const radius = 0
-    const angle = 10
     return (
         <div className={join(className, Style.Vignettes)}>
             {images.map((name, index) => (
-                <a
-                    href={`#/${prefix}/${name}`}
-                    key={name}
-                    style={{
-                        width: "320px",
-                        height: "240px",
-                        transform: `translate(${
-                            radius * Math.cos(Math.random() * index * 2.451)
-                        }%,${
-                            radius * Math.cos(Math.random() * index * 3.704)
-                        }%) rotate(${
-                            angle * Math.cos(Math.random() * index * 7.458)
-                        }deg)`,
-                    }}
-                >
+                <a href={`#/${prefix}/${name}`} key={name}>
                     <Image
                         alt={name}
                         name={`${prefix}/@/${name}`}

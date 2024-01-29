@@ -11,6 +11,8 @@ div.Vignettes > a {
     position: static;
     display: inline-block;
     cursor: pointer;
+    width: 320px;
+    height: 240px;
 }
 
 .Vignettes > a > div {
