@@ -1,7 +1,6 @@
 import React from "react"
 import Vignettes from "../Vignettes"
 import Style from "./Welcome.module.css"
-import Contact from "../Contact"
 
 export interface WelcomeProps {
     className?: string
@@ -36,7 +35,7 @@ export default function Welcome({ className }: WelcomeProps) {
                                 font: "16px sans-serif",
                             }}
                         >
-                            <g text-anchor="middle" dominant-baseline="middle">
+                            <g textAnchor="middle" dominantBaseline="middle">
                                 <text fill="currentColor">Tolokoban</text>
                             </g>
                         </svg>
@@ -45,6 +44,7 @@ export default function Welcome({ className }: WelcomeProps) {
                 <Vignettes
                     prefix="work/articles"
                     images={[
+                        "Motor",
                         "Minervois",
                         "Fern",
                         "Akonolinga",

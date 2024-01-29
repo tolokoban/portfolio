@@ -10,7 +10,7 @@ export default function Article({ className, children }: ArticleProps) {
     const [lang, setLang] = useLang()
     return (
         <div className={join(className, Style.Article)}>
-            <div className={Style.Grid}>{children}</div>
+            <div>{children}</div>
             <footer></footer>
         </div>
     )

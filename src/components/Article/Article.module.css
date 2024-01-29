@@ -6,14 +6,9 @@
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow: auto;
     color: #fffd;
+    margin: 64px 0 128px 0;
 }
-
-/* .Article > div > * {
-    background-color: #000a;
-    backdrop-filter: blur(5px);
-} */
 
 .Article > footer {
     position: fixed;
@@ -35,58 +30,52 @@
     font-style: italic;
 }
 
-.Grid {
-    display: grid;
-    grid-template-columns: 1fr 390px 390px 1fr;
-    margin: 64px 0;
-}
-
-.Grid > * {
+.Article > * {
     grid-column: 2/4;
 }
 
-.Grid > :global(*.full-width) {
+.Article > :global(*.full-width) {
     grid-column: 1/5;
     padding: 0.5em;
 }
 
-.Grid > :global(*.margin-right) {
+.Article > :global(*.margin-right) {
     grid-column: 4/5;
     padding: 1em;
 }
 
-.Grid > :global(*.margin-left) {
+.Article > :global(*.margin-left) {
     grid-column: 1/2;
     padding: 1em;
 }
 
 @media (max-width: 1200px) {
-    .Grid > :global(*.margin-right) {
+    .Article > :global(*.margin-right) {
         grid-column: 2/4;
     }
 
-    .Grid > :global(*.margin-left) {
+    .Article > :global(*.margin-left) {
         grid-column: 2/4;
     }
 }
 
 @media (max-width: 800px) {
-    .Grid {
+    .Article {
         grid-template-columns: 10px 1fr 1fr 10px;
     }
 }
 
-.Grid h1,
-.Grid h2,
-.Grid h3 {
+.Article h1,
+.Article h2,
+.Article h3 {
     display: block;
     position: relative;
     padding: 0 0 0 0.5em;
 }
 
-.Grid h1::after,
-.Grid h2::after,
-.Grid h3::after {
+.Article h1::after,
+.Article h2::after,
+.Article h3::after {
     content: "";
     position: absolute;
     left: 0;
@@ -96,16 +85,16 @@
     background: linear-gradient(to right, currentcolor, transparent);
 }
 
-.Grid h1 {
+.Article h1 {
     font-size: 145%;
 }
 
-.Grid h2 {
+.Article h2 {
     font-size: 130%;
     margin-left: 1em;
 }
 
-.Grid h3 {
+.Article h3 {
     font-size: 115%;
     margin-left: 2em;
 }

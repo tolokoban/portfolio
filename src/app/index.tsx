@@ -1,7 +1,7 @@
 /**
  * WARNING! this file has been generated automatically.
  * Please do not edit it because it will probably be overwritten.
- * 2024-01-29T16:36:04.837Z
+ * 2024-01-29T19:04:51.265Z
  */
 import React from "react"
 import Layout0 from "./layout"
@@ -33,12 +33,14 @@ const Page17 = React.lazy(() => import("./work/articles/MediationFamilliale/page
 const Page17_1 = React.lazy(() => import("./work/articles/MediationFamilliale/page.en.mdx"))
 const Page18 = React.lazy(() => import("./work/articles/Minervois/page.mdx"))
 const Page18_1 = React.lazy(() => import("./work/articles/Minervois/page.en.mdx"))
-const Page19 = React.lazy(() => import("./work/articles/SnowRobots/page.mdx"))
-const Page20 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
-const Page20_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
-const Page21 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
-const Page21_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
-const Page22 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
+const Page19 = React.lazy(() => import("./work/articles/Motor/page.mdx"))
+const Page19_1 = React.lazy(() => import("./work/articles/Motor/page.en.mdx"))
+const Page20 = React.lazy(() => import("./work/articles/SnowRobots/page.mdx"))
+const Page21 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
+const Page21_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
+const Page22 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
+const Page22_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
+const Page23 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
 
 export default function App({ lang }: { lang?: string }) {
     const fb0 = intl(<Loading0/>, {"en": <Loading0_1/>}, lang)
@@ -62,10 +64,11 @@ export default function App({ lang }: { lang?: string }) {
     const pg16 = intl(Page16, {"en": Page16_1}, lang)
     const pg17 = intl(Page17, {"en": Page17_1}, lang)
     const pg18 = intl(Page18, {"en": Page18_1}, lang)
-    const pg19 = Page19
-    const pg20 = intl(Page20, {"en": Page20_1}, lang)
+    const pg19 = intl(Page19, {"en": Page19_1}, lang)
+    const pg20 = Page20
     const pg21 = intl(Page21, {"en": Page21_1}, lang)
-    const pg22 = Page22
+    const pg22 = intl(Page22, {"en": Page22_1}, lang)
+    const pg23 = Page23
     return (
         <Route path="/" Page={pg0} Layout={ly0} fallback={fb0}>
             <Route path="/blog" Page={pg1} Layout={ly1} fallback={fb0}>
@@ -90,10 +93,11 @@ export default function App({ lang }: { lang?: string }) {
                     <Route path="/work/articles/HandsOnWebGL" Page={pg16} fallback={fb0} />
                     <Route path="/work/articles/MediationFamilliale" Page={pg17} fallback={fb0} />
                     <Route path="/work/articles/Minervois" Page={pg18} fallback={fb0} />
-                    <Route path="/work/articles/SnowRobots" Page={pg19} fallback={fb0} />
-                    <Route path="/work/articles/Tournus" Page={pg20} fallback={fb0} />
-                    <Route path="/work/articles/TrailTar" Page={pg21} fallback={fb0} />
-                    <Route path="/work/articles/VoughtTower" Page={pg22} fallback={fb0} />
+                    <Route path="/work/articles/Motor" Page={pg19} fallback={fb0} />
+                    <Route path="/work/articles/SnowRobots" Page={pg20} fallback={fb0} />
+                    <Route path="/work/articles/Tournus" Page={pg21} fallback={fb0} />
+                    <Route path="/work/articles/TrailTar" Page={pg22} fallback={fb0} />
+                    <Route path="/work/articles/VoughtTower" Page={pg23} fallback={fb0} />
                 </Route>
             </Route>
         </Route>
