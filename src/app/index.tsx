@@ -1,9 +1,21 @@
 /**
+ * build-react-routes
+ *
  * WARNING! this file has been generated automatically.
  * Please do not edit it because it will probably be overwritten.
- * 2024-01-29T19:04:51.265Z
+ *
+ * If you find a bug or if you need an improvement, please fill an issue:
+ * https://github.com/tolokoban/build-react-routes/issues
  */
+
+export * from "./routes"
+export * from "./types"
+
 import React from "react"
+
+import { matchRoute, useRouteContext, ROUTES } from "./routes"
+import { RouteMatch, RoutePath } from "./types"
+
 import Layout0 from "./layout"
 import Layout1 from "./blog/layout"
 import Layout2 from "./blog/articles/layout"
@@ -27,21 +39,24 @@ const Page13 = React.lazy(() => import("./work/articles/Danatia/page.mdx"))
 const Page14 = React.lazy(() => import("./work/articles/Fern/page.mdx"))
 const Page15 = React.lazy(() => import("./work/articles/FrancaisFacile/page.mdx"))
 const Page15_1 = React.lazy(() => import("./work/articles/FrancaisFacile/page.en.mdx"))
-const Page16 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.mdx"))
-const Page16_1 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.en.mdx"))
-const Page17 = React.lazy(() => import("./work/articles/MediationFamilliale/page.mdx"))
-const Page17_1 = React.lazy(() => import("./work/articles/MediationFamilliale/page.en.mdx"))
-const Page18 = React.lazy(() => import("./work/articles/Minervois/page.mdx"))
-const Page18_1 = React.lazy(() => import("./work/articles/Minervois/page.en.mdx"))
-const Page19 = React.lazy(() => import("./work/articles/Motor/page.mdx"))
-const Page19_1 = React.lazy(() => import("./work/articles/Motor/page.en.mdx"))
-const Page20 = React.lazy(() => import("./work/articles/SnowRobots/page.mdx"))
-const Page21 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
-const Page21_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
-const Page22 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
-const Page22_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
-const Page23 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
+const Page16 = React.lazy(() => import("./work/articles/Fredo50/page.mdx"))
+const Page16_1 = React.lazy(() => import("./work/articles/Fredo50/page.en.mdx"))
+const Page17 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.mdx"))
+const Page17_1 = React.lazy(() => import("./work/articles/HandsOnWebGL/page.en.mdx"))
+const Page18 = React.lazy(() => import("./work/articles/MediationFamilliale/page.mdx"))
+const Page18_1 = React.lazy(() => import("./work/articles/MediationFamilliale/page.en.mdx"))
+const Page19 = React.lazy(() => import("./work/articles/Minervois/page.mdx"))
+const Page19_1 = React.lazy(() => import("./work/articles/Minervois/page.en.mdx"))
+const Page20 = React.lazy(() => import("./work/articles/Motor/page.mdx"))
+const Page20_1 = React.lazy(() => import("./work/articles/Motor/page.en.mdx"))
+const Page21 = React.lazy(() => import("./work/articles/SnowRobots/page.mdx"))
+const Page22 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
+const Page22_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
+const Page23 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
+const Page23_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
+const Page24 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function App({ lang }: { lang?: string }) {
     const fb0 = intl(<Loading0/>, {"en": <Loading0_1/>}, lang)
     const ly0 = Layout0
@@ -65,10 +80,11 @@ export default function App({ lang }: { lang?: string }) {
     const pg17 = intl(Page17, {"en": Page17_1}, lang)
     const pg18 = intl(Page18, {"en": Page18_1}, lang)
     const pg19 = intl(Page19, {"en": Page19_1}, lang)
-    const pg20 = Page20
-    const pg21 = intl(Page21, {"en": Page21_1}, lang)
+    const pg20 = intl(Page20, {"en": Page20_1}, lang)
+    const pg21 = Page21
     const pg22 = intl(Page22, {"en": Page22_1}, lang)
-    const pg23 = Page23
+    const pg23 = intl(Page23, {"en": Page23_1}, lang)
+    const pg24 = Page24
     return (
         <Route path="/" Page={pg0} Layout={ly0} fallback={fb0}>
             <Route path="/blog" Page={pg1} Layout={ly1} fallback={fb0}>
@@ -90,117 +106,26 @@ export default function App({ lang }: { lang?: string }) {
                     <Route path="/work/articles/Danatia" Page={pg13} fallback={fb0} />
                     <Route path="/work/articles/Fern" Page={pg14} fallback={fb0} />
                     <Route path="/work/articles/FrancaisFacile" Page={pg15} fallback={fb0} />
-                    <Route path="/work/articles/HandsOnWebGL" Page={pg16} fallback={fb0} />
-                    <Route path="/work/articles/MediationFamilliale" Page={pg17} fallback={fb0} />
-                    <Route path="/work/articles/Minervois" Page={pg18} fallback={fb0} />
-                    <Route path="/work/articles/Motor" Page={pg19} fallback={fb0} />
-                    <Route path="/work/articles/SnowRobots" Page={pg20} fallback={fb0} />
-                    <Route path="/work/articles/Tournus" Page={pg21} fallback={fb0} />
-                    <Route path="/work/articles/TrailTar" Page={pg22} fallback={fb0} />
-                    <Route path="/work/articles/VoughtTower" Page={pg23} fallback={fb0} />
+                    <Route path="/work/articles/Fredo50" Page={pg16} fallback={fb0} />
+                    <Route path="/work/articles/HandsOnWebGL" Page={pg17} fallback={fb0} />
+                    <Route path="/work/articles/MediationFamilliale" Page={pg18} fallback={fb0} />
+                    <Route path="/work/articles/Minervois" Page={pg19} fallback={fb0} />
+                    <Route path="/work/articles/Motor" Page={pg20} fallback={fb0} />
+                    <Route path="/work/articles/SnowRobots" Page={pg21} fallback={fb0} />
+                    <Route path="/work/articles/Tournus" Page={pg22} fallback={fb0} />
+                    <Route path="/work/articles/TrailTar" Page={pg23} fallback={fb0} />
+                    <Route path="/work/articles/VoughtTower" Page={pg24} fallback={fb0} />
                 </Route>
             </Route>
         </Route>
     )
 }
 
-function useHash() {
-    const [hash, setHash] = React.useState(
-        extractHash(window.location.toString())
-    )
-    React.useEffect(() => {
-        const handler = (event: HashChangeEvent) => {
-            const oldHash = extractHash(event.oldURL)
-            const newHash = extractHash(event.newURL)
-            const absHash = ensureAbsoluteHash(newHash, oldHash)
-            if (absHash !== newHash) {
-                history.replaceState({}, "", `#${absHash}`)
-            }
-            setHash(absHash)
-        }
-        window.addEventListener("hashchange", handler)
-        return () => window.removeEventListener("hashchange", handler)
-    }, [])
-    return hash
-}
-
-function extractHash(url: string) {
-    const hash = new URL(url).hash
-    if (!hash) return "/"
-
-    return hash.startsWith("#") ? hash.substring(1) : hash
-}
-
-function ensureAbsoluteHash(newHash: string, oldHash: string) {
-    if (newHash.startsWith("/")) return newHash
-
-    let hash = newHash
-    while (hash.startsWith("./")) {
-        hash = hash.substring("./".length)
-    }
-    const path = oldHash.split("/").filter(nonEmpty)
-    for (const item of newHash.split("/")) {
-        if (item === "..") {
-            if (path.length > 0) path.pop()
-        } else {
-            path.push(item)
-        }
-    }
-    return `/${path.filter(nonEmpty).join("/")}`
-}
-
-function nonEmpty(s: unknown): s is string {
-    return typeof s === "string" && s.trim().length > 0
-}
-
-interface HashMatch {
-    params: { [name: string]: string }
-    full: boolean
-}
-
-let currentParams: Record<string, string> = {}
-
-export function useRouteParams(): Record<string, string> {
-    const [params, setParams] = React.useState(currentParams)
-    if (areDiffentParams(params, currentParams)) {
-        setParams(currentParams)
-    }
-    return params
-}
-
-function areDiffentParams(p1: Record<string, string>, p2: Record<string, string>): boolean {
-    const k1 = Object.keys(p1)
-    const k2 = Object.keys(p2)
-    if (k1.length !== k2.length) return true
-
-    for (const key of k1) {
-        if (p1[key] !== p2[key]) return true
-    }
-    return false
-}
-
-function match(hash: string, path: string): null | HashMatch {
-    const params: Record<string, string> = {}
-    const hashItems = hash.split("/").filter(nonEmpty)
-    const pathItems = path.split("/").filter(nonEmpty)
-    for (let i = 0; i < Math.min(hashItems.length, pathItems.length); i++) {
-        const hashItem = hashItems[i]
-        const pathItem = pathItems[i]
-        if (pathItem.startsWith("[")) {
-            const paramName = pathItem.substring(1, pathItem.length - 1)
-            params[paramName] = hashItem
-        } else if (hashItem !== pathItem) return null
-    }
-
-    currentParams = params
-    const full = hashItems.length === pathItems.length
-    return { full, params }
-}
-
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function intl<T extends PageComponent | ContainerComponent | JSX.Element>(
     page: T,
     translations: Record<string, T>,
-    lang = "", 
+    lang = ""
 ): T {
     const candidate1 = translations[lang]
     if (candidate1) return candidate1
@@ -226,6 +151,7 @@ interface RouteProps {
     Page?: PageComponent
     Layout?: ContainerComponent
     Template?: ContainerComponent
+    access?: (context: RouteMatch | null) => Promise<boolean>
 }
 
 function Route({
@@ -235,12 +161,35 @@ function Route({
     Page,
     Layout,
     Template,
+    access,
 }: RouteProps) {
-    const hash = useHash()
-    const m = match(hash, path)
+    const [authorized, setAuthorized] = React.useState<boolean | undefined>(
+        false
+    )
+    const context = useRouteContext()
+    const m = context && matchRoute(context.path, ROUTES[path as RoutePath])
+    React.useEffect(() => {
+        if (!context || !m) return
+
+        if (!access) {
+            setAuthorized(true)
+        } else {
+            setAuthorized(undefined)
+            access(context)
+                .then(setAuthorized)
+                .catch(ex => {
+                    console.error("Error in access() function:", ex)
+                    setAuthorized(false)
+                })
+
+        }
+    }, [access, context])
+
     if (!m) return null
 
-    if (m.full) {
+    if (!authorized) return fallback
+
+    if (m.distance === 0) {
         if (!Page) return null
 
         const element = Template ? (

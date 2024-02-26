@@ -7,7 +7,7 @@
     height: 100%;
     overflow: auto;
     background-color: #00349a;
-    background-image: url(@/gfx/blue-print.jpg);
+    background-image: url(@/gfx/blue-print.webp);
     background-size: 100%;
     background-position: left top;
     display: grid;
@@ -31,7 +31,7 @@
     align-items: center;
     padding: 0.125em 0.25em;
     /* background: linear-gradient(to top, transparent, #1453cebb 80%, #1453ce); */
-    background-image: url(@/gfx/blue-print.jpg);
+    background-image: url(@/gfx/blue-print.webp);
     background-size: 100%;
     background-position: left top;
     opacity: 0.8;

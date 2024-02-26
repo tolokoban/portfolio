@@ -1,0 +1,44 @@
+/**
+ * build-react-routes
+ *
+ * WARNING! this file has been generated automatically.
+ * Please do not edit it because it will probably be overwritten.
+ *
+ * If you find a bug or if you need an improvement, please fill an issue:
+ * https://github.com/tolokoban/build-react-routes/issues
+ */
+export type RoutePath =
+    | "/"
+    | "/blog"
+    | "/blog/articles"
+    | "/blog/articles/blender"
+    | "/blog/articles/blender/Volume"
+    | "/blog/articles/math"
+    | "/blog/articles/math/CrossingBoats"
+    | "/contact"
+    | "/work"
+    | "/work/articles"
+    | "/work/articles/Akonolinga"
+    | "/work/articles/ApiHrGraph"
+    | "/work/articles/Danatia"
+    | "/work/articles/Fern"
+    | "/work/articles/FrancaisFacile"
+    | "/work/articles/Fredo50"
+    | "/work/articles/HandsOnWebGL"
+    | "/work/articles/MediationFamilliale"
+    | "/work/articles/Minervois"
+    | "/work/articles/Motor"
+    | "/work/articles/SnowRobots"
+    | "/work/articles/Tournus"
+    | "/work/articles/TrailTar"
+    | "/work/articles/VoughtTower"
+
+export interface RouteMatch {
+    path: string
+    route: RoutePath
+    params: Record<string, string>
+    /**
+     * 0 means a perfect match.
+     */
+    distance: number
+}
