@@ -25,6 +25,7 @@ export type RoutePath =
     | "/work/articles/FrancaisFacile"
     | "/work/articles/Fredo50"
     | "/work/articles/HandsOnWebGL"
+    | "/work/articles/MarieLouise79"
     | "/work/articles/MediationFamilliale"
     | "/work/articles/Minervois"
     | "/work/articles/Motor"

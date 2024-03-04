@@ -9,6 +9,7 @@ export interface WelcomeProps {
 const TROMBINE = "images/trombine/trombine.webp"
 
 export default function Welcome({ className }: WelcomeProps) {
+    const [section, setSection] = React.useState("gfx")
     const [hint, setHint] = React.useState(true)
     const [trombineOpacity, setTrombineOpacity] = React.useState(0)
     React.useEffect(() => {
@@ -41,24 +42,50 @@ export default function Welcome({ className }: WelcomeProps) {
                         </svg>
                     </a>
                 </header>
+                <div className={Style.switch}>
+                    <div>
+                        <button
+                            className={join(
+                                section === "gfx" && Style.switchOn
+                            )}
+                            onClick={() => setSection("gfx")}
+                        >
+                            Grafix
+                        </button>
+                        <button
+                            className={join(
+                                section === "code" && Style.switchOn
+                            )}
+                            onClick={() => setSection("code")}
+                        >
+                            Code
+                        </button>
+                    </div>
+                </div>
                 <Vignettes
                     prefix="work/articles"
-                    images={[
-                        "Motor",
-                        "Minervois",
-                        "Fern",
-                        "Akonolinga",
-                        "Fredo50",
-                        "FrancaisFacile",
-                        "Danatia",
-                        "MediationFamilliale",
-                        "VoughtTower",
-                        "HandsOnWebGL",
-                        "TrailTar",
-                        "SnowRobots",
-                        "ApiHrGraph",
-                        "Tournus",
-                    ]}
+                    images={
+                        section === "gfx"
+                            ? [
+                                  "MarieLouise79",
+                                  "Motor",
+                                  "Fredo50",
+                                  "Danatia",
+                                  "VoughtTower",
+                                  "SnowRobots",
+                              ]
+                            : [
+                                  "Minervois",
+                                  "Fern",
+                                  "Akonolinga",
+                                  "FrancaisFacile",
+                                  "MediationFamilliale",
+                                  "HandsOnWebGL",
+                                  "TrailTar",
+                                  "ApiHrGraph",
+                                  "Tournus",
+                              ]
+                    }
                 />
                 <article>
                     <a href="#/contact">Contact</a>
