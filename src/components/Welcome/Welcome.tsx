@@ -67,25 +67,25 @@ export default function Welcome({ className }: WelcomeProps) {
                     images={
                         section === "gfx"
                             ? [
-                                "Wedding",
-                                "MarieLouise79",
-                                "Motor",
-                                "Fredo50",
-                                "Danatia",
-                                "VoughtTower",
-                                "SnowRobots",
+                                  "Wedding",
+                                  "MarieLouise79",
+                                  "Motor",
+                                  "Fredo50",
+                                  "Danatia",
+                                  "VoughtTower",
+                                  "SnowRobots",
                               ]
                             : [
-                                "Mug",
-                                "Minervois",
-                                "Fern",
-                                "Akonolinga",
-                                "FrancaisFacile",
-                                "MediationFamilliale",
-                                "HandsOnWebGL",
-                                "TrailTar",
-                                "ApiHrGraph",
-                                "Tournus",
+                                  "Minervois",
+                                  "Fern",
+                                  "Akonolinga",
+                                  "FrancaisFacile",
+                                  "MediationFamilliale",
+                                  "HandsOnWebGL",
+                                  "TrailTar",
+                                  "ApiHrGraph",
+                                  "Tournus",
+                                  "Mug",
                               ]
                     }
                 />

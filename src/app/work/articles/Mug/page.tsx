@@ -32,12 +32,12 @@ function useMountHandler() {
             })
         )
         const state = new TgdPainterState(context, {
-            // depth: "default",
-            depth: {
-                func: "LESS",
-                mask: true,
-                range: [0, 1],
-            },
+            depth: "default",
+            // depth: {
+            //     func: "LESS",
+            //     mask: true,
+            //     range: [0, 1],
+            // },
         })
         context.add(state)
         const camera = new TgdCameraPerspective({
