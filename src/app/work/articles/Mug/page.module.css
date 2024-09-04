@@ -1,0 +1,5 @@
+.main > canvas {
+    width: 100%;
+    aspect-ratio: 3/2;
+    box-shadow: 0 .25em .5em #000;
+}
