@@ -16,6 +16,7 @@ export type RoutePath =
     | "/blog/articles/math"
     | "/blog/articles/math/CrossingBoats"
     | "/contact"
+    | "/cv"
     | "/work"
     | "/work/articles"
     | "/work/articles/Akonolinga"
@@ -37,7 +38,7 @@ export type RoutePath =
     | "/work/articles/Wedding"
 
 export function isRoutePath(path: string): path is RoutePath {
-    return ["/","/blog","/blog/articles","/blog/articles/blender","/blog/articles/blender/Volume","/blog/articles/math","/blog/articles/math/CrossingBoats","/contact","/work","/work/articles","/work/articles/Akonolinga","/work/articles/ApiHrGraph","/work/articles/Danatia","/work/articles/Fern","/work/articles/FrancaisFacile","/work/articles/Fredo50","/work/articles/HandsOnWebGL","/work/articles/MarieLouise79","/work/articles/MediationFamilliale","/work/articles/Minervois","/work/articles/Motor","/work/articles/Mug","/work/articles/SnowRobots","/work/articles/Tournus","/work/articles/TrailTar","/work/articles/VoughtTower","/work/articles/Wedding"].includes(path)
+    return ["/","/blog","/blog/articles","/blog/articles/blender","/blog/articles/blender/Volume","/blog/articles/math","/blog/articles/math/CrossingBoats","/contact","/cv","/work","/work/articles","/work/articles/Akonolinga","/work/articles/ApiHrGraph","/work/articles/Danatia","/work/articles/Fern","/work/articles/FrancaisFacile","/work/articles/Fredo50","/work/articles/HandsOnWebGL","/work/articles/MarieLouise79","/work/articles/MediationFamilliale","/work/articles/Minervois","/work/articles/Motor","/work/articles/Mug","/work/articles/SnowRobots","/work/articles/Tournus","/work/articles/TrailTar","/work/articles/VoughtTower","/work/articles/Wedding"].includes(path)
 }
 
 export interface RouteMatch {

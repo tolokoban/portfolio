@@ -22,6 +22,7 @@ export const ROUTES: Record<RoutePath, string[]> = {
     "/blog/articles/math": ["/blog/articles/math"],
     "/blog/articles/math/CrossingBoats": ["/blog/articles/math/CrossingBoats"],
     "/contact": ["/contact"],
+    "/cv": ["/cv"],
     "/work": ["/work"],
     "/work/articles": ["/work/articles"],
     "/work/articles/Akonolinga": ["/work/articles/Akonolinga"],

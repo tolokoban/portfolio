@@ -31,8 +31,8 @@
     },
     "homepage": "https://github.com/tolokoban/snapshot-annotation#readme",
     "dependencies": {
-        "@tolokoban/tgd": "file:../tgd2",
         "@tolokoban/react-state": "^0.3.0",
+        "@tolokoban/tgd": "^2.0.12",
         "@tolokoban/type-guards": "^0.6.0",
         "colord": "^2.9.3",
         "react": "^18.3.1",
