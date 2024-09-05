@@ -10,7 +10,9 @@ export interface ContactProps {
 export default function Contact({ className, children }: ContactProps) {
     const [href, setHref] = React.useState("")
     React.useEffect(() => {
-        const mail = ["org", ".", "tolokoban", "@", "info"].reverse().join("")
+        const mail = ["org", ".", "tolokoban", "@", "contact"]
+            .reverse()
+            .join("")
         setHref(`mailto:${mail}`)
     }, [])
     return (

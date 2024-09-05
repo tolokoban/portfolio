@@ -33,8 +33,8 @@
     background: linear-gradient(to top, transparent, #1453cebb 80%, #1453ce);
 }
 
-.main > header a,
-.main > header a:visited {
+a,
+a:visited {
     color: var(--theme-color-accent);
     text-decoration: underline;
     text-decoration-color: mix-color(
@@ -43,18 +43,8 @@
         transparent 50%
     );
     font-weight: bold;
-    padding: 0 1em;
     transition: 0.3s all;
     border-radius: 999vmax;
-}
-
-.main > header a:hover {
-    background-color: mix-color(
-        in srgb,
-        var(--theme-color-accent),
-        transparent 50%
-    );
-    color: #0009;
 }
 
 video {

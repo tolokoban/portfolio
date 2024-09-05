@@ -9,7 +9,7 @@ export interface WelcomeProps {
 const TROMBINE = "images/trombine/trombine.webp"
 
 export default function Welcome({ className }: WelcomeProps) {
-    const [section, setSection] = React.useState("gfx")
+    const [section, setSection] = React.useState("code")
     const [hint, setHint] = React.useState(true)
     const [trombineOpacity, setTrombineOpacity] = React.useState(0)
     React.useEffect(() => {
@@ -76,6 +76,9 @@ export default function Welcome({ className }: WelcomeProps) {
                                   "SnowRobots",
                               ]
                             : [
+                                  "CircuitStudio",
+                                  "BBOP",
+                                  "Hippocampus",
                                   "Minervois",
                                   "Fern",
                                   "Akonolinga",
@@ -85,7 +88,6 @@ export default function Welcome({ className }: WelcomeProps) {
                                   "TrailTar",
                                   "ApiHrGraph",
                                   "Tournus",
-                                  "Mug",
                               ]
                     }
                 />

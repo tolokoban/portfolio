@@ -15,6 +15,10 @@
     --theme-color-accent: #cc8700;
 }
 
+.main img {
+    max-width: calc(100vw - 1em);
+}
+
 .main > * {
     grid-column: 2/3;
 }

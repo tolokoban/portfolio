@@ -1,14 +1,8 @@
-import Image from "@/components/Image"
+import Image from "./fern.avif"
 
 # Fougères fractales
 
-<Image
-    alt="Fougère fractale"
-    name="blog/articles//rust/fern"
-    size={[513, 1080]}
->
-    Une fougère fractale parmi d'autres
-</Image>
+<img src={Image} />
 
 Pour dessiner une fougère fractale, il faut partir d'un point en position `(0,0)`,
 lui appliquer une formule pour déterminer les coordonnées du point suivant, et
