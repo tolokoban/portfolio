@@ -45,6 +45,7 @@ export const ROUTES: Record<RoutePath, string[]> = {
     "/work/articles/Tournus": ["/work/articles/Tournus"],
     "/work/articles/TrailTar": ["/work/articles/TrailTar"],
     "/work/articles/VoughtTower": ["/work/articles/VoughtTower"],
+    "/work/articles/Webgl": ["/work/articles/Webgl"],
     "/work/articles/Wedding": ["/work/articles/Wedding"],
 }
 

@@ -36,6 +36,10 @@ export default function LayoutCV({ children }: { children: React.ReactNode }) {
                     Visualization engineer
                 </h1>
                 {children}
+                <hr />
+                <p>
+                    <a href="#/">Back to portfolio</a>.
+                </p>
             </div>
         </div>
     )

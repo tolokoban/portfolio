@@ -63,8 +63,9 @@ const Page28_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
 const Page29 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
 const Page29_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
 const Page30 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
-const Page31 = React.lazy(() => import("./work/articles/Wedding/page.mdx"))
-const Page31_1 = React.lazy(() => import("./work/articles/Wedding/page.en.mdx"))
+const Page31 = React.lazy(() => import("./work/articles/Webgl/page.mdx"))
+const Page32 = React.lazy(() => import("./work/articles/Wedding/page.mdx"))
+const Page32_1 = React.lazy(() => import("./work/articles/Wedding/page.en.mdx"))
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function App({ lang }: { lang?: string }) {
@@ -104,7 +105,8 @@ export default function App({ lang }: { lang?: string }) {
     const pg28 = intl(Page28, {"en": Page28_1}, lang)
     const pg29 = intl(Page29, {"en": Page29_1}, lang)
     const pg30 = Page30
-    const pg31 = intl(Page31, {"en": Page31_1}, lang)
+    const pg31 = Page31
+    const pg32 = intl(Page32, {"en": Page32_1}, lang)
     return (
         <Route path="/" Page={pg0} Layout={ly0} fallback={fb0} context={context}>
             <Route path="/blog" Page={pg1} Layout={ly1} fallback={fb0} context={context}>
@@ -142,7 +144,8 @@ export default function App({ lang }: { lang?: string }) {
                     <Route path="/work/articles/Tournus" Page={pg28} fallback={fb0} context={context}/>
                     <Route path="/work/articles/TrailTar" Page={pg29} fallback={fb0} context={context}/>
                     <Route path="/work/articles/VoughtTower" Page={pg30} fallback={fb0} context={context}/>
-                    <Route path="/work/articles/Wedding" Page={pg31} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/Webgl" Page={pg31} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/Wedding" Page={pg32} fallback={fb0} context={context}/>
                 </Route>
             </Route>
         </Route>
