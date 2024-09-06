@@ -76,6 +76,7 @@ export default function Welcome({ className }: WelcomeProps) {
                                   "SnowRobots",
                               ]
                             : [
+                                  "TP",
                                   "CircuitStudio",
                                   "BBOP",
                                   "Hippocampus",
