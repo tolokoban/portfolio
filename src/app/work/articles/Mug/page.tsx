@@ -53,44 +53,46 @@ function useMountHandler() {
             inertiaOrbit: 900,
         })
         context.paint()
-        TgdLoaderImage.images(
-            [1, 2, 3, 4, 5, 6].map((i) => `assets/mug/${i}.webp`)
-        )
-            .then(
-                ([
-                    imagePosX,
-                    imagePosY,
-                    imagePosZ,
-                    imageNegX,
-                    imageNegY,
-                    imageNegZ,
-                ]) => {
-                    const img = new Image()
-                    clear.add(
-                        new TgdPainterSkybox(context, {
-                            imagePosX: imagePosX ?? img,
-                            imagePosY: imagePosY ?? img,
-                            imagePosZ: imagePosZ ?? img,
-                            imageNegX: imageNegX ?? img,
-                            imageNegY: imageNegY ?? img,
-                            imageNegZ: imageNegZ ?? img,
-                        })
-                    )
-                }
-            )
-            .catch(console.error)
         TgdLoaderGlb.glb("assets/mug/mug.glb")
             .then((asset) => {
                 if (!asset) {
                     console.error("Unable to load the mug!")
                     return
                 }
-                state.add(
-                    new TgdPainterMeshGltf(context, {
-                        asset,
-                    })
-                )
+                const mesh = new TgdPainterMeshGltf(context, {
+                    asset,
+                })
+                state.add(mesh)
                 context.paint()
+                TgdLoaderImage.images(
+                    [1, 2, 3, 4, 5, 6].map((i) => `assets/mug/${i}.webp`)
+                )
+                    .then(
+                        ([
+                            imagePosX,
+                            imagePosY,
+                            imagePosZ,
+                            imageNegX,
+                            imageNegY,
+                            imageNegZ,
+                        ]) => {
+                            window.setTimeout(() => {
+                                const img = new Image()
+                                clear.add(
+                                    new TgdPainterSkybox(context, {
+                                        imagePosX: imagePosX ?? img,
+                                        imagePosY: imagePosY ?? img,
+                                        imagePosZ: imagePosZ ?? img,
+                                        imageNegX: imageNegX ?? img,
+                                        imageNegY: imageNegY ?? img,
+                                        imageNegZ: imageNegZ ?? img,
+                                    })
+                                )
+                                context.paint()
+                            }, 100)
+                        }
+                    )
+                    .catch(console.error)
             })
             .catch(console.error)
     }
