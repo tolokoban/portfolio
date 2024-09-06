@@ -58,14 +58,15 @@ const Page25 = React.lazy(() => import("./work/articles/Motor/page.mdx"))
 const Page25_1 = React.lazy(() => import("./work/articles/Motor/page.en.mdx"))
 const Page26 = React.lazy(() => import("./work/articles/Mug/page"))
 const Page27 = React.lazy(() => import("./work/articles/SnowRobots/page.mdx"))
-const Page28 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
-const Page28_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
-const Page29 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
-const Page29_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
-const Page30 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
-const Page31 = React.lazy(() => import("./work/articles/Webgl/page.mdx"))
-const Page32 = React.lazy(() => import("./work/articles/Wedding/page.mdx"))
-const Page32_1 = React.lazy(() => import("./work/articles/Wedding/page.en.mdx"))
+const Page28 = React.lazy(() => import("./work/articles/TP/page.mdx"))
+const Page29 = React.lazy(() => import("./work/articles/Tournus/page.mdx"))
+const Page29_1 = React.lazy(() => import("./work/articles/Tournus/page.en.mdx"))
+const Page30 = React.lazy(() => import("./work/articles/TrailTar/page.mdx"))
+const Page30_1 = React.lazy(() => import("./work/articles/TrailTar/page.en.mdx"))
+const Page31 = React.lazy(() => import("./work/articles/VoughtTower/page.mdx"))
+const Page32 = React.lazy(() => import("./work/articles/Webgl/page.mdx"))
+const Page33 = React.lazy(() => import("./work/articles/Wedding/page.mdx"))
+const Page33_1 = React.lazy(() => import("./work/articles/Wedding/page.en.mdx"))
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 export default function App({ lang }: { lang?: string }) {
@@ -102,11 +103,12 @@ export default function App({ lang }: { lang?: string }) {
     const pg25 = intl(Page25, {"en": Page25_1}, lang)
     const pg26 = Page26
     const pg27 = Page27
-    const pg28 = intl(Page28, {"en": Page28_1}, lang)
+    const pg28 = Page28
     const pg29 = intl(Page29, {"en": Page29_1}, lang)
-    const pg30 = Page30
+    const pg30 = intl(Page30, {"en": Page30_1}, lang)
     const pg31 = Page31
-    const pg32 = intl(Page32, {"en": Page32_1}, lang)
+    const pg32 = Page32
+    const pg33 = intl(Page33, {"en": Page33_1}, lang)
     return (
         <Route path="/" Page={pg0} Layout={ly0} fallback={fb0} context={context}>
             <Route path="/blog" Page={pg1} Layout={ly1} fallback={fb0} context={context}>
@@ -141,11 +143,12 @@ export default function App({ lang }: { lang?: string }) {
                     <Route path="/work/articles/Motor" Page={pg25} fallback={fb0} context={context}/>
                     <Route path="/work/articles/Mug" Page={pg26} fallback={fb0} context={context}/>
                     <Route path="/work/articles/SnowRobots" Page={pg27} fallback={fb0} context={context}/>
-                    <Route path="/work/articles/Tournus" Page={pg28} fallback={fb0} context={context}/>
-                    <Route path="/work/articles/TrailTar" Page={pg29} fallback={fb0} context={context}/>
-                    <Route path="/work/articles/VoughtTower" Page={pg30} fallback={fb0} context={context}/>
-                    <Route path="/work/articles/Webgl" Page={pg31} fallback={fb0} context={context}/>
-                    <Route path="/work/articles/Wedding" Page={pg32} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/TP" Page={pg28} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/Tournus" Page={pg29} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/TrailTar" Page={pg30} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/VoughtTower" Page={pg31} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/Webgl" Page={pg32} fallback={fb0} context={context}/>
+                    <Route path="/work/articles/Wedding" Page={pg33} fallback={fb0} context={context}/>
                 </Route>
             </Route>
         </Route>
