@@ -1,17 +1,22 @@
 import {
+    tgdActionCreateCameraInterpolation,
     TgdCameraPerspective,
     TgdContext,
     TgdControllerCameraOrbit,
+    tgdEasingFunctionOutBack,
     tgdFullscreenToggle,
     TgdLoaderGlb,
     TgdLoaderImage,
+    TgdPainterAxis,
     TgdPainterClear,
     TgdPainterGroup,
     TgdPainterMeshGltf,
     TgdPainterSkybox,
     TgdPainterState,
+    TgdQuat,
 } from "@tolokoban/tgd"
 import styles from "./page.module.css"
+import { makeMugPainter } from "./_/mug-painter"
 
 export default function PageMug() {
     const handleMount = useMountHandler()
@@ -44,11 +49,19 @@ function useMountHandler() {
             far: 1000,
             near: 0.1,
             fovy: Math.PI / 4,
-            zoom: 1,
+            zoom: 0.1,
             target: [0, 0, 10],
         })
         context.camera = camera
-        camera.face("+X+Z-Y")
+        camera.face("+X+Y+Z")
+        context.animSchedule({
+            action: tgdActionCreateCameraInterpolation(context.camera, {
+                zoom: 1,
+                orientation: new TgdQuat().face("+Y+Z+X"),
+            }),
+            duration: 1000,
+            easingFunction: tgdEasingFunctionOutBack,
+        })
         new TgdControllerCameraOrbit(context, {
             inertiaOrbit: 900,
         })
@@ -59,9 +72,10 @@ function useMountHandler() {
                     console.error("Unable to load the mug!")
                     return
                 }
-                const mesh = new TgdPainterMeshGltf(context, {
-                    asset,
-                })
+                // const mesh = new TgdPainterMeshGltf(context, {
+                //     asset,
+                // })
+                const mesh = makeMugPainter(context, { asset })
                 state.add(mesh)
                 context.paint()
                 TgdLoaderImage.images(
@@ -86,6 +100,12 @@ function useMountHandler() {
                                         imageNegX: imageNegX ?? img,
                                         imageNegY: imageNegY ?? img,
                                         imageNegZ: imageNegZ ?? img,
+                                    }),
+                                    new TgdPainterAxis(context, {
+                                        x: 0,
+                                        y: 0,
+                                        z: 0,
+                                        scale: 100,
                                     })
                                 )
                                 context.paint()

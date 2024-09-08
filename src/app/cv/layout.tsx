@@ -34,6 +34,10 @@ export default function LayoutCV({ children }: { children: React.ReactNode }) {
                     Frontend developer Fullstack
                     <br />
                     Visualization engineer
+                    <br />
+                    <small>
+                        <a href="#/">( Look at my portfolio )</a>
+                    </small>
                 </h1>
                 {children}
                 <hr />
