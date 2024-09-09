@@ -15,8 +15,9 @@ import {
     TgdPainterState,
     TgdQuat,
 } from "@tolokoban/tgd"
-import styles from "./page.module.css"
 import { makeMugPainter } from "./_/mug-painter"
+
+import styles from "./page.module.css"
 
 export default function PageMug() {
     const handleMount = useMountHandler()
