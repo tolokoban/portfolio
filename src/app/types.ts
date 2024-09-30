@@ -34,17 +34,18 @@ export type RoutePath =
     | "/work/articles/MediationFamilliale"
     | "/work/articles/Minervois"
     | "/work/articles/Motor"
-    | "/work/articles/Mug"
     | "/work/articles/SnowRobots"
     | "/work/articles/TP"
     | "/work/articles/Tournus"
+    | "/work/articles/TrailPassionBlibDisolve"
+    | "/work/articles/TrailPassionHologram"
     | "/work/articles/TrailTar"
     | "/work/articles/VoughtTower"
     | "/work/articles/Webgl"
     | "/work/articles/Wedding"
 
 export function isRoutePath(path: string): path is RoutePath {
-    return ["/","/blog","/blog/articles","/blog/articles/blender","/blog/articles/blender/Volume","/blog/articles/math","/blog/articles/math/CrossingBoats","/contact","/cv","/cv/employment","/work","/work/articles","/work/articles/Akonolinga","/work/articles/ApiHrGraph","/work/articles/BBOP","/work/articles/CircuitStudio","/work/articles/Danatia","/work/articles/Fern","/work/articles/FrancaisFacile","/work/articles/Fredo50","/work/articles/HandsOnWebGL","/work/articles/Hippocampus","/work/articles/MarieLouise79","/work/articles/MediationFamilliale","/work/articles/Minervois","/work/articles/Motor","/work/articles/Mug","/work/articles/SnowRobots","/work/articles/TP","/work/articles/Tournus","/work/articles/TrailTar","/work/articles/VoughtTower","/work/articles/Webgl","/work/articles/Wedding"].includes(path)
+    return ["/","/blog","/blog/articles","/blog/articles/blender","/blog/articles/blender/Volume","/blog/articles/math","/blog/articles/math/CrossingBoats","/contact","/cv","/cv/employment","/work","/work/articles","/work/articles/Akonolinga","/work/articles/ApiHrGraph","/work/articles/BBOP","/work/articles/CircuitStudio","/work/articles/Danatia","/work/articles/Fern","/work/articles/FrancaisFacile","/work/articles/Fredo50","/work/articles/HandsOnWebGL","/work/articles/Hippocampus","/work/articles/MarieLouise79","/work/articles/MediationFamilliale","/work/articles/Minervois","/work/articles/Motor","/work/articles/SnowRobots","/work/articles/TP","/work/articles/Tournus","/work/articles/TrailPassionBlibDisolve","/work/articles/TrailPassionHologram","/work/articles/TrailTar","/work/articles/VoughtTower","/work/articles/Webgl","/work/articles/Wedding"].includes(path)
 }
 
 export interface RouteMatch {

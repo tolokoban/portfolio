@@ -11,10 +11,7 @@ export default function LayoutCV({ children }: { children: React.ReactNode }) {
     const handleEMailAddress = (a: HTMLAnchorElement | null) => {
         if (!a) return
 
-        a.setAttribute(
-            "href",
-            "mailto:" + ["contact", "tolokoban.org"].join("@")
-        )
+        a.setAttribute("href", "mailto:" + ["info", "tolokoban.org"].join("@"))
     }
     return (
         <div className={styles.main}>
@@ -31,7 +28,7 @@ export default function LayoutCV({ children }: { children: React.ReactNode }) {
                     </a>
                 </header>
                 <h1>
-                    Frontend developer Fullstack
+                    Developer Fullstack
                     <br />
                     Visualization engineer
                     <br />
