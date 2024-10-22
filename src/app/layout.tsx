@@ -1,5 +1,7 @@
 import React from "react"
 
+import Background from "@/generated/backgrounds/pink-splash-wide"
+
 import Style from "./layout.module.css"
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -17,8 +19,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     }, [])
     return (
         <div className={Style.splash}>
-            <img src="splash.full.mini.jpg" style={{ opacity: opacityMini }} />
-            <img src="splash.full.jpg" style={{ opacity: opacityFull }} />
+            <Background type="background" />
+            {/* <img src="splash.full.mini.jpg" style={{ opacity: opacityMini }} />
+            <img src="splash.full.jpg" style={{ opacity: opacityFull }} /> */}
             <div>{children}</div>
         </div>
     )

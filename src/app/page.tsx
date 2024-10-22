@@ -1,5 +1,5 @@
-import WorkWelcome from "../components/Welcome"
+import Welcome from "./_/Welcome"
 
 export default function Page() {
-    return <WorkWelcome />
+    return <Welcome />
 }

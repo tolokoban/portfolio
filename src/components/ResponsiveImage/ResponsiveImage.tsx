@@ -1,31 +1,48 @@
-import React from "react";
+import React from "react"
 
-import Styles from "./ResponsiveImage.module.css";
+import Styles from "./ResponsiveImage.module.css"
 
-export interface ResponsiceImageProps {
-  className?: string;
-  png: string;
-  webp: string;
-  avif: string;
-  pngMedium: string;
-  webpMedium: string;
-  avifMedium: string;
-  pngSmall: string;
-  webpSmall: string;
-  avifSmall: string;
+export interface ResponsiveImageCoreProps {
+    className?: string
+    color?: string
+    type?: "background" | "vignette" | "normal"
+    size?: [width: number, height: number]
 }
 
-export default function ResponsiceImage(props: ResponsiceImageProps) {
-  return (
-    <picture className={join(props.className, Styles.responsiceimage)}>
-      <source srcset={props.avif} />
-      <source srcset={props.webp} />
-      <source srcset={props.png} />
-      <img src={props.pngSmall} />
-    </picture>
-  );
+export interface ResponsiveImageProps extends ResponsiveImageCoreProps {
+    png: string
+    avif: string
+    pngMedium: string
+    avifMedium: string
+    pngSmall: string
+    avifSmall: string
+}
+
+export default function ResponsiceImage(props: ResponsiveImageProps) {
+    const typeClassName = Styles[props.type ?? "normal"]
+    return (
+        <div
+            className={join(
+                props.className,
+                Styles.responsiveimage,
+                typeClassName
+            )}
+            style={{
+                background: props.color ?? "transparent",
+                aspectRatio: props.size
+                    ? `${props.size[0]} / ${props.size[1]}`
+                    : "1",
+            }}
+        >
+            <picture>
+                <source srcSet={props.avif} />
+                <source srcSet={props.png} />
+                <img src={props.pngSmall} />
+            </picture>
+        </div>
+    )
 }
 
 function join(...classes: unknown[]): string {
-  return classes.filter((cls) => typeof cls === "string").join(" ");
+    return classes.filter(cls => typeof cls === "string").join(" ")
 }

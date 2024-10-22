@@ -1,13 +1,13 @@
 import React from "react"
 
-import Styles from "./{{namePascal}}.module.css"
+import styles from "./{{namePascal}}.module.css"
 
 export interface {{namePascal}}Props {
     className?: string
 }
 
 export default function {{namePascal}}({ className }: {{namePascal}}Props) {
-    return <div className={join(className, Styles.{{nameCamel}})}>
+    return <div className={join(className, styles.{{nameCamel}})}>
     {{name}}
     </div>
 }

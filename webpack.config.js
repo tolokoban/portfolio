@@ -4,10 +4,12 @@ const FS = require("fs")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyPlugin = require("copy-webpack-plugin")
 const { CleanWebpackPlugin } = require("clean-webpack-plugin")
+const WebpackShellPluginNext = require("webpack-shell-plugin-next")
 // const { WebpackManifestPlugin } = require("webpack-manifest-plugin")
+
 const Webpack = require("webpack")
 
-module.exports = (env) => {
+module.exports = env => {
     if (typeof Package.port !== "number") {
         // Define a random port number for dev server.
         Package.port = 1204 + Math.floor(Math.random() * (0xffff - 1024))
@@ -69,6 +71,13 @@ module.exports = (env) => {
         },
         plugins: [
             new Webpack.ProgressPlugin(),
+            new WebpackShellPluginNext({
+                onBuildStart: {
+                    scripts: ["npm run generate"],
+                    blocking: true,
+                    parallel: false,
+                },
+            }),
             // // List of the needed files for later caching.
             // new WebpackManifestPlugin({
             //     filter: (file) => {
@@ -86,7 +95,7 @@ module.exports = (env) => {
                 patterns: [
                     {
                         from: Path.resolve(__dirname, "public"),
-                        filter: async (path) => {
+                        filter: async path => {
                             // Allow non-root index.html to be copied verbatim.
                             return !path.endsWith("/public/index.html")
                         },
@@ -111,7 +120,7 @@ module.exports = (env) => {
             hints: "warning",
             maxAssetSize: 300000,
             maxEntrypointSize: 200000,
-            assetFilter: (filename) => {
+            assetFilter: filename => {
                 // PNG are just fallbacks for WEBP images.
                 if (filename.endsWith(".png")) return false
                 if (filename.endsWith(".map")) return false

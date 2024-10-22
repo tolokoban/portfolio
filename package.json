@@ -4,16 +4,17 @@
     "description": "Tolokoban's portfolio",
     "main": "index.js",
     "scripts": {
-        "prestart": "npm run optimize && npx build-react-routes ./src/app &",
+        "optimize": "node scripts/optimize-images.mjs",
+        "routes": "build-react-routes ./src/app",
+        "generate": "npm run optimize && npm run routes",
         "start": "webpack serve --mode development",
         "prebuild": "npm run optimize",
         "build": "MODE=production webpack --mode production",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
-        "optimize": "node scripts/optimize-images.mjs",
-        "routes": "build-react-routes ./src/app",
         "test": "jest",
-        "test:watch": "jest --watch"
+        "test:watch": "jest --watch",
+        "clean": "rm -rvf src/generated"
     },
     "repository": {
         "type": "git",

@@ -1,5 +1,5 @@
 import React from "react"
-import Vignettes from "../Vignettes"
+// import Vignettes from "../Vignettes"
 import Style from "./Welcome.module.css"
 
 export interface WelcomeProps {
@@ -62,7 +62,7 @@ export default function Welcome({ className }: WelcomeProps) {
                         </button>
                     </div>
                 </div>
-                <Vignettes
+                {/* <Vignettes
                     prefix="work/articles"
                     images={
                         section === "gfx"
@@ -92,7 +92,7 @@ export default function Welcome({ className }: WelcomeProps) {
                                   "Tournus",
                               ]
                     }
-                />
+                /> */}
                 <article>
                     <a href="#/contact">Contact</a>
                 </article>
@@ -123,5 +123,5 @@ export default function Welcome({ className }: WelcomeProps) {
 }
 
 function join(...classes: unknown[]): string {
-    return classes.filter((cls) => typeof cls === "string").join(" ")
+    return classes.filter(cls => typeof cls === "string").join(" ")
 }
