@@ -68,7 +68,7 @@ async function start() {
     for (const srcFile of images) {
         const name = getShortName(srcFile)
         const dstFile = Path.resolve(getProjectRoot(), "src/generated", name)
-        let { width, height } = await Sharp(dstFile).metadata()
+        let { width, height } = await Sharp(srcFile).metadata()
         width = width ?? 0
         height = height ?? 0
         console.log(
@@ -79,10 +79,9 @@ async function start() {
             height,
             ")"
         )
+        const imageIsOutOfDate = await copyIfNewer(srcFile, dstFile)
+        if (imageIsOutOfDate) await resizeAndConvert(dstFile, width, height)
         await generateResponsiveImage(dstFile, width, height)
-        if (!(await copyIfNewer(srcFile, dstFile))) continue
-
-        await resizeAndConvert(dstFile, width, height)
     }
 }
 
