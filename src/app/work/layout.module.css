@@ -1,87 +1,46 @@
 .main {
-    --custom-width: calc(min(95vw, 680px));
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: #00349a;
-    background-image: url(@/gfx/blue-print.webp);
-    background-size: 100%;
-    background-position: left top;
-    display: grid;
-    grid-template-columns: 1fr min(680px, 95vw) 1fr;
-    --theme-color-accent: #cc8700;
+  --custom-width: calc(min(95vw, 680px));
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: var(--theme-color-neutral-5-9);
+  color: var(--theme-color-on-neutral-5);
+  /* background-image: url(@/generated/); */
+  background-size: 100%;
+  background-position: left top;
+  display: grid;
+  grid-template-columns: 1fr min(680px, 95vw) 1fr;
+  --theme-color-accent: var(--theme-color-secondary-5);
 }
 
 .main img {
-    max-width: calc(100vw - 1em);
+  max-width: calc(100vw - 1em);
 }
 
 .main > * {
-    grid-column: 2/3;
-}
-
-.main > header {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    overflow: hidden;
-    z-index: 9999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.125em 0.25em;
-    /* background: linear-gradient(to top, transparent, #1453cebb 80%, #1453ce); */
-    background-image: url(@/gfx/blue-print.webp);
-    background-size: 100%;
-    background-position: left top;
-    opacity: 0.8;
-}
-
-.main > header a,
-.main > header a:visited {
-    color: var(--theme-color-accent);
-    text-decoration: underline;
-    text-decoration-color: mix-color(
-        in srgb,
-        var(--theme-color-accent),
-        transparent 50%
-    );
-    font-weight: bold;
-    padding: 0 1em;
-    transition: 0.3s all;
-    border-radius: 999vmax;
-}
-
-.main > header a:hover {
-    background-color: mix-color(
-        in srgb,
-        var(--theme-color-accent),
-        transparent 50%
-    );
-    color: #0009;
+  grid-column: 2/3;
 }
 
 video {
-    max-width: 100%;
+  max-width: 100%;
 }
 
 .main main {
-    display: block;
-    max-width: 100%;
-    width: 100%;
-    color: #fff;
-    background-color: #000b;
-    padding: 1em;
-    margin: 25vh 0 95vh 0;
-    grid-column: 2/3;
-    border-radius: 0.5em;
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  color: #fff;
+  background-color: #000b;
+  padding: 1em;
+  margin: 25vh 0 95vh 0;
+  grid-column: 2/3;
+  border-radius: 0.5em;
 }
 
 .main main em {
-    opacity: 0.8;
-    font-weight: bold;
+  opacity: 0.8;
+  font-weight: bold;
 }

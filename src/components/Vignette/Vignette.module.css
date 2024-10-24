@@ -1,0 +1,24 @@
+a.vignette {
+  position: relative;
+  display: inline-block;
+  box-shadow: 0 0em 1px 2px #fff3;
+  border: 8px solid #000;
+  aspect-ratio: 320 / 240;
+  width: 320px;
+  height: 240px;
+  max-width: 90vw;
+  margin: 8px;
+  border-radius: 8px;
+  transform: scale(1);
+  transition: all 0.2s;
+  box-sizing: content-box;
+}
+
+a.vignette:hover {
+  transform: scale(1.1);
+}
+
+a.vignette > div {
+  width: 320px;
+  height: 240px;
+}

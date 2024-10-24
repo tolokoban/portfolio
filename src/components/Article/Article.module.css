@@ -1,107 +1,114 @@
 .Article {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    color: #fffd;
-    margin: 64px 0 128px 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  color: #fffd;
+  margin: 0;
+}
+
+.Article > div {
+  padding: 0 0 128px 0;
 }
 
 .Article > footer {
-    position: fixed;
-    left: 0;
-    width: 100%;
-    height: 64px;
-    bottom: 0;
-    box-sizing: border-box;
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  bottom: 0;
+  box-sizing: border-box;
 }
 
 .Article > footer {
-    bottom: 0;
-    background: linear-gradient(to top, #000, transparent);
+  bottom: 0;
+  background: linear-gradient(
+    to top,
+    var(--theme-color-neutral-5),
+    transparent
+  );
 }
 
 .Article blockquote {
-    border-left: 0.25em solid #8dd971;
-    padding-left: 1em;
-    font-style: italic;
+  border-left: 0.25em solid #8dd971;
+  padding-left: 1em;
+  font-style: italic;
 }
 
 .Article > * {
-    grid-column: 2/4;
+  grid-column: 2/4;
 }
 
 .Article > :global(*.full-width) {
-    grid-column: 1/5;
-    padding: 0.5em;
+  grid-column: 1/5;
+  padding: 0.5em;
 }
 
 .Article > :global(*.margin-right) {
-    grid-column: 4/5;
-    padding: 1em;
+  grid-column: 4/5;
+  padding: 1em;
 }
 
 .Article > :global(*.margin-left) {
-    grid-column: 1/2;
-    padding: 1em;
+  grid-column: 1/2;
+  padding: 1em;
 }
 
 @media (max-width: 1200px) {
-    .Article > :global(*.margin-right) {
-        grid-column: 2/4;
-    }
+  .Article > :global(*.margin-right) {
+    grid-column: 2/4;
+  }
 
-    .Article > :global(*.margin-left) {
-        grid-column: 2/4;
-    }
+  .Article > :global(*.margin-left) {
+    grid-column: 2/4;
+  }
 }
 
 @media (max-width: 800px) {
-    .Article {
-        grid-template-columns: 10px 1fr 1fr 10px;
-    }
+  .Article {
+    grid-template-columns: 10px 1fr 1fr 10px;
+  }
 }
 
 .Article h1,
 .Article h2,
 .Article h3 {
-    display: block;
-    position: relative;
-    padding: 0 0 0 0.5em;
+  display: block;
+  position: relative;
+  padding: 0 0 0 0.5em;
 }
 
 .Article h1::after,
 .Article h2::after,
 .Article h3::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    width: 100%;
-    height: 1px;
-    background: linear-gradient(to right, currentcolor, transparent);
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, currentcolor, transparent);
 }
 
 .Article h1 {
-    font-size: 145%;
+  font-size: 145%;
 }
 
 .Article h2 {
-    font-size: 130%;
-    margin-left: 1em;
+  font-size: 130%;
+  margin-left: 1em;
 }
 
 .Article h3 {
-    font-size: 115%;
-    margin-left: 2em;
+  font-size: 115%;
+  margin-left: 2em;
 }
 
 .Article a,
 .Article a:visited {
-    color: #8dd971;
-    text-decoration-color: #8dd97188;
-    font-weight: bold;
+  color: #8dd971;
+  text-decoration-color: #8dd97188;
+  font-weight: bold;
 }

@@ -1,32 +1,34 @@
-import React from "react"
+import React from "react";
 
-import State from "@/state"
-import EnglishFlagURL from "./en.png"
-import FrenchFlagURL from "./fr.png"
+import { useLang } from "@/lang";
 
-import Styles from "./LanguageSelector.module.css"
+import EnglishFlagURL from "./en.png";
+import FrenchFlagURL from "./fr.png";
+
+import Styles from "./LanguageSelector.module.css";
 
 export interface LanguageSelectorProps {
-    className?: string
+  className?: string;
 }
 
 export default function LanguageSelector({ className }: LanguageSelectorProps) {
-    const [lang, setLang] = State.language.useState()
-    const french = lang.startsWith("fr")
-    const handleLanguageSwitch = () => {
-        setLang(french ? "en" : "fr")
-    }
-    return (
+  const [lang, setLang] = useLang();
+  return (
+    <div className={join(className, Styles.languageselector)}>
+      {["en", "fr"].map((key) => (
         <button
-            className={join(className, Styles.languageselector)}
-            type="button"
-            onClick={handleLanguageSwitch}
+          className={join(lang.startsWith(key) && Styles.current)}
+          key={key}
+          type="button"
+          onClick={() => setLang(key)}
         >
-            <img src={french ? EnglishFlagURL : FrenchFlagURL} />
+          <img src={key === "fr" ? FrenchFlagURL : EnglishFlagURL} />
         </button>
-    )
+      ))}
+    </div>
+  );
 }
 
 function join(...classes: unknown[]): string {
-    return classes.filter((cls) => typeof cls === "string").join(" ")
+  return classes.filter((cls) => typeof cls === "string").join(" ");
 }

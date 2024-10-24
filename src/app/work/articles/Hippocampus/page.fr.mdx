@@ -1,0 +1,12 @@
+import Final from "./Hippocampus.mp4"
+
+# Visualiseur de coordonnées de l'Hippocampus
+
+<video src={Final} controls muted autoPlay loop />
+
+À cause de la forme recroquevillée de l'Hippocampus, les chercheurs n'utilisent pas les coordonnées cartésiennes, mais un système plus proche de la structure même de cette région cérébrale de la souris.
+
+Pour effectuer la correspondance avec les coordonnées cartésiennes orthonormées, on utilise des volumes au format NRRD qui sont d'énormes matrices générées par des programmes.
+
+Le visualiseur web que j'ai écrit, lit les coordonnés dans les voxels de ces volumes et les applique à la forme de l'Hippocampus.
+De cette façon, les chercheurs peuvent vérifier visuellement que leurs calculs sont corrects.

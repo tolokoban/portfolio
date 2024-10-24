@@ -40,6 +40,8 @@ export const ROUTES: Record<RoutePath, string[]> = {
     "/work/articles/MediationFamilliale": ["/work/articles/MediationFamilliale"],
     "/work/articles/Minervois": ["/work/articles/Minervois"],
     "/work/articles/Motor": ["/work/articles/Motor"],
+    "/work/articles/OpenDeck": ["/work/articles/OpenDeck"],
+    "/work/articles/ProteinAtlas": ["/work/articles/ProteinAtlas"],
     "/work/articles/SnowRobots": ["/work/articles/SnowRobots"],
     "/work/articles/TP": ["/work/articles/TP"],
     "/work/articles/Tournus": ["/work/articles/Tournus"],

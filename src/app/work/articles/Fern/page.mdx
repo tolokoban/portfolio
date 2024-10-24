@@ -1,20 +1,20 @@
-import Image from "./fern.avif"
+import Image from "@/generated/code/Fern";
 
-# Fougères fractales
+# Fractal Ferns
 
-<img src={Image} />
+<Image />
 
-Pour dessiner une fougère fractale, il faut partir d'un point en position `(0,0)`,
-lui appliquer une formule pour déterminer les coordonnées du point suivant, et
-répéter ce processus quelques millions de fois.
+To draw a fractal fern, you have to start from a point at position `(0,0)`,
+apply a formula to determine the coordinates of the next point, and
+repeat this process a few million times.
 
-À chaque fois qu'on tombe sur un pixel, on augmente la valeur de sa couleur.
-Si on tombe 127 fois sur le même pixel, il devient totalement blanc.
+Each time you land on a pixel, you increase its color value.
+If you land on the same pixel 127 times, it becomes completely white.
 
-À noter que seuls les pixels verts sont calculés. Les rouges sont juste issus d'une
-symétrie centrale.
+Note that only green pixels are calculated. The red ones are just from a
+central symmetry.
 
-Vous pouvez créer vos propres fougères avec cette [application](https://tolokoban.github.io/fern).
+You can create your own ferns with this [application](https://tolokoban.github.io/fern).
 
-Le nombre de pixels à calculer étant colossal, il serait trop lent de faire ça en Javascript.
-Nous avons donc compilé un programme Rust en Web Assembly.
+The number of pixels to calculate being colossal, it would be too slow to do this in Javascript.
+So we compiled a **Rust** program in **Web Assembly**.

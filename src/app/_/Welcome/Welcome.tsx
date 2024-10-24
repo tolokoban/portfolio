@@ -1,68 +1,108 @@
-import React from "react"
-// import Vignettes from "../Vignettes"
-import Style from "./Welcome.module.css"
+import React from "react";
+
+import Vignette from "@/components/Vignette";
+import { useTranslation } from "../translation";
+import { RoutePath } from "@/app/types";
+import { ResponsiveImageCoreProps } from "@/components/ResponsiveImage";
+
+import CodeTP from "@/generated/code/TP";
+import CodeCircuitStudio from "@/generated/code/CircuitStudio";
+import CodeBBOP from "@/generated/code/BBOP";
+import CodeProteinAtlas from "@/generated/code/ProteinAtlas";
+import CodeOpenDeck from "@/generated/code/OpenDeck";
+import CodeHippocampus from "@/generated/code/Hippocampus";
+import CodeMinervois from "@/generated/code/Minervois";
+import CodeAkonolinga from "@/generated/code/Akonolinga";
+import CodeWebgl from "@/generated/code/Webgl";
+import CodeFern from "@/generated/code/Fern";
+import CodeFrancaisFacile from "@/generated/code/FrancaisFacile";
+import CodeMediationFamilliale from "@/generated/code/MediationFamilliale";
+import CodeHandsOnWebGL from "@/generated/code/HandsOnWebGL";
+import CodeTrailTar from "@/generated/code/TrailTar";
+import CodeApiHrGraph from "@/generated/code/ApiHrGraph";
+import CodeTournus from "@/generated/code/Tournus";
+
+import styles from "./Welcome.module.css";
 
 export interface WelcomeProps {
-    className?: string
+  className?: string;
 }
 
-const TROMBINE = "images/trombine/trombine.webp"
+const TROMBINE = "images/trombine/trombine.webp";
+
+const VIGNETTES: Record<
+  "code" | "gfx",
+  Partial<
+    Record<RoutePath, (props: ResponsiveImageCoreProps) => React.ReactNode>
+  >
+> = {
+  code: {
+    "/work/articles/TP": CodeTP,
+    "/work/articles/CircuitStudio": CodeCircuitStudio,
+    "/work/articles/BBOP": CodeBBOP,
+    "/work/articles/ProteinAtlas": CodeProteinAtlas,
+    "/work/articles/OpenDeck": CodeOpenDeck,
+    "/work/articles/Hippocampus": CodeHippocampus,
+    "/work/articles/Minervois": CodeMinervois,
+    "/work/articles/Akonolinga": CodeAkonolinga,
+    "/work/articles/Webgl": CodeWebgl,
+    "/work/articles/Fern": CodeFern,
+    "/work/articles/FrancaisFacile": CodeFrancaisFacile,
+    "/work/articles/MediationFamilliale": CodeMediationFamilliale,
+    "/work/articles/HandsOnWebGL": CodeHandsOnWebGL,
+    "/work/articles/TrailTar": CodeTrailTar,
+    "/work/articles/ApiHrGraph": CodeApiHrGraph,
+    "/work/articles/Tournus": CodeTournus,
+  },
+  gfx: {},
+};
 
 export default function Welcome({ className }: WelcomeProps) {
-    const [section, setSection] = React.useState("code")
-    const [hint, setHint] = React.useState(true)
-    const [trombineOpacity, setTrombineOpacity] = React.useState(0)
-    React.useEffect(() => {
-        const img = new Image()
-        img.src = TROMBINE
-        img.onload = () => setTrombineOpacity(1)
-    })
-    return (
-        <div className={join(className, Style.Welcome)}>
-            <img
-                className={Style.trombine}
-                src={TROMBINE}
-                style={{ opacity: trombineOpacity }}
-            />
-            <section onScroll={() => setHint(false)}>
-                <header>
-                    <a href="#/contact">
-                        <svg
-                            version="1.1"
-                            viewBox="-50 -20 100 40"
-                            xmlns="http://www.w3.org/2000/svg"
-                            preserveAspectRatio="xMidYMid meet"
-                            style={{
-                                font: "16px sans-serif",
-                            }}
-                        >
-                            <g textAnchor="middle" dominantBaseline="middle">
-                                <text fill="currentColor">Tolokoban</text>
-                            </g>
-                        </svg>
-                    </a>
-                </header>
-                <div className={Style.switch}>
-                    <div>
-                        <button
-                            className={join(
-                                section === "gfx" && Style.switchOn
-                            )}
-                            onClick={() => setSection("gfx")}
-                        >
-                            Grafix
-                        </button>
-                        <button
-                            className={join(
-                                section === "code" && Style.switchOn
-                            )}
-                            onClick={() => setSection("code")}
-                        >
-                            Code
-                        </button>
-                    </div>
-                </div>
-                {/* <Vignettes
+  const tr = useTranslation();
+  const [section, setSection] = React.useState<keyof typeof VIGNETTES>("code");
+  const [trombineOpacity, setTrombineOpacity] = React.useState(0);
+  React.useEffect(() => {
+    const img = new Image();
+    img.src = TROMBINE;
+    img.onload = () => setTrombineOpacity(1);
+  });
+  return (
+    <div className={join(className, styles.Welcome)}>
+      <img
+        className={styles.trombine}
+        src={TROMBINE}
+        style={{ opacity: trombineOpacity }}
+      />
+      <section>
+        <main>
+          <div>{tr.intro}</div>
+        </main>
+        <div className={styles.switch}>
+          <div>
+            <button
+              className={join(section === "gfx" && styles.switchOn)}
+              onClick={() => setSection("gfx")}
+            >
+              Grafix
+            </button>
+            <button
+              className={join(section === "code" && styles.switchOn)}
+              onClick={() => setSection("code")}
+            >
+              Code
+            </button>
+          </div>
+        </div>
+        <div className={styles.vignettes}>
+          {Object.keys(VIGNETTES[section]).map((path) => {
+            const vignettes = VIGNETTES[section];
+            const Image = vignettes[path as RoutePath];
+            if (!Image) return null;
+
+            return <Vignette key={path} href={`#${path}`} image={Image} />;
+          })}
+        </div>
+        {/* <Vignettes
                     prefix="work/articles"
                     images={
                         section === "gfx"
@@ -76,52 +116,17 @@ export default function Welcome({ className }: WelcomeProps) {
                                   "SnowRobots",
                               ]
                             : [
-                                  "TP",
-                                  "CircuitStudio",
-                                  "BBOP",
-                                  "Hippocampus",
-                                  "Minervois",
-                                  "Akonolinga",
-                                  "Webgl",
-                                  "Fern",
-                                  "FrancaisFacile",
-                                  "MediationFamilliale",
-                                  "HandsOnWebGL",
-                                  "TrailTar",
-                                  "ApiHrGraph",
-                                  "Tournus",
                               ]
                     }
                 /> */}
-                <article>
-                    <a href="#/contact">Contact</a>
-                </article>
-            </section>
-            {hint && (
-                <nav>
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        height="100%"
-                        width="100%"
-                        version="1.1"
-                        viewBox="-50 -50 100 100"
-                        preserveAspectRatio="xMidYMid"
-                    >
-                        <defs>
-                            <path id="triangle" d="M0,0l20,-20h-40z" />
-                        </defs>
-                        <g fill="currentcolor">
-                            <use href="#triangle" y="-22" opacity="0.11" />
-                            <use href="#triangle" opacity="0.33" />
-                            <use href="#triangle" y="22" />
-                        </g>
-                    </svg>
-                </nav>
-            )}
-        </div>
-    )
+        <article>
+          <a href="#/contact">Contact</a>
+        </article>
+      </section>
+    </div>
+  );
 }
 
 function join(...classes: unknown[]): string {
-    return classes.filter(cls => typeof cls === "string").join(" ")
+  return classes.filter((cls) => typeof cls === "string").join(" ");
 }

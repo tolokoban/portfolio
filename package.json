@@ -36,6 +36,7 @@
         "@tolokoban/tgd": "file:../game/tgd2",
         "@tolokoban/type-guards": "^0.6.0",
         "colord": "^2.9.3",
+        "markdown-to-jsx": "^7.5.0",
         "react": "^18.3.1",
         "react-dom": "^18.3.1"
     },
