@@ -21,6 +21,13 @@ import CodeHandsOnWebGL from "@/generated/code/HandsOnWebGL";
 import CodeTrailTar from "@/generated/code/TrailTar";
 import CodeApiHrGraph from "@/generated/code/ApiHrGraph";
 import CodeTournus from "@/generated/code/Tournus";
+import GrafixWedding from "@/generated/grafix/Wedding";
+import GrafixMarieLouise79 from "@/generated/grafix/MarieLouise79";
+import GrafixMotor from "@/generated/grafix/Motor";
+import GrafixFredo50 from "@/generated/grafix/Fredo50";
+import GrafixDanatia from "@/generated/grafix/Danatia";
+import GrafixVoughtTower from "@/generated/grafix/VoughtTower";
+import GrafixSnowRobots from "@/generated/grafix/SnowRobots";
 
 import styles from "./Welcome.module.css";
 
@@ -54,7 +61,15 @@ const VIGNETTES: Record<
     "/work/articles/ApiHrGraph": CodeApiHrGraph,
     "/work/articles/Tournus": CodeTournus,
   },
-  gfx: {},
+  gfx: {
+    "/work/articles/Wedding": GrafixWedding,
+    "/work/articles/MarieLouise79": GrafixMarieLouise79,
+    "/work/articles/Motor": GrafixMotor,
+    "/work/articles/Fredo50": GrafixFredo50,
+    "/work/articles/Danatia": GrafixDanatia,
+    "/work/articles/VoughtTower": GrafixVoughtTower,
+    "/work/articles/SnowRobots": GrafixSnowRobots,
+  },
 };
 
 export default function Welcome({ className }: WelcomeProps) {
