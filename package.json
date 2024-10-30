@@ -8,7 +8,6 @@
         "routes": "build-react-routes ./src/app",
         "generate": "npm run optimize && npm run routes",
         "start": "webpack serve --mode development",
-        "prebuild": "npm run optimize",
         "build": "MODE=production webpack --mode production",
         "predeploy": "npm run build",
         "deploy": "gh-pages -d build",
