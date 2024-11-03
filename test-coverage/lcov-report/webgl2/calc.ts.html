@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">29.43% </span>
+                <span class="strong">29.41% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>68/231</span>
+                <span class='fraction'>70/238</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">6.49% </span>
+                <span class="strong">6.41% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/77</span>
+                <span class='fraction'>5/78</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">28.64% </span>
+                <span class="strong">28.63% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>59/206</span>
+                <span class='fraction'>61/213</span>
             </div>
         
             
@@ -512,7 +512,20 @@
 <a name='L447'></a><a href='#L447'>447</a>
 <a name='L448'></a><a href='#L448'>448</a>
 <a name='L449'></a><a href='#L449'>449</a>
-<a name='L450'></a><a href='#L450'>450</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L450'></a><a href='#L450'>450</a>
+<a name='L451'></a><a href='#L451'>451</a>
+<a name='L452'></a><a href='#L452'>452</a>
+<a name='L453'></a><a href='#L453'>453</a>
+<a name='L454'></a><a href='#L454'>454</a>
+<a name='L455'></a><a href='#L455'>455</a>
+<a name='L456'></a><a href='#L456'>456</a>
+<a name='L457'></a><a href='#L457'>457</a>
+<a name='L458'></a><a href='#L458'>458</a>
+<a name='L459'></a><a href='#L459'>459</a>
+<a name='L460'></a><a href='#L460'>460</a>
+<a name='L461'></a><a href='#L461'>461</a>
+<a name='L462'></a><a href='#L462'>462</a>
+<a name='L463'></a><a href='#L463'>463</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -950,16 +963,29 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">15x</span>
+<span class="cline-any cline-yes">14x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export class Vec2 {
     /**
@@ -1399,6 +1425,19 @@ export function <span class="fstat-no" title="function not covered" >rotateAroun
 <span class="cstat-no" title="statement not covered" >    result.z = -x * s + z * c</span>
 }
 &nbsp;
+export function <span class="fstat-no" title="function not covered" >rotateAroundZ(</span>
+    vector: Vec3 | Vec4,
+    angle: number,
+    result: Vec3 | Vec4
+) {
+    const c = <span class="cstat-no" title="statement not covered" >Math.cos(angle)</span>
+    const s = <span class="cstat-no" title="statement not covered" >Math.sin(angle)</span>
+    const { x, y, z } = <span class="cstat-no" title="statement not covered" >vector</span>
+<span class="cstat-no" title="statement not covered" >    result.x = x * c + y * s</span>
+<span class="cstat-no" title="statement not covered" >    result.y = -x * s + y * c</span>
+<span class="cstat-no" title="statement not covered" >    result.z = z</span>
+}
+&nbsp;
 /**
  * Ensure `value` is between `min` and `max` included.
  * @param value
@@ -1408,7 +1447,7 @@ export function <span class="fstat-no" title="function not covered" >rotateAroun
 export function clamp(value: number, <span class="missing-if-branch" title="if path not taken" >I</span>min = 0, <span class="missing-if-branch" title="if path not taken" >I</span>max = 1): number {
     <span class="missing-if-branch" title="if path not taken" >I</span>if (value &lt; min) <span class="cstat-no" title="statement not covered" >return min</span>
     if (value &gt; max) return max
-<span class="cstat-no" title="statement not covered" >    return value</span>
+    return value
 }
 &nbsp;</pre></td></tr></table></pre>
 
@@ -1417,7 +1456,7 @@ export function clamp(value: number, <span class="missing-if-branch" title="if p
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-05-23T14:59:22.534Z
+                at 2024-10-25T11:41:11.824Z
             </div>
         <script src="../prettify.js"></script>
         <script>
