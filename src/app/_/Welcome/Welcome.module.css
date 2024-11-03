@@ -83,8 +83,14 @@
   text-align: center;
 }
 
+.Welcome > section > main > div > p:last-child {
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
 .Welcome > section > main > div code {
-  font-size: 50%;
+  font-size: 40%;
   border-radius: 999vmax;
   background-color: var(--theme-color-secondary-5);
   color: var(--theme-color-neutral-1);
@@ -184,4 +190,27 @@
   flex-wrap: wrap;
   gap: 1em;
   margin: 1em 0;
+}
+
+.Welcome > section > footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  gap: 1em;
+  padding-bottom: 70vh;
+}
+
+.Welcome > section > footer > div {
+  max-width: 480px;
+  background-color: #000d;
+  border-radius: 0.5em;
+  padding: 0.5em 1em;
+  text-shadow: none;
+}
+
+.Welcome > section > footer > div > p {
+}
+
+.Welcome > section > footer > div > div {
+  text-align: right;
 }
