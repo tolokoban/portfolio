@@ -30,8 +30,9 @@ export default function PageEmployment() {
             ): the app that summarize 18 years of the Blue Brain Project
           </li>
           <li>
-            <b>Hippocampus Hub</b>: companion website for a scientific
-            publication (available in december 2024)
+            <b>Hippocampus Hub</b> (
+            <a href="https://www.hippocampushub.eu/">link</a>): companion
+            website for a scientific publication.
           </li>
           <li>
             <b>OpenDeck Controller</b> (
