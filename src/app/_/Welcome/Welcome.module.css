@@ -79,7 +79,7 @@
   margin: 0.5em 0;
   border-radius: 1em;
   /* backdrop-filter: blur(4px); */
-  background-color: #0007;
+  background-color: #000a;
   text-align: center;
 }
 
@@ -142,45 +142,90 @@
 .switch {
   display: grid;
   place-items: center;
-}
 
-.switch > div {
-  display: flex;
-  justify-content: flex-start;
-  align-items: stretch;
-  gap: 2px;
-  padding: 0;
-}
+  > div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    gap: 0;
+    padding: 0;
+    perspective: 800px;
 
-.switch > div > button {
-  border: none;
-  font: inherit;
-  background-color: #012;
-  font-size: 5vmin;
-  color: var(--theme-color-secondary-5);
-  padding: 0.25em 1em;
-  width: 6em;
-  cursor: pointer;
-}
+    > button {
+      border: none;
+      font: inherit;
+      background-color: #012;
+      font-size: 5vmin;
+      color: var(--theme-color-secondary-5);
+      padding: 0.25em 1em;
+      width: 6em;
+      cursor: pointer;
+      transition: all 0.5s;
+      --color-0: #001;
+      --color-1: #013;
+      --color-2: #136;
 
-.switch > div > button:first-child {
-  border-radius: 0.25em 0 0 0.25em;
-}
+      &.left {
+        transform-origin: right center;
+        transform: rotateY(30deg);
+        background: linear-gradient(
+          to right,
+          var(--color-1),
+          var(--color-1),
+          var(--color-0)
+        );
 
-.switch > div > button:last-child {
-  border-radius: 0 0.25em 0.25em 0;
-}
+        &.switchOn {
+          transform: rotateY(0);
+          background: linear-gradient(
+            to right,
+            var(--color-2),
+            var(--color-2),
+            var(--color-0)
+          );
+        }
+      }
 
-.switch > div > button.switchOn {
-  color: #fff;
-  font-weight: 300;
-  text-shadow:
-    0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
-    -0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
-    -0.06125em -0.06125em 0.125em var(--theme-color-secondary-5),
-    0.06125em -0.06125em 0.125em var(--theme-color-secondary-5);
-  background-color: #014;
-  outline: 1px solid #fff7;
+      &.right {
+        transform-origin: left center;
+        transform: rotateY(-30deg);
+        background: linear-gradient(
+          to left,
+          var(--color-1),
+          var(--color-1),
+          var(--color-0)
+        );
+
+        &.switchOn {
+          transform: rotateY(0);
+          background: linear-gradient(
+            to left,
+            var(--color-2),
+            var(--color-2),
+            var(--color-0)
+          );
+        }
+      }
+
+      &:first-child {
+        border-radius: 0.25em 0 0 0.25em;
+      }
+
+      &:last-child {
+        border-radius: 0 0.25em 0.25em 0;
+      }
+
+      &.switchOn {
+        color: #fff;
+        font-weight: 300;
+        text-shadow:
+          0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
+          -0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
+          -0.06125em -0.06125em 0.125em var(--theme-color-secondary-5),
+          0.06125em -0.06125em 0.125em var(--theme-color-secondary-5);
+      }
+    }
+  }
 }
 
 .vignettes {
@@ -190,6 +235,44 @@
   flex-wrap: wrap;
   gap: 1em;
   margin: 1em 0;
+  perspective: 800px;
+}
+
+.Welcome {
+  section {
+    main {
+      div {
+        p:first-child {
+          text-shadow: none;
+          background: linear-gradient(
+            120deg,
+            #94d671,
+            #94d671 45%,
+            #fff,
+            #94d671 55%,
+            #94d671
+          );
+          background-size: 200% 100%;
+          background-position-x: 0%;
+          background-position-y: center;
+          background-clip: text;
+          background-repeat: repeat-x;
+          color: transparent;
+          font-weight: 300;
+          animation: animation-background linear 2s infinite;
+        }
+      }
+    }
+  }
+}
+
+@keyframes animation-background {
+  from {
+    background-position-x: 100%;
+  }
+  to {
+    background-position-x: 0%;
+  }
 }
 
 .Welcome > section > footer {

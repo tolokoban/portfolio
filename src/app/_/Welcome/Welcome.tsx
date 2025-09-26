@@ -97,13 +97,19 @@ export default function Welcome({ className }: WelcomeProps) {
         <div className={styles.switch}>
           <div>
             <button
-              className={join(section === "gfx" && styles.switchOn)}
+              className={join(
+                section === "gfx" && styles.switchOn,
+                styles.left,
+              )}
               onClick={() => setSection("gfx")}
             >
               Grafix
             </button>
             <button
-              className={join(section === "code" && styles.switchOn)}
+              className={join(
+                section === "code" && styles.switchOn,
+                styles.right,
+              )}
               onClick={() => setSection("code")}
             >
               Code

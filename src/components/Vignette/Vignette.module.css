@@ -1,24 +1,65 @@
-a.vignette {
-  position: relative;
-  display: inline-block;
-  box-shadow: 0 0em 1px 2px #fff3;
-  border: 8px solid #000;
-  aspect-ratio: 320 / 240;
-  width: 320px;
-  height: 240px;
-  max-width: 90vw;
-  margin: 8px;
-  border-radius: 8px;
-  transform: scale(1);
-  transition: all 0.2s;
-  box-sizing: content-box;
-}
+div.vignette {
+  --duration: 0.5s;
+  perspective: 800px;
 
-a.vignette:hover {
-  transform: scale(1.1);
-}
+  > a {
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    box-shadow: 0 0.5em 1em 2px #fff6;
+    border: 8px solid #000;
+    aspect-ratio: 320 / 240;
+    width: 320px;
+    height: 240px;
+    max-width: 90vw;
+    margin: 8px;
+    border-radius: 8px;
+    box-sizing: content-box;
+    transition: all var(--duration);
+    transform: rotateX(20deg);
 
-a.vignette > div {
-  width: 320px;
-  height: 240px;
+    &::after {
+      content: "";
+      position: absolute;
+      left: -50%;
+      top: 0;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        15deg,
+        #fff0,
+        #fff0 30%,
+        #fff,
+        #fff,
+        #fff0 70%,
+        #fff0
+      );
+      opacity: 0.5;
+      transition: all var(--duration);
+      transform: translateY(-100%);
+    }
+
+    &:hover,
+    &:active {
+      transform: rotateX(-20deg);
+
+      &::after {
+        transform: translateY(100%);
+      }
+
+      > div {
+        transform: translateY(-32px);
+      }
+    }
+
+    > div {
+      position: absolute;
+      left: 0;
+      top: -32px;
+      width: 320px;
+      height: calc(240px + 64px);
+      transition: all var(--duration);
+      transform: translateY(32px);
+    }
+  }
 }
