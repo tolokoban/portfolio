@@ -5,6 +5,8 @@ import { useTranslation } from "../translation";
 import { RoutePath } from "@/app/types";
 import { ResponsiveImageCoreProps } from "@/components/ResponsiveImage";
 
+import CodeMorphoViewer from "@/generated/code/MorphoViewer"
+import CodeTgd2 from "@/generated/code/Tgd2";
 import CodeTP from "@/generated/code/TP";
 import CodeCircuitStudio from "@/generated/code/CircuitStudio";
 import CodeBBOP from "@/generated/code/BBOP";
@@ -45,6 +47,8 @@ const VIGNETTES: Record<
   >
 > = {
   code: {
+      "/work/articles/Tgd2": CodeTgd2,
+      "/work/articles/MorphoViewer": CodeMorphoViewer,
     "/work/articles/TP": CodeTP,
     "/work/articles/CircuitStudio": CodeCircuitStudio,
     "/work/articles/BBOP": CodeBBOP,
@@ -140,7 +144,7 @@ export default function Welcome({ className }: WelcomeProps) {
               asset to any team, ensuring projects are completed efficiently and
               to the highest standard.
             </p>
-            <div>Jean-Denis Courcol (EPFL)</div>
+            <div>Jean-Denis Courcol (OBI)</div>
           </div>
           <div>
             <p>
