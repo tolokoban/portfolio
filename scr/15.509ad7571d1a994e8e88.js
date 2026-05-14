@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[15],{15:(o,p,t)=>{t.r(p),t.d(p,{default:()=>e});const e={tooltip:"Double-tap pour plein écran"}}}]);
