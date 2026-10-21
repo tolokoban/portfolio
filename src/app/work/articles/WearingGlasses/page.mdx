@@ -1,0 +1,19 @@
+import ImageURL from "./screenshot.webp"
+
+# Wearing Glasses
+
+A real-time augmented reality demo running entirely in the browser:
+your webcam shows you wearing a pair of 3D glasses, with comically big eyes.
+
+The face is tracked by **MediaPipe Face Landmarker** (478 landmarks and the head pose matrix),
+on the GPU when available. The rendering is done with my WebGL2 library [TGD](#/work/articles/Tgd2):
+a fragment shader filter magnifies the eyes, and a 3D model of the glasses, made in Blender,
+follows the head movements.
+
+Sliders let you adjust the position and size of the glasses, and the power of the eyes magnification.
+
+<a href="https://tolokoban.github.io/demo-ai-wearing-glasses/">
+    <img src={ImageURL} />
+</a>
+
+[Try it yourself](https://tolokoban.github.io/demo-ai-wearing-glasses/) (webcam required).

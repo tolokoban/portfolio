@@ -1,0 +1,19 @@
+import ImageURL from "./screenshot.webp"
+
+# Lunettes virtuelles
+
+Une démo de réalité augmentée en temps réel qui tourne entièrement dans le navigateur :
+votre webcam vous montre portant une paire de lunettes 3D, avec des yeux comiquement grossis.
+
+Le visage est suivi par **MediaPipe Face Landmarker** (478 points de repère et la matrice de pose de la tête),
+sur le GPU quand c'est possible. Le rendu utilise ma bibliothèque WebGL2 [TGD](#/work/articles/Tgd2) :
+un filtre en fragment shader grossit les yeux, et un modèle 3D des lunettes, réalisé avec Blender,
+suit les mouvements de la tête.
+
+Des curseurs permettent d'ajuster la position et la taille des lunettes, ainsi que la puissance du grossissement des yeux.
+
+<a href="https://tolokoban.github.io/demo-ai-wearing-glasses/">
+    <img src={ImageURL} />
+</a>
+
+[Essayez par vous-même](https://tolokoban.github.io/demo-ai-wearing-glasses/) (webcam nécessaire).
