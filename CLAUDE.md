@@ -8,14 +8,16 @@ Code conventions are in [STYLE.md](STYLE.md). Read it before writing code.
 
 ## Commands
 
-| Command | What it does |
-| --- | --- |
-| `pnpm start` | Dev server (`rspack serve`) on the `port` field of `package.json` (46644) |
-| `pnpm build` | Production build into `build/` |
-| `pnpm deploy` | Build, then push `build/` to the `gh-pages` branch. **Publishes the live site.** |
-| `pnpm generate` | `optimize` (images) + `routes` (route files). The build runs this automatically |
-| `pnpm test` | Jest (`*.test.ts(x)` / `*.spec.ts(x)`, ts-jest, jsdom) |
-| `pnpm exec tsc --noEmit -p .` | Type check. Neither the build nor the dev server type-checks |
+| Command                       | What it does                                                                     |
+| ----------------------------- | -------------------------------------------------------------------------------- |
+| `pnpm start`                  | Dev server (`rspack serve`) on the `port` field of `package.json` (46644)        |
+| `pnpm build`                  | Production build into `build/`                                                   |
+| `pnpm deploy`                 | Build, then push `build/` to the `gh-pages` branch. **Publishes the live site.** |
+| `pnpm generate`               | `optimize` (images) + `routes` (route files). The build runs this automatically  |
+| `pnpm test`                   | Jest (`*.test.ts(x)` / `*.spec.ts(x)`, ts-jest, jsdom)                           |
+| `pnpm exec tsc --noEmit -p .` | Type check. Neither the build nor the dev server type-checks                     |
+| `pnpm format`                 | Format everything with oxfmt (`.oxfmtrc.json`). Run before committing            |
+| `pnpm format:check`           | Fail if any file is not formatted                                                |
 
 pnpm is the package manager (`node_modules` uses the pnpm layout). A
 `package-lock.json` is also committed, so keep it in sync after dependency

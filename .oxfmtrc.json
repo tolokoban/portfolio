@@ -1,0 +1,21 @@
+{
+    "$schema": "./node_modules/oxfmt/configuration_schema.json",
+    "tabWidth": 4,
+    "semi": false,
+    "printWidth": 80,
+    "trailingComma": "es5",
+    "sortPackageJson": false,
+    "ignorePatterns": [
+        "build/**",
+        "dist/**",
+        "test-coverage/**",
+        "src/generated/**",
+        "src/app/index.tsx",
+        "src/app/routes.ts",
+        "src/app/types.ts",
+        "public/apps/**",
+        "@templates/**",
+        "package-lock.json",
+        "pnpm-lock.yaml"
+    ]
+}

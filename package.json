@@ -13,7 +13,9 @@
         "deploy": "gh-pages -d build",
         "test": "jest",
         "test:watch": "jest --watch",
-        "clean": "rm -rvf src/generated"
+        "clean": "rm -rvf src/generated",
+        "format": "oxfmt --write .",
+        "format:check": "oxfmt --check ."
     },
     "repository": {
         "type": "git",

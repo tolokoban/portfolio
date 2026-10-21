@@ -6,33 +6,31 @@ surrounding code.
 
 ## Formatting
 
-There is no committed formatter config. Two styles coexist:
+Formatting is owned by **oxfmt**, configured in [.oxfmtrc.json](.oxfmtrc.json):
+4 spaces, no semicolons, double quotes, `printWidth` 80 and `es5` trailing
+commas. It covers TS/TSX, MDX, CSS, JSON, `.mjs` and Markdown.
 
-| Style                                   | Where                                                                |
-| --------------------------------------- | -------------------------------------------------------------------- |
-| 4 spaces, **no semicolons**             | Most files (~200), `src/ui/`, and every scaffold in `@templates/`    |
-| 2 spaces, semicolons (Prettier default) | ~30 newer files (`src/app/_/`, `src/lang/lang.ts`, translations, CV) |
-
-Rules:
-
-- **Match the file you are editing.** Don't reformat a file you aren't
-  otherwise changing, and keep formatting-only changes out of feature diffs.
-- New files: use the 4-space, no-semicolon style of `@templates/`, unless they
-  sit next to siblings that use the other style.
-- Strings use double quotes everywhere (no single-quoted imports exist).
+- Run `pnpm format` before committing. `pnpm format:check` fails if anything
+  is unformatted.
+- Don't hand-format code or argue with the formatter's output. If a rule is
+  wrong, change `.oxfmtrc.json` and reformat everything in its own commit.
+- Generated files (`src/generated/`, `src/app/index.tsx`, `routes.ts`,
+  `types.ts`), prebuilt apps (`public/apps/`) and `@templates/` are ignored.
+- Commits that only reformat go into [.git-blame-ignore-revs](.git-blame-ignore-revs).
 
 ## Files and folders
 
 - One component per folder, named in PascalCase:
 
-  ```text
-  components/Card/
-    Card.tsx
-    Card.module.css
-    index.ts          // export { default } from "./Card"
-  ```
+    ```text
+    components/Card/
+      Card.tsx
+      Card.module.css
+      index.ts          // export { default } from "./Card"
+    ```
 
-  Start from `@templates/component-css-module`, which produces exactly this.
+    Start from `@templates/component-css-module`, which produces exactly this.
+
 - Route files are lower-case and fixed (`page.tsx`, `page.mdx`, `layout.tsx`,
   `loading.tsx`, plus `.en` / `.fr` variants). Assets an article uses live in
   its route folder.
