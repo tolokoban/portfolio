@@ -1,2 +1,2 @@
 export { useDebouncedEffect } from "./debounced-effect"
-export { useHotKey, HotKey } from "./hotkey"
+export { useHotKey, type HotKey } from "./hotkey"
