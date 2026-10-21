@@ -14,7 +14,7 @@ export function getIconsDefinitions(): IconDefinition[] {
         const value = ICONS[key]
         const keywords = key
             .split(/[^0-9a-zA-Z]+/)
-            .map(name => name.toLocaleLowerCase())
+            .map((name) => name.toLocaleLowerCase())
         defs.push({ value, keywords })
     }
     return defs

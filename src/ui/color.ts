@@ -113,7 +113,7 @@ export default class Color {
         lightness: number,
         chroma: number,
         hue: number,
-        alpha: number
+        alpha: number,
     ] {
         const lch = this.color.toLch()
         return [lch.l, lch.c, lch.h, lch.a]

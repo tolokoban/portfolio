@@ -3,7 +3,7 @@
  * This file has been generated automatically
  * from a JSON file:
  *    "./factory/icons.json"
- * 
+ *
  * You can find more icons here:
  *    https://pictogrammers.com/library/mdi/
  */

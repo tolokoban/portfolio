@@ -1,301 +1,301 @@
 .Welcome {
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  color: #94d671;
-  --border-p: 0.3vmin;
-  --border-m: -0.3vmin;
-  --border2-p: 0.2vmin;
-  --border2-m: -0.2vmin;
-  text-shadow:
-    var(--border2-p) var(--border2-p) 1px #000a,
-    var(--border2-m) var(--border2-p) 1px #000a,
-    var(--border2-p) var(--border2-m) 1px #000a,
-    var(--border2-m) var(--border2-m) 1px #000a,
-    var(--border-p) 0 1px #000a,
-    var(--border-m) 0 1px #000a,
-    0 var(--border-p) 1px #000a,
-    0 var(--border-m) 1px #000a;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    color: #94d671;
+    --border-p: 0.3vmin;
+    --border-m: -0.3vmin;
+    --border2-p: 0.2vmin;
+    --border2-m: -0.2vmin;
+    text-shadow:
+        var(--border2-p) var(--border2-p) 1px #000a,
+        var(--border2-m) var(--border2-p) 1px #000a,
+        var(--border2-p) var(--border2-m) 1px #000a,
+        var(--border2-m) var(--border2-m) 1px #000a,
+        var(--border-p) 0 1px #000a,
+        var(--border-m) 0 1px #000a,
+        0 var(--border-p) 1px #000a,
+        0 var(--border-m) 1px #000a;
 }
 
 .Welcome a {
-  font-weight: normal;
-  cursor: pointer;
+    font-weight: normal;
+    cursor: pointer;
 }
 
 .Welcome > img.trombine {
-  position: fixed;
-  bottom: 0;
-  right: 0;
-  max-width: 40vw;
-  max-height: 66vh;
-  transition: opacity 5s;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    max-width: 40vw;
+    max-height: 66vh;
+    transition: opacity 5s;
 }
 
 .Welcome > section {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  padding: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    padding: 0;
 }
 
 .Welcome > section > header {
-  position: relative;
-  padding: 0;
-  width: 100%;
-  height: 20vmin;
-  margin-bottom: calc(100vh - 20vmin - 120px);
+    position: relative;
+    padding: 0;
+    width: 100%;
+    height: 20vmin;
+    margin-bottom: calc(100vh - 20vmin - 120px);
 }
 
 .Welcome > section > header > *,
 .Welcome > section > header svg {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  font-family: sans-serif;
-  font-size: 16px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 16px;
 }
 
 .Welcome > section > main {
-  display: grid;
-  place-items: center;
-  font-size: 5vmin;
-  text-decoration: none;
-  color: var(--theme-color-secondary-5);
+    display: grid;
+    place-items: center;
+    font-size: 5vmin;
+    text-decoration: none;
+    color: var(--theme-color-secondary-5);
 }
 
 .Welcome > section > main > div {
-  max-width: 640px;
-  padding: 0.25em 0.5em;
-  margin: 0.5em 0;
-  border-radius: 1em;
-  /* backdrop-filter: blur(4px); */
-  background-color: #000a;
-  text-align: center;
+    max-width: 640px;
+    padding: 0.25em 0.5em;
+    margin: 0.5em 0;
+    border-radius: 1em;
+    /* backdrop-filter: blur(4px); */
+    background-color: #000a;
+    text-align: center;
 }
 
 .Welcome > section > main > div > p:last-child {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
 }
 
 .Welcome > section > main > div code {
-  font-size: 40%;
-  border-radius: 999vmax;
-  background-color: var(--theme-color-secondary-5);
-  color: var(--theme-color-neutral-1);
-  font-weight: normal;
-  text-shadow: none;
-  margin: 0 0.5em;
-  padding: 0 0.5em;
-  white-space: nowrap;
+    font-size: 40%;
+    border-radius: 999vmax;
+    background-color: var(--theme-color-secondary-5);
+    color: var(--theme-color-neutral-1);
+    font-weight: normal;
+    text-shadow: none;
+    margin: 0 0.5em;
+    padding: 0 0.5em;
+    white-space: nowrap;
 }
 
 .Welcome > section > article {
-  display: grid;
-  place-items: center;
-  font-size: 10vmin;
-  text-decoration: underline;
-  padding: 0.25em 0 2em 0;
+    display: grid;
+    place-items: center;
+    font-size: 10vmin;
+    text-decoration: underline;
+    padding: 0.25em 0 2em 0;
 }
 
 .Welcome > nav {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 100%;
-  height: 100%;
-  --size: 20vmin;
-  width: var(--size);
-  height: var(--size);
-  --margin: calc(-0.5 * var(--size));
-  margin: var(--margin);
-  animation: nav-anim 1.5s linear infinite;
-  pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 100%;
+    height: 100%;
+    --size: 20vmin;
+    width: var(--size);
+    height: var(--size);
+    --margin: calc(-0.5 * var(--size));
+    margin: var(--margin);
+    animation: nav-anim 1.5s linear infinite;
+    pointer-events: none;
 }
 
 @keyframes nav-anim {
-  0% {
-    opacity: 0;
-    transform: translateY(-100%);
-  }
-  50% {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-  100% {
-    opacity: 0;
-    transform: translateY(100%);
-  }
+    0% {
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0%);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(100%);
+    }
 }
 
 .switch {
-  display: grid;
-  place-items: center;
+    display: grid;
+    place-items: center;
 
-  > div {
-    display: flex;
-    justify-content: flex-start;
-    align-items: stretch;
-    gap: 0;
-    padding: 0;
-    perspective: 800px;
+    > div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        perspective: 800px;
 
-    > button {
-      border: none;
-      font: inherit;
-      background-color: #012;
-      font-size: 5vmin;
-      color: var(--theme-color-secondary-5);
-      padding: 0.25em 1em;
-      width: 6em;
-      cursor: pointer;
-      transition: all 0.5s;
-      --color-0: #001;
-      --color-1: #013;
-      --color-2: #136;
+        > button {
+            border: none;
+            font: inherit;
+            background-color: #012;
+            font-size: 5vmin;
+            color: var(--theme-color-secondary-5);
+            padding: 0.25em 1em;
+            width: 6em;
+            cursor: pointer;
+            transition: all 0.5s;
+            --color-0: #001;
+            --color-1: #013;
+            --color-2: #136;
 
-      &.left {
-        transform-origin: right center;
-        transform: rotateY(30deg);
-        background: linear-gradient(
-          to right,
-          var(--color-1),
-          var(--color-1),
-          var(--color-0)
-        );
+            &.left {
+                transform-origin: right center;
+                transform: rotateY(30deg);
+                background: linear-gradient(
+                    to right,
+                    var(--color-1),
+                    var(--color-1),
+                    var(--color-0)
+                );
 
-        &.switchOn {
-          transform: rotateY(0);
-          background: linear-gradient(
-            to right,
-            var(--color-2),
-            var(--color-2),
-            var(--color-0)
-          );
+                &.switchOn {
+                    transform: rotateY(0);
+                    background: linear-gradient(
+                        to right,
+                        var(--color-2),
+                        var(--color-2),
+                        var(--color-0)
+                    );
+                }
+            }
+
+            &.right {
+                transform-origin: left center;
+                transform: rotateY(-30deg);
+                background: linear-gradient(
+                    to left,
+                    var(--color-1),
+                    var(--color-1),
+                    var(--color-0)
+                );
+
+                &.switchOn {
+                    transform: rotateY(0);
+                    background: linear-gradient(
+                        to left,
+                        var(--color-2),
+                        var(--color-2),
+                        var(--color-0)
+                    );
+                }
+            }
+
+            &:first-child {
+                border-radius: 0.25em 0 0 0.25em;
+            }
+
+            &:last-child {
+                border-radius: 0 0.25em 0.25em 0;
+            }
+
+            &.switchOn {
+                color: #fff;
+                font-weight: 300;
+                text-shadow:
+                    0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
+                    -0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
+                    -0.06125em -0.06125em 0.125em var(--theme-color-secondary-5),
+                    0.06125em -0.06125em 0.125em var(--theme-color-secondary-5);
+            }
         }
-      }
-
-      &.right {
-        transform-origin: left center;
-        transform: rotateY(-30deg);
-        background: linear-gradient(
-          to left,
-          var(--color-1),
-          var(--color-1),
-          var(--color-0)
-        );
-
-        &.switchOn {
-          transform: rotateY(0);
-          background: linear-gradient(
-            to left,
-            var(--color-2),
-            var(--color-2),
-            var(--color-0)
-          );
-        }
-      }
-
-      &:first-child {
-        border-radius: 0.25em 0 0 0.25em;
-      }
-
-      &:last-child {
-        border-radius: 0 0.25em 0.25em 0;
-      }
-
-      &.switchOn {
-        color: #fff;
-        font-weight: 300;
-        text-shadow:
-          0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
-          -0.06125em 0.06125em 0.125em var(--theme-color-secondary-5),
-          -0.06125em -0.06125em 0.125em var(--theme-color-secondary-5),
-          0.06125em -0.06125em 0.125em var(--theme-color-secondary-5);
-      }
     }
-  }
 }
 
 .vignettes {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1em;
-  margin: 1em 0;
-  perspective: 800px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    margin: 1em 0;
+    perspective: 800px;
 }
 
 .Welcome {
-  section {
-    main {
-      div {
-        p:first-child {
-          text-shadow: none;
-          background: linear-gradient(
-            120deg,
-            #94d671,
-            #94d671 45%,
-            #fff,
-            #94d671 55%,
-            #94d671
-          );
-          background-size: 200% 100%;
-          background-position-x: 0%;
-          background-position-y: center;
-          background-clip: text;
-          background-repeat: repeat-x;
-          color: transparent;
-          font-weight: 300;
-          animation: animation-background linear 2s infinite;
+    section {
+        main {
+            div {
+                p:first-child {
+                    text-shadow: none;
+                    background: linear-gradient(
+                        120deg,
+                        #94d671,
+                        #94d671 45%,
+                        #fff,
+                        #94d671 55%,
+                        #94d671
+                    );
+                    background-size: 200% 100%;
+                    background-position-x: 0%;
+                    background-position-y: center;
+                    background-clip: text;
+                    background-repeat: repeat-x;
+                    color: transparent;
+                    font-weight: 300;
+                    animation: animation-background linear 2s infinite;
+                }
+            }
         }
-      }
     }
-  }
 }
 
 @keyframes animation-background {
-  from {
-    background-position-x: 100%;
-  }
-  to {
-    background-position-x: 0%;
-  }
+    from {
+        background-position-x: 100%;
+    }
+    to {
+        background-position-x: 0%;
+    }
 }
 
 .Welcome > section > footer {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-  gap: 1em;
-  padding-bottom: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 1em;
+    padding-bottom: 70vh;
 }
 
 .Welcome > section > footer > div {
-  max-width: 480px;
-  min-width: 280px;
-  background-color: #000d;
-  border-radius: 0.5em;
-  padding: 0.5em 1em;
-  text-shadow: none;
+    max-width: 480px;
+    min-width: 280px;
+    background-color: #000d;
+    border-radius: 0.5em;
+    padding: 0.5em 1em;
+    text-shadow: none;
 }
 
 .Welcome > section > footer > div > p {
 }
 
 .Welcome > section > footer > div > div {
-  text-align: right;
+    text-align: right;
 }

@@ -24,6 +24,17 @@ class GeneratePlugin {
         compiler.hooks.beforeRun.tap("GeneratePlugin", generate)
         compiler.hooks.watchRun.tap("GeneratePlugin", generate)
     }
+    apply(compiler) {
+        let done = false
+        const generate = () => {
+            if (done) return
+
+            done = true
+            execSync("npm run generate", { cwd: ROOT, stdio: "inherit" })
+        }
+        compiler.hooks.beforeRun.tap("GeneratePlugin", generate)
+        compiler.hooks.watchRun.tap("GeneratePlugin", generate)
+    }
 }
 
 export default defineConfig((env) => {
@@ -32,7 +43,7 @@ export default defineConfig((env) => {
         Package.port = 1204 + Math.floor(Math.random() * (0xffff - 1024))
         FS.writeFileSync(
             Path.resolve(ROOT, "package.json"),
-            JSON.stringify(Package, null, "    "),
+            JSON.stringify(Package, null, "    ")
         )
         console.log("A random port has been set for dev server:", Package.port)
     }
@@ -143,7 +154,9 @@ export default defineConfig((env) => {
             moduleIds: "deterministic",
             minimizer: [
                 // Keep license comments in "*.LICENSE.txt" files, like Terser does.
-                new rspack.SwcJsMinimizerRspackPlugin({ extractComments: true }),
+                new rspack.SwcJsMinimizerRspackPlugin({
+                    extractComments: true,
+                }),
                 new rspack.LightningCssMinimizerRspackPlugin(),
             ],
         },
@@ -156,7 +169,9 @@ export default defineConfig((env) => {
             },
             generator: {
                 "css/auto": {
-                    localIdentName: isProdMode ? "[hash]" : "[name]__[local]__[hash:6]",
+                    localIdentName: isProdMode
+                        ? "[hash]"
+                        : "[name]__[local]__[hash:6]",
                 },
             },
             rules: [

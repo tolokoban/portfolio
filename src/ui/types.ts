@@ -61,7 +61,7 @@ export type Circumference =
           top: string | number,
           right: string | number,
           bottom: string | number,
-          left: string | number
+          left: string | number,
       ]
 
 export function isHslColorValue(data: unknown): data is HslColorValue {

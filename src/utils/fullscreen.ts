@@ -3,20 +3,20 @@
  * @returns `true` if `elem` is displayed in fullscreen.
  */
 export function fullscreenTest(elem: Element | null): boolean {
-  const root = document.fullscreenElement;
-  if (!elem || !root) return false;
+    const root = document.fullscreenElement
+    if (!elem || !root) return false
 
-  let parent = elem.parentElement;
-  while (parent) {
-    if (parent === document.fullscreenElement) {
-      return (
-        root.clientWidth === elem.clientWidth &&
-        root.clientHeight === elem.clientHeight
-      );
+    let parent = elem.parentElement
+    while (parent) {
+        if (parent === document.fullscreenElement) {
+            return (
+                root.clientWidth === elem.clientWidth &&
+                root.clientHeight === elem.clientHeight
+            )
+        }
+        parent = parent.parentElement
     }
-    parent = parent.parentElement;
-  }
-  return document.fullscreenElement === elem;
+    return document.fullscreenElement === elem
 }
 
 /**
@@ -24,19 +24,19 @@ export function fullscreenTest(elem: Element | null): boolean {
  * @returns `true` in case of success.
  */
 export async function fullscreenRequest(
-  element: Element | null,
-  options: FullscreenOptions = {
-    navigationUI: "hide",
-  },
+    element: Element | null,
+    options: FullscreenOptions = {
+        navigationUI: "hide",
+    }
 ): Promise<boolean> {
-  if (!element) return false;
+    if (!element) return false
 
-  try {
-    await element.requestFullscreen(options);
-    return true;
-  } catch (ex) {
-    return false;
-  }
+    try {
+        await element.requestFullscreen(options)
+        return true
+    } catch (ex) {
+        return false
+    }
 }
 
 /**
@@ -44,14 +44,14 @@ export async function fullscreenRequest(
  * @returns `true` in case of success.
  */
 export async function fullscreenExit(): Promise<boolean> {
-  if (!document.fullscreenElement) return false;
+    if (!document.fullscreenElement) return false
 
-  try {
-    await document.exitFullscreen();
-    return true;
-  } catch (ex) {
-    return false;
-  }
+    try {
+        await document.exitFullscreen()
+        return true
+    } catch (ex) {
+        return false
+    }
 }
 
 /**
@@ -59,14 +59,14 @@ export async function fullscreenExit(): Promise<boolean> {
  * Otherwise, exit from fullscreen mode.
  */
 export async function fullscreenToggle(
-  element: Element | null,
-  options: FullscreenOptions = {
-    navigationUI: "hide",
-  },
+    element: Element | null,
+    options: FullscreenOptions = {
+        navigationUI: "hide",
+    }
 ): Promise<boolean> {
-  if (!element) return false;
+    if (!element) return false
 
-  return fullscreenTest(element)
-    ? fullscreenExit()
-    : fullscreenRequest(element, options);
+    return fullscreenTest(element)
+        ? fullscreenExit()
+        : fullscreenRequest(element, options)
 }

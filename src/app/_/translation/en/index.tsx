@@ -1,8 +1,8 @@
-import Intro from "./intro.mdx";
+import Intro from "./intro.mdx"
 
 const EN = {
-	about: "About me (CV)",
-	intro: <Intro />,
-};
+    about: "About me (CV)",
+    intro: <Intro />,
+}
 
-export default EN;
+export default EN

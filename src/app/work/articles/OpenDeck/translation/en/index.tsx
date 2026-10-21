@@ -1,7 +1,7 @@
-import Desc from "./desc.mdx";
+import Desc from "./desc.mdx"
 
 const EN = {
-  description: <Desc />,
-};
+    description: <Desc />,
+}
 
-export default EN;
+export default EN

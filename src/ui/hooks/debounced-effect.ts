@@ -10,7 +10,7 @@ export function useDebouncedEffect(
     deps?: React.DependencyList | undefined
 ): void {
     const refTimeout = React.useRef(-1)
-    React.useEffect(()=>{
+    React.useEffect(() => {
         window.clearTimeout(refTimeout.current)
         refTimeout.current = window.setTimeout(effect, delay)
     }, deps)

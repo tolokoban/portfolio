@@ -44,7 +44,7 @@ interface DataDefinition {
 }
 
 export interface DataInterface<
-    T extends { [key: string]: DataAttribute | number }
+    T extends { [key: string]: DataAttribute | number },
 > {
     poke(
         attribName: keyof T,
@@ -74,14 +74,17 @@ export interface DataInterface<
     ): void
 }
 
-class Data<T extends { [key: string]: DataAttribute | number }>
-    implements DataInterface<T>
-{
+class Data<
+    T extends { [key: string]: DataAttribute | number },
+> implements DataInterface<T> {
     public readonly stride
     private readonly buffer: ArrayBuffer
     private readonly definitions: { [key: string]: DataDefinition }
 
-    constructor(def: T, private readonly verticesCount: number) {
+    constructor(
+        def: T,
+        private readonly verticesCount: number
+    ) {
         if (verticesCount < 1) {
             throw Error(`The minimum number of vertices for a Data is 1!`)
         }

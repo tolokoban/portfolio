@@ -62,7 +62,7 @@ function cap(text) {
 async function start() {
     const images = await listDir(
         "src/gfx",
-        name => name.endsWith(".png") || name.endsWith(".jpg")
+        (name) => name.endsWith(".png") || name.endsWith(".jpg")
     )
     const maxLength = images.reduce(
         (prv, cur) => Math.max(prv, getShortName(cur).length),
@@ -107,8 +107,8 @@ async function generateResponsiveImage(dstFile, width, height) {
         .toBuffer()
     const arr = Array.from(new Uint8Array(buffer.buffer))
     const color = `#${arr
-        .map(item => item.toString(16))
-        .map(item => (item.length > 1 ? item : `0${item}`))
+        .map((item) => item.toString(16))
+        .map((item) => (item.length > 1 ? item : `0${item}`))
         .join("")}`
     let base = Path.basename(dstFile)
     base = base.substring(0, base.length - Path.extname(base).length)
@@ -116,10 +116,10 @@ async function generateResponsiveImage(dstFile, width, height) {
         replaceExtension(dstFile, ".tsx"),
         [
             `import ResponsiveImage, { ResponsiveImageCoreProps } from "@/components/ResponsiveImage"`,
-            ...["", "medium", "small"].map(suffix =>
+            ...["", "medium", "small"].map((suffix) =>
                 ["png", "avif"]
                     .map(
-                        ext =>
+                        (ext) =>
                             `import Image${cap(suffix)}${cap(
                                 ext
                             )} from "./${concat(base, suffix, ext)}"`
@@ -132,10 +132,11 @@ async function generateResponsiveImage(dstFile, width, height) {
             `    color="${color}"`,
             `    size={[${width}, ${height}]}`,
             "    { ...props }",
-            ...["", "Medium", "Small"].map(suffix =>
+            ...["", "Medium", "Small"].map((suffix) =>
                 ["png", "avif"]
                     .map(
-                        ext => `    ${ext}${suffix}={Image${suffix}${cap(ext)}}`
+                        (ext) =>
+                            `    ${ext}${suffix}={Image${suffix}${cap(ext)}}`
                     )
                     .join("\n")
             ),
@@ -177,7 +178,7 @@ async function resizeAndConvert(dstFile, width, height) {
 
 function concat(...parts) {
     return parts
-        .filter(item => typeof item === "string" && item.trim().length > 0)
+        .filter((item) => typeof item === "string" && item.trim().length > 0)
         .join(".")
 }
 

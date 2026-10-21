@@ -17,7 +17,7 @@ sudo ufw allow 46644
 Let's say you want to add an article you call **NewStuff**.
 
 1. Create a page `page.mdx` (and maybe `page.en.mdx` for english translation)
-in this folder: `src/app/work/articles/NewStuff`
+   in this folder: `src/app/work/articles/NewStuff`
 2. Edit this component: `src/components/Welcome/Welcome.tsx`
 3. Create an image that represents your article with a ratio
-of `320x240`. Save it here: `gfx/images/work/articles/@/MyStuff.png`
+   of `320x240`. Save it here: `gfx/images/work/articles/@/MyStuff.png`

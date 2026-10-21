@@ -1,8 +1,8 @@
-import Desc from "./desc.mdx";
-import EN from "../en";
+import Desc from "./desc.mdx"
+import EN from "../en"
 
 const FR: typeof EN = {
-  description: <Desc />,
-};
+    description: <Desc />,
+}
 
-export default FR;
+export default FR
