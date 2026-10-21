@@ -1,0 +1,1 @@
+"use strict";(self.rspackChunkportfolio=self.rspackChunkportfolio||[]).push([[4237],{5196(o,p,l){l.r(p),l.d(p,{},{default:{tooltip:"Double-tap pour plein \xe9cran"}})}}]);
